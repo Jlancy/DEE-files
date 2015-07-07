@@ -40,9 +40,6 @@ namespace KnightlyTales
 			if (item.itemHealth > 0) {
 				toolTipDescription += "\n Health: " + item.itemHealth;
 			}
-			if (item.itemSpeed > 0) {
-				toolTipDescription += "\n Speed: " + item.itemSpeed;
-			}
 			toolTipDescription += "\n Type: " + item.itemType;
 			toolTipDescription += "</color>";
 			//description

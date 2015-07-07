@@ -11,7 +11,6 @@ namespace KnightlyTales
 		public string itemDescription;
 		public Sprite itemIcon;
 		public int itemHealth;
-		public int itemSpeed;
 		public int itemValue;
 		public bool itemStackable;
 		public ItemType itemType;
@@ -22,14 +21,13 @@ namespace KnightlyTales
 			QuestItem
 		}
 
-		public Item (string name, int id, string description, int health, int speed, int value, bool stackable, ItemType type)
+		public Item (string name, int id, string description, int health, int value, bool stackable, ItemType type)
 		{
 			itemName = name;
 			itemID = id;
 			itemDescription = description;
 			itemIcon = Resources.Load<Sprite> ("Sprites/" + name);
 			itemHealth = health;
-			itemSpeed = speed;
 			itemValue = value;
 			itemStackable = stackable;
 			itemType = type;
