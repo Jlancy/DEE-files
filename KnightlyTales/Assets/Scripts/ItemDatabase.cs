@@ -10,14 +10,14 @@ namespace KnightlyTales
 
 		void Start ()
 		{		
-			items.Add (new Item ("attack", 0, "foodie", 30, 1, true, Item.ItemType.Ammo)); // ID of 0 must be ammo.
+
+			//Potion Items
 			items.Add (new Item ("attack", 1, "Food", 15, 1, true, Item.ItemType.Potion));
-			items.Add (new Item ("Defense", 2, "Soda", 20, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Map", 3, "food3", 22, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Defense", 2, "Soda", 20, 1, false, Item.ItemType.Potion));
+			items.Add (new Item ("Map", 3, "food3", 22, 1, false, Item.ItemType.Potion));
 			items.Add (new Item ("Sword", 4, "food4", 23, 1, true, Item.ItemType.Potion));
 			items.Add (new Item ("Sword", 5, "food5", 23, 1, true, Item.ItemType.Potion));
-			items.Add (new Item ("Map", 6, "food6", 24, 1, false, Item.ItemType.QuestItem));
-
+			items.Add (new Item ("Map", 6, "food6", 24, 1, false, Item.ItemType.Potion));
 
 
 			//QuestItems
@@ -32,7 +32,7 @@ namespace KnightlyTales
 			items.Add (new Item ("Jar of Milk", 17, "N/A", 0, 1, true, Item.ItemType.QuestItem));
 			items.Add (new Item ("Chicken", 18, "N/A", 0, 1, true, Item.ItemType.QuestItem));
 
-			items.Add (new Item ("Fish", 21, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Fish", 21, "N/A", 0, 1, true, Item.ItemType.QuestItem));
 			items.Add (new Item ("Fishing Pole", 22, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 
 			items.Add (new Item ("Iron Ore", 31, "N/A", 0, 1, true, Item.ItemType.QuestItem));

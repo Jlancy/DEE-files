@@ -16,7 +16,6 @@ namespace KnightlyTales
 		public ItemType itemType;
 		public enum ItemType
 		{
-			Ammo,
 			Potion,
 			QuestItem
 		}
