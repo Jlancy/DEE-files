@@ -72,8 +72,8 @@ public class TileMap : MonoBehaviour {
 		
 		MeshRenderer meshRenderer = GetComponent<MeshRenderer> ();
 		//Debug.Log (meshRenderer.sharedMaterials[0]);
-		meshRenderer.sharedMaterials[0].mainTexture = texture;
-			//materials[0].mainTexture = texture;	
+		//meshRenderer.sharedMaterials[0].mainTexture = texture;
+		meshRenderer.materials[0].mainTexture = texture;	
 
 		Debug.Log("Texture Complete!");
 	}
