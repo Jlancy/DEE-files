@@ -39,32 +39,31 @@ namespace KnightlyTales
 			items.Add (new Item ("Gold Ore", 32, "N/A", 0, 1, true, Item.ItemType.QuestItem));
 			items.Add (new Item ("Ruby", 33, "N/A", 0, 1, true, Item.ItemType.QuestItem));
 			items.Add (new Item ("Saphire", 34, "N/A", 0, 1, true, Item.ItemType.QuestItem));
-			items.Add (new Item ("Axe", 35, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Mining Pick", 36, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Shovel", 37, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Hoe", 38, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 
-			items.Add (new Item ("Blacksmith Hammer", 41, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Broken Armor", 42, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Torch", 43, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Axe", 41, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Mining Pick", 42, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Shovel", 43, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Hoe", 44, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 
-			items.Add (new Item ("Wooden Sword", 51, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Wooden Shield", 52, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Wooden Knight", 53, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Child's Doll", 54, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Blacksmith Hammer", 51, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Broken Armor", 52, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Torch", 53, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 
-
-			items.Add (new Item ("Bronze Key", 61, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Silver Key", 62, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Gold Key", 63, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-			items.Add (new Item ("Skeleton Key", 64, "N/A", 0, 1, false, Item.ItemType.QuestItem));
-
+			items.Add (new Item ("Wooden Sword", 61, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Wooden Shield", 62, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Wooden Knight", 63, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Child's Doll", 64, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 
 			items.Add (new Item ("Pet Pig", 71, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 			items.Add (new Item ("Stone Dragon Idol", 72, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 			items.Add (new Item ("Dragon's Tail", 73, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 			items.Add (new Item ("Bandits Signet Ring", 74, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 
+			items.Add (new Item ("Bronze Key", 81, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Silver Key", 82, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Gold Key", 83, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			items.Add (new Item ("Skeleton Key", 84, "N/A", 0, 1, false, Item.ItemType.QuestItem));
+			
 
 			items.Add (new Item ("Wagon Wheel", 91, "N/A", 0, 1, false, Item.ItemType.QuestItem));
 		}
