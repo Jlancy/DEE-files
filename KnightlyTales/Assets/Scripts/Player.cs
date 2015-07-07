@@ -48,10 +48,11 @@ namespace KnightlyTales
 			//Set the healthText to reflect the current player health total.
 			healthText.text = health + "%";
 			healthSlider.value = health;
-
 			originalH = joystick.transform.position.x;
 			originalV = joystick.transform.position.y;
-			
+			//disable joystick at the start
+			joystick.GetComponent<Image>().enabled = false;
+			//joystick.enabled = false;
 			//Call the Start function of the MovingObject base class.
 			base.Start ();
 		}
@@ -261,6 +262,13 @@ namespace KnightlyTales
 				//Call the GameOver function of GameManager.
 				GameManager.instance.GameOver ();
 			}
+		}
+
+		public void EnableJoystick()
+		{
+			//Enabel joystick at the start
+			joystick.GetComponent<Image>().enabled = true;
+			//joystick.enabled = true;
 		}
 	}
 

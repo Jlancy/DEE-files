@@ -41,6 +41,7 @@ namespace KnightlyTales
 				itemImage.enabled = false;
 				itemAmount.text = "";
 			}
+			//Debug.Log(inventory.draggedItem);
 		}
 
 		public void OnPointerDown (PointerEventData data)
@@ -83,7 +84,9 @@ namespace KnightlyTales
 
 		public void OnEndDrag (PointerEventData data)
 		{
+			Debug.Log("maybe");
 			if (!inventory.draggingItem && inventory.Items [slotNumber].itemName != null) {
+				Debug.Log("hmm");
 				user.UseItem (inventory.Items [slotNumber], slotNumber);
 			}
 		}

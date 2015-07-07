@@ -90,7 +90,8 @@ namespace KnightlyTales
 					slot.GetComponent<SlotScript> ().slotNumber = slotIndex;
 					Slots.Add (slot);
 					Items.Add (new Item ());
-					slot.transform.parent = this.gameObject.transform;
+					//slot.transform.parent = this.gameObject.transform;
+					slot.transform.SetParent( this.gameObject.transform);
 					slot.name = "Slot " + (slotIndex);
 					slot.GetComponent<RectTransform> ().localPosition = new Vector3 (x + k * 50, y - i * 50, 0);
 					slotIndex++;

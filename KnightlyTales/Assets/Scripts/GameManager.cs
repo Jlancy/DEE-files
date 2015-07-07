@@ -13,11 +13,12 @@ namespace KnightlyTales
 		public int playerHealthPoints = 100;					//Starting value for Player health points.
 		public int maxAmmo = 30;								//Starting max value for player ammo.
 		public int playerAmmo = 0;								//Starting value of ammo player has.
+
 		public static GameManager instance = null;				//Static instance of GameManager which allows it to be accessed by any other script.
 		[HideInInspector] public bool playersTurn = true;		//Boolean to check if it's players turn, hidden in inspector but public.
 		[HideInInspector] public int level = 1;									//Current level number, expressed in game as "Day 1".
 
-
+		private Player _player;
 		private List<Item> items;
 		private Text questText;									//Text to display current level number.
 		private GameObject levelImage;							//Image to block out level as levels are being set up, background for levelText.
@@ -102,7 +103,8 @@ namespace KnightlyTales
 			
 			//Call the SetupScene function of the BoardManager script, pass it current level number.
 			boardScript.SetupScene (level);
-
+			// refrence the player in the scene
+			_player = FindObjectOfType<Player>();
 			
 		}
 		
@@ -110,6 +112,8 @@ namespace KnightlyTales
 		//Hides black image used between levels
 		void HideLevelImage ()
 		{
+			//Enable the Joystick when start screen go
+			_player.EnableJoystick();
 			//Disable the levelImage gameObject.
 			levelImage.SetActive (false);
 			
