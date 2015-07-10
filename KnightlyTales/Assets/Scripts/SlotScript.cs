@@ -44,24 +44,18 @@ namespace KnightlyTales
 			//Debug.Log(inventory.draggedItem);
 		}
 
-		public void OnPointerDown (PointerEventData data)
-		{
-			if (inventory.draggingItem) {
-				inventory.closeDraggedItem ();
-				inventory.Items [inventory.draggingIndex] = inventory.Items [slotNumber];
-				inventory.Items [slotNumber] = inventory.draggedItem;
-			}
-
-
-		}
+		public void OnPointerDown (PointerEventData data){}
 
 		public void OnPointerUp (PointerEventData data)
 		{
-
+			if (!inventory.draggingItem && inventory.Items [slotNumber].itemName != null) {
+				user.UseItem (inventory.Items [slotNumber], slotNumber);
+			}
 		}
 
 		public void OnPointerEnter (PointerEventData data)
 		{
+			inventory.dragOn = slotNumber;
 			if (inventory.Items [slotNumber].itemName != null && !inventory.draggingItem) {
 				inventory.showToolTip (inventory.Slots [slotNumber].GetComponent<RectTransform> ().localPosition, inventory.Items [slotNumber]);
 			}
@@ -84,11 +78,12 @@ namespace KnightlyTales
 
 		public void OnEndDrag (PointerEventData data)
 		{
-			Debug.Log("maybe");
-			if (!inventory.draggingItem && inventory.Items [slotNumber].itemName != null) {
-				Debug.Log("hmm");
-				user.UseItem (inventory.Items [slotNumber], slotNumber);
+			if (inventory.draggingItem) {
+				inventory.closeDraggedItem ();
+				inventory.Items [inventory.draggingIndex] = inventory.Items [inventory.dragOn];
+				inventory.Items [inventory.dragOn] = inventory.draggedItem;
 			}
+
 		}
 	}
 }

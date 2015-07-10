@@ -14,6 +14,7 @@ namespace KnightlyTales
 		public bool draggingItem = false;
 		public Item draggedItem;
 		public int draggingIndex;
+		public int dragOn;
 		private int slotX, slotY, x, y;
 		private ItemDatabase database;
 		private ItemUser user;
@@ -125,22 +126,22 @@ namespace KnightlyTales
 		//Adds the passed item to the inventory.
 		public void AddItem (int ID)
 		{
-			if (ID > 0) {
-				for (int s = 0; s < Items.Count; s++) {
-					if (Items [s].itemName == null) {
-						for (int l = 0; l < database.items.Count; l++) {
-							if (database.items [l].itemID.Equals (ID)) {
-								if (database.items [l].itemStackable) {
-									if (!addIfItemIsInInventory (ID)) {
-										Items [s] = database.items [l]; 
+			if (ID > 0) { //Makes sure ID passed into the method is correct; ID=0 is for Ammo, has its own method in playerAttackOrDefend
+				for (int s = 0; s < Items.Count; s++) {			//loops through inventory array
+					if (Items [s].itemName == null) {			//finds the first empty slot
+						for (int l = 0; l < database.items.Count; l++) {		//loops through inventory database
+							if (database.items [l].itemID.Equals (ID)) {		//finds correct item based on ID
+								if (database.items [l].itemStackable) {			//checks if item is stackable
+									if (!addIfItemIsInInventory (ID)) {			//if stackable, checks if item is in inventory
+										Items [s] = database.items [l]; 		//adds new item if stackable item is not in inventory yet
 									}
-									break;
+									break;						//breaks loop for inventory database
 								} else {
-									Items [s] = database.items [l]; 
+									Items [s] = database.items [l]; 			//adds new item if item is not in the inventory
 								}
 							}
 						}
-						break;
+						break;									//breaks loop for inventory (Items[])
 					}
 				}
 			}
