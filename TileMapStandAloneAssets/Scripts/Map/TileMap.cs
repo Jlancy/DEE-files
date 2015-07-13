@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum MapType : int {Forest, Cave, ForestByChunk};
+
 [ExecuteInEditMode]
 [RequireComponent(typeof(MeshFilter))]	 //Check for MeshFilter at build
 [RequireComponent(typeof(MeshRenderer))] //Check for MeshRenderer at build
@@ -15,6 +17,7 @@ public class TileMap : MonoBehaviour {
 	public float tileSize = 1.0f;	//Floating tile size based on unity units	
 	public Texture2D terrainTile;
 	public int tileResolution;
+	public MapType mapType;
 	//==========================================================================
 	//Function
 	//==========================================================================
@@ -50,9 +53,8 @@ public class TileMap : MonoBehaviour {
 
 
 	void BuildTexture(){
-		TDMap map = new TDMap (size_x, size_y);
-		map.GenerateForestAsWhole ();
-
+		TDMap map = new TDMap (size_x, size_y, mapType);
+		int[,] mapData = map.GetMapDataAsInt();
 		int textureWidth = size_x * tileResolution;
 		int textureHeight = size_y * tileResolution;
 		Texture2D texture = new Texture2D(textureWidth, textureHeight);
@@ -61,7 +63,7 @@ public class TileMap : MonoBehaviour {
 		Color[] paint;
 		for (int y = 0; y < size_y; y++) {
 			for (int x = 0; x < size_x; x++) {
-				paint = tiles[map.GetTileAt(x, y)];
+				paint = tiles[mapData[x, y]];
 				texture.SetPixels ( x * tileResolution, y * tileResolution, tileResolution, tileResolution, paint);
 			}
 		}
@@ -75,7 +77,7 @@ public class TileMap : MonoBehaviour {
 		//meshRenderer.sharedMaterials[0].mainTexture = texture;
 		meshRenderer.materials[0].mainTexture = texture;	
 
-		Debug.Log("Texture Complete!");
+		//Debug.Log("Texture Complete!");
 	}
 
 	public void BuildMesh () {
@@ -105,7 +107,7 @@ public class TileMap : MonoBehaviour {
 				uv[y * vertSize_x + x] = new Vector2((float)x / size_x, (float)y / size_y);
 			}
 		}
-		Debug.Log("Verts complete!");
+		//Debug.Log("Verts complete!");
 
 		//Affects the maping of tiles
 		for(int y = 0; y < size_y; y++){
@@ -122,7 +124,7 @@ public class TileMap : MonoBehaviour {
 				triangles [triangleOffset + 5] = y * vertSize_x + x + 				1;
 			}
 		}
-		Debug.Log("Triangles complete!");
+		//Debug.Log("Triangles complete!");
 
 		//Create a Mesh and populate with data
 		Mesh mesh = new Mesh ();
@@ -137,7 +139,7 @@ public class TileMap : MonoBehaviour {
 
 		meshFilter.mesh = mesh;
 		meshCollider.sharedMesh = mesh;
-		Debug.Log("Mesh complete!");
+		//Debug.Log("Mesh complete!");
 
 		BuildTexture ();
 	}
