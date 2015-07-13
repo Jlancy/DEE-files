@@ -7,16 +7,15 @@ public enum MapType : int {Forest, Cave, ForestByChunk};
 [RequireComponent(typeof(MeshFilter))]	 //Check for MeshFilter at build
 [RequireComponent(typeof(MeshRenderer))] //Check for MeshRenderer at build
 [RequireComponent(typeof(MeshCollider))] //Check for MeshCollider at build
-
 public class TileMap : MonoBehaviour {
 	//==========================================================================
 	//Variables
 	//==========================================================================
-	public int size_x;			//Max x-tiles
-	public int size_y; 		//Max z-tiles
+	public int size_x = MAP_CONSTANT.CHUNK_WIDTH * MAP_CONSTANT.SML_WIDTH;			
+	public int size_y = MAP_CONSTANT.CHUNK_HEIGHT * MAP_CONSTANT.SML_HEIGHT; 	
 	public float tileSize = 1.0f;	//Floating tile size based on unity units	
 	public Texture2D terrainTile;
-	public int tileResolution;
+	public int tileResolution = 16;
 	public MapType mapType;
 	//==========================================================================
 	//Function

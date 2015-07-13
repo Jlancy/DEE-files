@@ -9,6 +9,7 @@ public class TileMapInspector : Editor {
 	//==========================================================================
 
 	public override void OnInspectorGUI() {
+		DrawDefaultInspector();
 		if(GUILayout.Button("Generate Small Map")) {
 			TileMap tileMap = (TileMap)target;
 			tileMap.size_x = MAP_CONSTANT.SML_WIDTH * MAP_CONSTANT.CHUNK_WIDTH;
