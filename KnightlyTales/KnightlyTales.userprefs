@@ -1,13 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inventory.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SlotManger.cs">
     <Files>
-      <File FileName="Assets\Scripts\SlotScript.cs" Line="51" Column="32" />
-      <File FileName="Assets\Scripts\Loader.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="261" Column="5" />
-      <File FileName="Assets\Scripts\BoardManager.cs" Line="132" Column="15" />
-      <File FileName="Assets\Scripts\ItemUser.cs" Line="6" Column="2" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="53" Column="22" />
+      <File FileName="Assets\Scripts\SlotManger.cs" Line="31" Column="14" />
+      <File FileName="Assets\Scripts\SlotScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="139" Column="11" />
+      <File FileName="Assets\Scripts\Item.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BoardManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

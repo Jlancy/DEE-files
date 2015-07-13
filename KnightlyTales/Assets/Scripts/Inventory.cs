@@ -109,7 +109,7 @@ namespace KnightlyTales
 			if (draggingItem) {
 				//needs fix. dragged icon too far right.
 				Vector3 position = (Input.mousePosition);
-				draggedItemGameObject.GetComponent<RectTransform> ().localPosition = new Vector3 (position.x - 585, position.y - 150, position.z); 
+				draggedItemGameObject.GetComponent<RectTransform>().position = new Vector3 (position.x -20, position.y +20 ,0); 
 			}
 		}
 

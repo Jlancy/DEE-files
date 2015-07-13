@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;//Allows us to use UI.
 using UnityStandardAssets.CrossPlatformInput;
@@ -30,11 +31,12 @@ namespace KnightlyTales
 		private Vector2 touchOrigin = -Vector2.one;	//Used to store location of screen touch origin for mobile controls.
 		private float h, v;         // Horizontal and Vertical values
 		private float originalH, originalV;
-
+		private SlotManger _slotManger;
 		
 		//Start overrides the Start function of MovingObject
 		protected override void Start ()
 		{
+			_slotManger = FindObjectOfType<SlotManger>();
 			inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 
 			//Get a component reference to the Player's animator component
@@ -71,6 +73,7 @@ namespace KnightlyTales
 		
 		private void Update ()
 		{
+			//Debug.Log("y");
 			//If it's not the player's turn, exit the function.
 			if (!GameManager.instance.playersTurn)
 				return;
@@ -174,9 +177,11 @@ namespace KnightlyTales
 				switch (other.tag) {
 				case "Food":
 					inventory.AddItem (1);
+					_slotManger.updateCheck = true;
 					break;
 				case "Soda":
 					inventory.AddItem (2);
+					_slotManger.updateCheck = true;
 					attackOrDefend.AddAmmo (9);
 					break;
 				case "Ammo":
