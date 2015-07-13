@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2b10b5dc919afa2489a2d36ed9a86319
+timeCreated: 1436810918
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - terrainTile: {fileID: 2800000, guid: 5f91692d5399b704482bfdaf41ca1813, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
