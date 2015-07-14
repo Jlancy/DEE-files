@@ -10,6 +10,7 @@ namespace KnightlyTales
 	public class Player : MovingObject
 	{
 		public Joystick joystick;           // Reference to joystick prefab
+		public GameObject joystickBounds;
 		public bool useAxisInput = true;   // Use Input Axis or Joystick
 		public float restartLevelDelay = 1f;		//Delay time in seconds to restart level.
 		public int wallDamage = 1;					//How much damage a player does to a wall when chopping it.
@@ -54,6 +55,8 @@ namespace KnightlyTales
 			originalV = joystick.transform.position.y;
 			//disable joystick at the start
 			joystick.GetComponent<Image>().enabled = false;
+			//not attached in my scene
+			//joystickBounds.GetComponent<Image>().enabled = false;
 			//joystick.enabled = false;
 			//Call the Start function of the MovingObject base class.
 			base.Start ();
@@ -273,6 +276,8 @@ namespace KnightlyTales
 		{
 			//Enabel joystick at the start
 			joystick.GetComponent<Image>().enabled = true;
+			//not attached in my scene
+			//joystickBounds.GetComponent<Image>().enabled = true;
 			//joystick.enabled = true;
 		}
 	}

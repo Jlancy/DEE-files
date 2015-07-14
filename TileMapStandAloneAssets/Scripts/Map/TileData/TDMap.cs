@@ -1,16 +1,13 @@
 ﻿using UnityEngine;	//Needed for Random at line ~141
+using System.Collections.Generic;	//Needed for queue
 
 public struct Coord{
-	int x_coord;
-	int y_coord;
+	public int x_coord;
+	public int y_coord;
 }
 
 public class TDMap {
 	//Constants derived from TDTile
-	//private const int WATER = (int)TDTile.tileType.WATER;
-	//private const int DIRT = (int)TDTile.tileType.DIRT;
-	//private const int GRASS = (int)TDTile.tileType.GRASS;
-	//private const int TREE = (int)TDTile.tileType.TREE;
 	//==========================================================================
 	//Constants, Variable are located at the bottom of this script
 	//==========================================================================
@@ -41,16 +38,16 @@ public class TDMap {
 		//For checking purposes, set all tiles to empty incase something misses
 		for (int y = 0; y < _size_y; y++)
 			for (int x = 0; x < _size_x; x++)
-				_mapData [x, y] = 1;
+				_mapData [x, y] = 0;
 	}
-	//Gets an individual tile
+	//Get an individual tile
 	public int GetTileAt(int x_coord, int y_coord){
 		if (x_coord < 0 || x_coord >= _size_x || y_coord < 0 || y_coord >= _size_y)
-			return 0;
+			return -1;
 		else
 			return _mapData[x_coord, y_coord];
 	}
-	//Gets the map data as int for analysis 
+	//Get the map data as int for analysis 
 	public int[,] GetMapDataAsInt(){
 		int[,] mapData = new int[_size_x, _size_y];
 		for (int y = 0; y < _size_y; y++)
@@ -58,7 +55,7 @@ public class TDMap {
 				mapData [x, y] = _mapData [x, y];
 		return mapData;
 	}
-	//Sets the map data with an array of int
+	//Set the map data with an array of int
 	public void SetMapData(int[,] mapData){
 		_size_x = mapData.GetLength (0);
 		_size_y = mapData.GetLength (1);
@@ -67,6 +64,7 @@ public class TDMap {
 			for (int x = 0; x < _size_x; x++)
 				_mapData[x, y] = mapData[x, y];
 	}
+
 	//==========================================================================
 	//Insert different types of maps here
 	//==========================================================================
@@ -77,24 +75,170 @@ public class TDMap {
 		FillMap (GRASS);
 		GenerateChunkInSpiral (chunkData, TREE, 40, 0);
 	}
+//Method currently used
 	public void GenerateForestAsWhole(){
 		FillMap (GRASS);
 		RingGenerator (_mapData, TREE, 0);
 		SpiralGeneration (_mapData, TREE, 40, 0);
+		FillUnreachable (_mapData, GRASS, TREE);
 		ReserveForDoodad (_mapData, GRASS, 'd', 2 * 2 + 2 * 2, 2, 2);
 		ReserveForDoodad (_mapData, GRASS, 'd', 2 * 3 + 2 * 3, 3, 3);
 		Fill_Isolated (_mapData, TREE);
 		
 	}
-	/*
-	//Chunk Method
-	public void GenerateByChunks(){
-		int[,] chunkData;
-		chunkData = new int[MAP_CONSTANT.CHUNK_WIDTH, MAP_CONSTANT.CHUNK_HEIGHT];
-		FillMap (GRASS);
-		SpiralChunkGeneration (chunkData);
+
+	//==========================================================================
+	//FillUnreachable() and its helpers
+	//==========================================================================
+	
+	public void FillUnreachable(int[,] area, int scanTarget, int replaceTarget){
+		//This list will hold the topleft coord of the space of 'scanTarget' or grass
+		List<Coord> topLeftCoords = new List<Coord> ();		
+		//This Queue is used later to fill the isolated spaces
+		Queue<Coord> fillTheseCoords = new Queue<Coord>();
+		//First, we find the largest area and that will be the main play area
+		Largest_Space (area, scanTarget, topLeftCoords);
+		//For every coords left, enqueue them to have them filled
+		for (int i = 0; i < topLeftCoords.Count; i++)
+			fillTheseCoords.Enqueue (topLeftCoords [i]);
+		//Fill the isolated spaces until there are none left in the queue to be filled
+		while(fillTheseCoords.Count != 0)
+			FillIsolated (area, fillTheseCoords, scanTarget, replaceTarget);
 	}
-	*/
+	public int Largest_Space(int[,] area, int scanTarget, List<Coord> topLeftCoords){
+		int[,] scanArea = new int[area.GetLength (0),area.GetLength (1)];
+		int largestCount = 0;
+		int currentCount = 0;
+		Queue<Coord> coordQ = new Queue<Coord> ();
+		Coord current;
+		//This coord will be removed at the end of this function
+		Coord largestCoord;
+		largestCoord.x_coord = 0;
+		largestCoord.y_coord = 0;
+		//Set scanArea to area so that we can easily scan the map
+		for (int y = 0; y < scanArea.GetLength(1); y++) {
+			for (int x = 0; x < scanArea.GetLength(0); x++) {
+				scanArea[x, y] = area[x, y];
+			}
+		}
+		//Scan the map for the 'scanTarget', when one is found, inspect its area and then compare sizes
+		//-1 signifies that the tile has been scaned
+		for (int y = 0; y < scanArea.GetLength(1); y++) {
+			for (int x = 0; x < scanArea.GetLength(0); x++){
+
+				if(scanArea[x, y] == scanTarget){
+					currentCount = 0;
+					current.x_coord = x;
+					current.y_coord = y;
+					scanArea[x, y] = -1;
+
+					coordQ.Enqueue (current);
+					topLeftCoords.Add (current);
+					currentCount++;
+					//Keep scan until queue is empty
+					while(coordQ.Count != 0){
+						ScanMap (scanArea, coordQ, scanTarget, ref currentCount);
+					}
+					//Compare if this area is the largest
+					if(currentCount > largestCount){
+						largestCoord.x_coord = x;
+						largestCoord.y_coord = y;
+						largestCount = currentCount;
+					}
+				}
+			}
+		}
+		//Remove the coord responsible for the largest from the list 
+		topLeftCoords.Remove (largestCoord);
+		return largestCount;
+	}
+	//Scan neighboring tiles, if it matches the scanTarget, mark and enqueue. Also increment the count
+	private void ScanMap(int[,] area, Queue<Coord> coordQ, int scanTarget, ref int currentCount){
+		Coord current = coordQ.Dequeue ();
+		Coord nextPoint;
+		//Scan left
+		if (current.x_coord > 0) {
+			if (area[current.x_coord - 1, current.y_coord] == scanTarget){
+				nextPoint.x_coord = current.x_coord - 1;
+				nextPoint.y_coord = current.y_coord;
+				area[nextPoint.x_coord, nextPoint.y_coord] = -1;
+				coordQ.Enqueue (nextPoint);
+				currentCount++;
+			}
+		}
+		//Scan right
+		if (current.x_coord < area.GetLength(0) - 1) {
+			if (area[current.x_coord + 1, current.y_coord] == scanTarget){
+				nextPoint.x_coord = current.x_coord + 1;
+				nextPoint.y_coord = current.y_coord;
+				area[nextPoint.x_coord, nextPoint.y_coord] = -1;
+				coordQ.Enqueue (nextPoint);
+				currentCount++;
+			}
+		}
+		//Scan up
+		if (current.y_coord > 0) {
+			if (area[current.x_coord, current.y_coord - 1] == scanTarget){
+				nextPoint.x_coord = current.x_coord;
+				nextPoint.y_coord = current.y_coord - 1;
+				area[nextPoint.x_coord, nextPoint.y_coord] = -1;
+				coordQ.Enqueue (nextPoint);
+				currentCount++;
+			}
+		}
+		//Scan down
+		if (current.y_coord < area.GetLength(1) - 1) {
+			if (area[current.x_coord, current.y_coord + 1] == scanTarget){
+				nextPoint.x_coord = current.x_coord;
+				nextPoint.y_coord = current.y_coord + 1;
+				area[nextPoint.x_coord, nextPoint.y_coord] = -1;
+				coordQ.Enqueue (nextPoint);
+				currentCount++;
+			}
+		}
+	}
+	//Similar to ScanMap(), but interacts with the actual map so that changes can be made. replace scanTargets
+	//to replaceTargets
+	private void FillIsolated(int[,] area, Queue<Coord> topLeftCoords, int scanTarget, int replaceTarget){
+		Coord current = topLeftCoords.Dequeue ();
+		Coord nextPoint;
+		//Scan left
+		if (current.x_coord > 0) {
+			if (area[current.x_coord - 1, current.y_coord] == scanTarget){
+				nextPoint.x_coord = current.x_coord - 1;
+				nextPoint.y_coord = current.y_coord;
+				area[nextPoint.x_coord, nextPoint.y_coord] = replaceTarget;
+				topLeftCoords.Enqueue (nextPoint);
+			}
+		}
+		//Scan right
+		if (current.x_coord < area.GetLength(0) - 1) {
+			if (area[current.x_coord + 1, current.y_coord] == scanTarget){
+				nextPoint.x_coord = current.x_coord + 1;
+				nextPoint.y_coord = current.y_coord;
+				area[nextPoint.x_coord, nextPoint.y_coord] = replaceTarget;
+				topLeftCoords.Enqueue (nextPoint);
+			}
+		}
+		//Scan up
+		if (current.y_coord > 0) {
+			if (area[current.x_coord, current.y_coord - 1] == scanTarget){
+				nextPoint.x_coord = current.x_coord;
+				nextPoint.y_coord = current.y_coord - 1;
+				area[nextPoint.x_coord, nextPoint.y_coord] = replaceTarget;
+				topLeftCoords.Enqueue (nextPoint);
+			}
+		}
+		//Scan down
+		if (current.y_coord < area.GetLength(1) - 1) {
+			if (area[current.x_coord, current.y_coord + 1] == scanTarget){
+				nextPoint.x_coord = current.x_coord;
+				nextPoint.y_coord = current.y_coord + 1;
+				area[nextPoint.x_coord, nextPoint.y_coord] = replaceTarget;
+				topLeftCoords.Enqueue (nextPoint);
+			}
+		}
+	}
 	//==========================================================================
 	//Functions taken from MapGenerator; General Tool Functions
 	//==========================================================================

@@ -55,8 +55,11 @@
      <Compile Include="Assets\Scripts\ItemUser.cs" />
      <Compile Include="Assets\Scripts\Loader.cs" />
      <Compile Include="Assets\Scripts\MovingObject.cs" />
+     <Compile Include="Assets\Scripts\NPC.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerAttackOrDefend.cs" />
+     <Compile Include="Assets\Scripts\Quest.cs" />
      <Compile Include="Assets\Scripts\SlotManger.cs" />
      <Compile Include="Assets\Scripts\SlotScript.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
