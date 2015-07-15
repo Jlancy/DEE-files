@@ -95,6 +95,15 @@ public class TDMap {
 			_tileData[x, y] = tileData[x, y];
 	}
 
+	//Get the map data as int for analysis 
+	public int[,] GetCollisionMap(){
+		int[,] collisionMap = new int[_size_x, _size_y];
+		for (int y = 0; y < _size_y; y++)
+			for (int x = 0; x < _size_x; x++)
+				collisionMap [x, y] = _tileData [x, y].GetTileTraitAsInt();
+		return collisionMap;
+	}
+
 	//==========================================================================
 	//Insert different types of maps here
 	//==========================================================================

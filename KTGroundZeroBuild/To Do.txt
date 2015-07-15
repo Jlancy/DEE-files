@@ -1,0 +1,51 @@
+============================================================================
+Readme
+============================================================================
+Load the asset into an empty Unity project and open up TestScene.unity to 
+view the current progress which as of now includes the following:
+	Player
+	TileMap
+	Camera which follows the player
+	Directional Light for viewing
+
+============================================================================
+Progress
+============================================================================
+Tile Map
+	+ Collider have been implemented
+	+ Now supports sprite layering 
+		* ex) a tree tile will be above the grass tile with both expressing
+		there features
+		
+Player Controls
+	+ WASD and arrow keys will move the player
+	+ Press T for for emote
+	+ Camera follows the player
+	
+============================================================================
+To Do List
+============================================================================
+Map Related
+	- Rewrite TD to a simpler form as many assets are now obsolete
+	- Rewrite the new TileMap to implement what the old had that was still
+	useful
+		* ex) biome, small, medium, large map
+	- Implement puzzle 
+	- Wait on art assets for further development
+		* This would lead to different generation methods
+	
+Player Related
+	- Lock and bound player to the tile map.
+		* This would also fix the weird collision problem when walking along
+		the walls/trees
+	- Smooth out button collision and improve key reading
+	- Make a less derpy place holder or wait on art assets
+	
+Top-Level Related
+	- Set up the loader
+	- Set up the game manager
+	- Make prefab for game manager
+	- Set up the sound manager
+	- Make prefab for sound manager
+	- Link the top level to the lower level scripts
+		* ex) Loader calls GameManager which calls TileMap

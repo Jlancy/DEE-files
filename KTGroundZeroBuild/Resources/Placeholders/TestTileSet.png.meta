@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5f91692d5399b704482bfdaf41ca1813
-timeCreated: 1436465994
+timeCreated: 1436900432
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -28,12 +28,36 @@ TextureImporter:
     21300042: TestTileSet3_21
     21300044: TestTileSet3_22
     21300046: TestTileSet3_23
+    21300048: TestTileSet_0
+    21300050: TestTileSet_1
+    21300052: TestTileSet_2
+    21300054: TestTileSet_3
+    21300056: TestTileSet_4
+    21300058: TestTileSet_5
+    21300060: TestTileSet_6
+    21300062: TestTileSet_7
+    21300064: TestTileSet_8
+    21300066: TestTileSet_9
+    21300068: TestTileSet_10
+    21300070: TestTileSet_11
+    21300072: TestTileSet_12
+    21300074: TestTileSet_13
+    21300076: TestTileSet_14
+    21300078: TestTileSet_15
+    21300080: TestTileSet_16
+    21300082: TestTileSet_17
+    21300084: TestTileSet_18
+    21300086: TestTileSet_19
+    21300088: TestTileSet_20
+    21300090: TestTileSet_21
+    21300092: TestTileSet_22
+    21300094: TestTileSet_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
     linearTexture: 0
-    correctGamma: 0
+    correctGamma: 1
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -73,7 +97,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: TestTileSet3_0
+    - name: TestTileSet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -83,7 +107,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_1
+    - name: TestTileSet_1
       rect:
         serializedVersion: 2
         x: 16
@@ -93,7 +117,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_2
+    - name: TestTileSet_2
       rect:
         serializedVersion: 2
         x: 32
@@ -103,7 +127,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_3
+    - name: TestTileSet_3
       rect:
         serializedVersion: 2
         x: 48
@@ -113,7 +137,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_4
+    - name: TestTileSet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -123,7 +147,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_5
+    - name: TestTileSet_5
       rect:
         serializedVersion: 2
         x: 16
@@ -133,7 +157,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_6
+    - name: TestTileSet_6
       rect:
         serializedVersion: 2
         x: 32
@@ -143,7 +167,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_7
+    - name: TestTileSet_7
       rect:
         serializedVersion: 2
         x: 48
@@ -153,7 +177,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_8
+    - name: TestTileSet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -163,7 +187,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_9
+    - name: TestTileSet_9
       rect:
         serializedVersion: 2
         x: 16
@@ -173,7 +197,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_10
+    - name: TestTileSet_10
       rect:
         serializedVersion: 2
         x: 32
@@ -183,7 +207,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_11
+    - name: TestTileSet_11
       rect:
         serializedVersion: 2
         x: 48
@@ -193,7 +217,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_12
+    - name: TestTileSet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -203,7 +227,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_13
+    - name: TestTileSet_13
       rect:
         serializedVersion: 2
         x: 16
@@ -213,7 +237,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_14
+    - name: TestTileSet_14
       rect:
         serializedVersion: 2
         x: 32
@@ -223,7 +247,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_15
+    - name: TestTileSet_15
       rect:
         serializedVersion: 2
         x: 48
@@ -233,7 +257,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_16
+    - name: TestTileSet_16
       rect:
         serializedVersion: 2
         x: 0
@@ -243,7 +267,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_17
+    - name: TestTileSet_17
       rect:
         serializedVersion: 2
         x: 16
@@ -253,7 +277,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_18
+    - name: TestTileSet_18
       rect:
         serializedVersion: 2
         x: 32
@@ -263,7 +287,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_19
+    - name: TestTileSet_19
       rect:
         serializedVersion: 2
         x: 48
@@ -273,7 +297,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_20
+    - name: TestTileSet_20
       rect:
         serializedVersion: 2
         x: 0
@@ -283,7 +307,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_21
+    - name: TestTileSet_21
       rect:
         serializedVersion: 2
         x: 16
@@ -293,7 +317,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_22
+    - name: TestTileSet_22
       rect:
         serializedVersion: 2
         x: 32
@@ -303,7 +327,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TestTileSet3_23
+    - name: TestTileSet_23
       rect:
         serializedVersion: 2
         x: 48

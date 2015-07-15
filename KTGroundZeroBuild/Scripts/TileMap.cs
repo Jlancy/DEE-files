@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public enum MapType : int {Forest, Cave, ForestByChunk};
 
 [ExecuteInEditMode]
@@ -18,10 +20,13 @@ public class TileMap : MonoBehaviour {
 	public int tileResolution = 16;
 	public MapType mapType;
 	private int[,] mapData;
+	private int[,] collisionMap;
+
 	//==========================================================================
 	//Function
 	//==========================================================================
 	void Start () {
+		//BuildMap ();
 		BuildMesh ();
 	}
 	//==============================================================================================
@@ -30,6 +35,10 @@ public class TileMap : MonoBehaviour {
 
 	public int[,] GetMapData(){
 		return mapData;
+	}
+
+	public int[,] GetCollisionMap(){
+		return collisionMap;
 	}
 
 	Color[][] ChopUpTiles(){
@@ -56,9 +65,12 @@ public class TileMap : MonoBehaviour {
 	}
 
 
+
 	void BuildTexture(){
 		TDMap map = new TDMap (size_x, size_y, mapType);
 		mapData = map.GetMapDataAsInt();
+		collisionMap = map.GetCollisionMap ();
+
 		int textureWidth = size_x * tileResolution;
 		int textureHeight = size_y * tileResolution;
 		Texture2D texture = new Texture2D(textureWidth, textureHeight);

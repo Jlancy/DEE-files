@@ -8,8 +8,8 @@ public enum TileType : int{
 	NorthGate1,		NorthGate2,		Shit,			AppleTree,
 
 };
-public enum TileTrait{
-	PASSABLE, IMPASSABLE, PASSABLE_BY_FOOT, PASSABLE_BY_SWIMMING, PASSABLE_BY_FLIGHT
+public enum TileTrait : int{
+	PASSABLE, IMPASSABLE
 };
 
 public class TDTile {
@@ -32,6 +32,9 @@ public class TDTile {
 	//Get the tile type as int
 	public int GetTileTypeAsInt() { 
 		return (int)_tileType; 
+	}
+	public TileType GetTileType() { 
+		return _tileType; 
 	}
 	//Set the tile trait as int
 	public int GetTileTraitAsInt() {
