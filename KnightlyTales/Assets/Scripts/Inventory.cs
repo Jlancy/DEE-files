@@ -75,13 +75,13 @@ namespace KnightlyTales
 		// Use this for initialization
 		void Start ()
 		{
-			x = -50;
-			y = 240;
+			x = -82;//-50;
+			y =	102;// 240;
 			slotX = 3;
 			slotY = 10;
 			int slotIndex = 0;
 			database = GameObject.FindGameObjectWithTag ("Item Database").GetComponent<ItemDatabase> ();
-			user = GameObject.FindGameObjectWithTag ("Item User").GetComponent<ItemUser> ();
+			//user = GameObject.FindGameObjectWithTag ("Item User").GetComponent<ItemUser> ();
 			for (int i = 0; i < slotY; i++) {
 				for (int k = 0; k < slotX; k++) {
 					GameObject slot = (GameObject)Instantiate (slots);
@@ -89,15 +89,15 @@ namespace KnightlyTales
 					Slots.Add (slot);
 					Items.Add (new Item ());
 					//slot.transform.parent = this.gameObject.transform;
-					slot.transform.SetParent( this.gameObject.transform);
+					slot.transform.SetParent(this.gameObject.transform);
 					slot.name = "Slot " + (slotIndex);
-					slot.GetComponent<RectTransform> ().localPosition = new Vector3 (x + k * 50, y - i * 50, 0);
+					slot.GetComponent<RectTransform> ().localPosition = new Vector3 (x + k * 80, y - i * 80, 0);
 					slotIndex++;
 				}
 			}
-			if (GameManager.instance.level != 1) {
-				GameManager.instance.loadInventory ();
-			}
+			//if (GameManager.instance.level != 1) {
+			//	GameManager.instance.loadInventory ();
+			//}
 		}
 
 
@@ -122,6 +122,8 @@ namespace KnightlyTales
 			}
 			return false;
 		}
+
+
 
 		//Adds the passed item to the inventory.
 		public void AddItem (int ID)

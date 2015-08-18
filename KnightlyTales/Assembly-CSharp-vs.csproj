@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BoardManager.cs" />
+     <Compile Include="Assets\Scripts\Dialogue.cs" />
+     <Compile Include="Assets\Scripts\DialogueDataBase.cs" />
+     <Compile Include="Assets\Scripts\DialogueGenerator.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
@@ -56,14 +59,18 @@
      <Compile Include="Assets\Scripts\Loader.cs" />
      <Compile Include="Assets\Scripts\MovingObject.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
-     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerAttackOrDefend.cs" />
      <Compile Include="Assets\Scripts\Quest.cs" />
+     <Compile Include="Assets\Scripts\QuestManager.cs" />
      <Compile Include="Assets\Scripts\SlotManger.cs" />
      <Compile Include="Assets\Scripts\SlotScript.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\TextTyper.cs" />
      <Compile Include="Assets\Scripts\Wall.cs" />
+     <Compile Include="Assets\Scripts\tempAddItem.cs" />
+     <Compile Include="Assets\Scripts\tempMovement.cs" />
+     <Compile Include="Assets\Scripts\testRadialWheel.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="UnityEngine.UI">

@@ -19,8 +19,9 @@ namespace KnightlyTales
 			Potion,
 			QuestItem
 		}
+		public int itemGroupNumber;
 
-		public Item (string name, int id, string description, int health, int value, bool stackable, ItemType type)
+		public Item (string name, int id, string description, int health, int value, bool stackable, ItemType type,int groupNumber )
 		{
 			itemName = name;
 			itemID = id;
@@ -30,6 +31,7 @@ namespace KnightlyTales
 			itemValue = value;
 			itemStackable = stackable;
 			itemType = type;
+			itemGroupNumber = groupNumber;
 
 		}
 

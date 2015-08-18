@@ -142,6 +142,7 @@ namespace KnightlyTales
 			}
 			else
 			{//use item
+
 				user.UseItem(inventory.Items[1], 1);
 				Debug.Log("inv"+inventory.Items[1]+"index"+inventory.draggingIndex);
 
