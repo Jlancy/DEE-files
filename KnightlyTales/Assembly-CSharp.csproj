@@ -47,20 +47,24 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BoardManager.cs" />
+     <Compile Include="Assets\Scripts\ControlMovment.cs" />
      <Compile Include="Assets\Scripts\Dialogue.cs" />
      <Compile Include="Assets\Scripts\DialogueDataBase.cs" />
      <Compile Include="Assets\Scripts\DialogueGenerator.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\InventoryButton.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemDatabase.cs" />
      <Compile Include="Assets\Scripts\ItemUser.cs" />
      <Compile Include="Assets\Scripts\Loader.cs" />
      <Compile Include="Assets\Scripts\MovingObject.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
+     <Compile Include="Assets\Scripts\PageButton.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerAttackOrDefend.cs" />
+     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Quest.cs" />
      <Compile Include="Assets\Scripts\QuestManager.cs" />
      <Compile Include="Assets\Scripts\SlotManger.cs" />

@@ -14,9 +14,11 @@ namespace KnightlyTales
 		[HideInInspector]
 		public Text itemAmount;
 		public int slotNumber;     // total number of slots
+		private int InventoryIndex;
 		Inventory inventory;	   // contains the picked up items 
 		ItemUser user;			   // 
 		SlotManger _slotManger;    // manages  the slots 
+		public bool StorageSlot =false ;
 		//static bool outsideInventory = false; // change later add to a main script
 
 		// Use this for initialization
@@ -29,11 +31,16 @@ namespace KnightlyTales
 			_slotManger = FindObjectOfType<SlotManger>();
 			itemImage.enabled = false;
 			itemAmount.text = "";
+
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
+			if(StorageSlot)
+			{
+			//	Debug.Log(slotNumber);
+			}
 			/*
 			if (inventory.Items[slotNumber].itemName != null) {
 				item = inventory.Items[slotNumber];
@@ -51,14 +58,29 @@ namespace KnightlyTales
 			}*/
 			//Debug.Log(inventory.draggedItem);
 		}
+		void SetIndex()
+		{
 
+			if(StorageSlot)
+			{
+				InventoryIndex =slotNumber;
+			}
+			else
+			{
+				InventoryIndex = slotNumber+_slotManger.SlotNumberMod;
+			}
+
+		}
 
 		public void OnPointerDown (PointerEventData data)
 		{
+			Debug.Log("derp");
 			if (inventory.draggingItem) {
+				SetIndex();
+
+				inventory.Items [inventory.draggingIndex] = inventory.Items [InventoryIndex];
+				inventory.Items [InventoryIndex] = inventory.draggedItem;
 				inventory.closeDraggedItem ();
-				inventory.Items [inventory.draggingIndex] = inventory.Items [slotNumber];
-				inventory.Items [slotNumber] = inventory.draggedItem;
 				_slotManger.updateCheck= true;
 				//inventory.Items[slotNumber+1].itemName = "wellTHen";	
 
@@ -73,22 +95,24 @@ namespace KnightlyTales
 
 		public void OnPointerUp (PointerEventData data)
 		{
-			if (!inventory.draggingItem && inventory.Items [slotNumber].itemName != null) {
-				user.UseItem (inventory.Items [slotNumber], slotNumber);
+			SetIndex();
+			if (!inventory.draggingItem && inventory.Items [InventoryIndex].itemName != null) {
+				user.UseItem (inventory.Items [InventoryIndex], InventoryIndex);
 			}
 		}
 
 		public void OnPointerEnter (PointerEventData data)
 		{
+			SetIndex();
 
-			_slotManger.lastSlotNumber = slotNumber;
+			_slotManger.lastSlotNumber = InventoryIndex;
 			_slotManger.overSlot = true;
 			//_slotManger.outSideInvenotry = false;
 	
 			inventory.dragOn = slotNumber;
 
-			if (inventory.Items [slotNumber].itemName != null && !inventory.draggingItem) {
-				inventory.showToolTip (inventory.Slots [slotNumber].GetComponent<RectTransform> ().localPosition, inventory.Items [slotNumber]);
+			if (inventory.Items [InventoryIndex].itemName != null && !inventory.draggingItem) {
+				inventory.showToolTip (inventory.Slots [InventoryIndex].GetComponent<RectTransform> ().localPosition, inventory.Items [InventoryIndex]);
 
 			}
 
@@ -111,12 +135,13 @@ namespace KnightlyTales
 
 		public void OnDrag (PointerEventData data)
 		{		
-
-			if (inventory.Items[slotNumber].itemName != null) {
-				_slotManger.originSlot = slotNumber;
-				inventory.draggingIndex = slotNumber;
-				inventory.showDraggedItem (inventory.Items [slotNumber]);
-				inventory.Items[slotNumber] = new Item ();
+			SetIndex();
+			if (inventory.Items[InventoryIndex].itemName != null) {
+				_slotManger.originSlot = InventoryIndex;
+				inventory.draggingIndex = InventoryIndex;
+				Debug.Log(InventoryIndex);
+				inventory.showDraggedItem (inventory.Items [InventoryIndex]);
+				inventory.Items[InventoryIndex] = new Item ();
 				_slotManger.updateCheck = true;
 				itemAmount.enabled = false;
 
@@ -134,10 +159,11 @@ namespace KnightlyTales
 			
 			if(_slotManger.overSlot)
 			{
-			_slotManger.ReturnItemToLastSlot(_slotManger.lastSlotNumber);
+				_slotManger.ReturnItemToLastSlot(_slotManger.lastSlotNumber);
 			}
 			else if(!_slotManger.outSideInvenotry)
 			{
+
 				_slotManger.ReturnItemToLastSlot(_slotManger.originSlot);
 			}
 			else
@@ -145,7 +171,7 @@ namespace KnightlyTales
 
 				user.UseItem(inventory.Items[1], 1);
 				Debug.Log("inv"+inventory.Items[1]+"index"+inventory.draggingIndex);
-
+				//inventory.closeDraggedItem ();
 			}
 			//else 
 			//	Debug.Log("outside");
