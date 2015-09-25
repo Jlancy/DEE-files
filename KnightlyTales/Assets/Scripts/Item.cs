@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace KnightlyTales
-{
+
 	[System.Serializable]
 	public class Item
 	{
@@ -41,4 +40,3 @@ namespace KnightlyTales
 			itemStackable = false;
 		}
 	}
-}

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace KnightlyTales
-{
+
 	public class ItemUser : MonoBehaviour
 	{
 		private Player player;
@@ -55,4 +54,4 @@ namespace KnightlyTales
 		}
 
 	}
-}
+

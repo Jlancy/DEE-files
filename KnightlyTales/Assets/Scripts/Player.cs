@@ -4,8 +4,7 @@ using System.Collections;
 using UnityEngine.UI;//Allows us to use UI.
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace KnightlyTales
-{
+
 	//Player inherits from MovingObject, our base class for objects that can move, Enemy also inherits from this.
 	public class Player : MovingObject
 	{
@@ -282,4 +281,3 @@ namespace KnightlyTales
 		}
 	}
 
-}

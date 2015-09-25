@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace KnightlyTales{
+
 	[System.Serializable]
 	public class Quest {
 
@@ -71,4 +71,4 @@ namespace KnightlyTales{
 			_ActiveQuest 		= ActiveQuest;
 		}
 	}
-}
+

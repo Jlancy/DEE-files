@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace KnightlyTales
-{
+
 	public class DialogueGenerator : MonoBehaviour {
 
 		public DialogueDataBase dialogueDataBase;
@@ -76,4 +75,4 @@ namespace KnightlyTales
 			}
 		}
 	}
-}
+

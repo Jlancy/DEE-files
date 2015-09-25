@@ -3,9 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace KnightlyTales
-{
-	public class SlotScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
+
+	public class SlotScript : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
 	{
 
 		public Item item;
@@ -93,13 +92,7 @@ namespace KnightlyTales
 
 
 
-		public void OnPointerUp (PointerEventData data)
-		{
-			SetIndex();
-			if (!inventory.draggingItem && inventory.Items [InventoryIndex].itemName != null) {
-				user.UseItem (inventory.Items [InventoryIndex], InventoryIndex);
-			}
-		}
+		
 
 		public void OnPointerEnter (PointerEventData data)
 		{
@@ -159,19 +152,38 @@ namespace KnightlyTales
 			
 			if(_slotManger.overSlot)
 			{
+				Debug.Log("in");
 				_slotManger.ReturnItemToLastSlot(_slotManger.lastSlotNumber);
 			}
 			else if(!_slotManger.outSideInvenotry)
 			{
-
+				Debug.Log("out");
 				_slotManger.ReturnItemToLastSlot(_slotManger.originSlot);
 			}
 			else
 			{//use item
+				Vector2 ray =  Camera.main.ScreenPointToRay(Input.mousePosition).origin ;
+				RaycastHit2D hit =Physics2D.Raycast(ray,Vector3.forward,20,_slotManger.layer);
+				Debug.Log(hit);
 
-				user.UseItem(inventory.Items[1], 1);
-				Debug.Log("inv"+inventory.Items[1]+"index"+inventory.draggingIndex);
-				//inventory.closeDraggedItem ();
+				if(hit.transform != null) 
+				{
+					if(hit.transform.tag == "Player"  )
+					{
+
+						user.UseItem(inventory.draggedItem, inventory.draggingIndex);
+
+					}
+					else
+
+					{
+						_slotManger.ReturnItemToLastSlot(_slotManger.originSlot);
+					}
+				}	//inventory.closeDraggedItem ();
+				else
+				{
+					_slotManger.ReturnItemToLastSlot(_slotManger.originSlot);
+				}
 			}
 			//else 
 			//	Debug.Log("outside");
@@ -201,4 +213,4 @@ namespace KnightlyTales
 		}
 
 	}
-}
+

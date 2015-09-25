@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace KnightlyTales
-{	
+
 	public class Loader : MonoBehaviour
 	{
 		public GameObject gameManager;			//GameManager prefab to instantiate.
@@ -24,4 +23,3 @@ namespace KnightlyTales
 				Instantiate (soundManager);
 		}
 	}
-}

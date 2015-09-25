@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-namespace KnightlyTales{
+
 	public class TextTyper : MonoBehaviour {
 
 
@@ -22,6 +22,7 @@ namespace KnightlyTales{
 		public bool Typing =false;
 
 		public Sprite tempTest;
+		// adjust if the string is longer than set line ammount
 		// Use this for initialization
 		void Start () {
 			ChatBubble = GameObject.FindGameObjectWithTag("ChatBubble").GetComponent<Image>();
@@ -217,4 +218,4 @@ namespace KnightlyTales{
 
 		}
 	}
-}
+

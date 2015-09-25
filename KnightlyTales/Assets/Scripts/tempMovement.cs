@@ -5,41 +5,55 @@ using System.Collections.Generic;
 
 public class tempMovement : MonoBehaviour {
 	public int movespeed = 8;
-	string tempDirection;
-	public ControlMovment  movement;
+	string Direction;
+	string LastKnownDirection;
+	ControlMovement  movement;
+
+
+
 	// Use this for initialization
 	void Start () {
-	
+		movement = FindObjectOfType<ControlMovement>();
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
 
+		MovementCase();
+	}
+
+
+	void MovementCase()
+	{
 		if(movement.InControlRegion)
 		{
-			tempDirection = movement.dir;
-			Debug.Log(tempDirection);
-			switch(tempDirection)
-			{
+			Direction = movement.dir;
+		//	Debug.Log(tempDirection);
+			if(Direction != "CENTER")
+				LastKnownDirection = Direction;
 
-			case "UP":
-			   transform.position += transform.up * Time.deltaTime * movespeed;
-				break;
 		
+			switch(Direction)
+			{
+				
+			case "UP":
+				transform.position += transform.up * Time.deltaTime * movespeed;
+				break;
+				
 			case "DOWN":
 				transform.position -= transform.up * Time.deltaTime * movespeed;
 				break;
-
+				
 			case "RIGHT":
 				transform.position += transform.right * Time.deltaTime * movespeed;
 				break;
 			case "LEFT":
-
+				
 				transform.position -= transform.right * Time.deltaTime * movespeed;
 				break;
-			
-			 default:
-
+				
+			default:
+				
 				break;
 			}
 		}

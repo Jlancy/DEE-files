@@ -4,8 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-namespace KnightlyTales
-{
+
 	public class Inventory : MonoBehaviour
 	{
 
@@ -28,6 +27,7 @@ namespace KnightlyTales
 		public int SlotNumber;
 		private GameObject StorageSwap;
 		public int StorageSlot = 3;
+		SlotManger slotmanger;	
 
 		public void showToolTip (Vector3 toolPosition, Item item)
 		{
@@ -91,7 +91,7 @@ namespace KnightlyTales
 
 		}
 		void Start ()
-		{
+		{	slotmanger = FindObjectOfType<SlotManger>();
 			SlotNumberStart = 0;
 			PageButton = new Button[PageCount]; 
 		
@@ -161,7 +161,11 @@ namespace KnightlyTales
 			//}
 			//AddItem(1);
 			Items [60] = database.items [1];
-
+			AddItem(1);
+		for(int i = 11 ; i <19 ; i++)
+		{
+			AddItem(i);
+		}
 		}
 
 
@@ -171,7 +175,7 @@ namespace KnightlyTales
 			if (draggingItem) {
 				//needs fix. dragged icon too far right.
 				Vector3 position = (Input.mousePosition);
-				draggedItemGameObject.GetComponent<RectTransform>().position = new Vector3 (position.x -20, position.y +20 ,0); 
+				draggedItemGameObject.GetComponent<RectTransform>().position = new Vector3 (position.x +20, position.y -35 ,0); 
 			}
 		}
 
@@ -211,6 +215,7 @@ namespace KnightlyTales
 					}
 				}
 			}
+			slotmanger.updateCheck =true;
 		}
 
 		public void removeItem (int ID, int slot)
@@ -226,4 +231,4 @@ namespace KnightlyTales
 
 
 	}
-}
+

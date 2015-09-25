@@ -2,8 +2,7 @@
 using System.Collections;
 
 
-namespace KnightlyTales
-{
+
 	public class tempAddItem : MonoBehaviour {
 		Inventory inv;
 		public ItemDatabase itemD;
@@ -21,4 +20,4 @@ namespace KnightlyTales
 			}
 		}
 	}
-}
+

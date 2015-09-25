@@ -3,8 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 
 // attached to SlideOutINV
-namespace KnightlyTales
-{
+
 	public class SlotManger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
 		[HideInInspector]
 		public int lastSlotNumber; 				// last slot number hovered over
@@ -18,6 +17,8 @@ namespace KnightlyTales
 		public bool updateCheck = false;		// check if the inventory needs updating 
 		public int SlotNumberMod = 0;
 		int InvIndex = 0;
+
+		public LayerMask layer;
 		// Use this for initialization
 		void Start () {
 			inventory = GameObject.FindGameObjectWithTag ("Inventory").GetComponent<Inventory> ();
@@ -68,7 +69,7 @@ namespace KnightlyTales
 
 				if(inventory.Items[InvIndex].itemStackable)
 				{
-					Debug.Log(InvIndex);
+					//Debug.Log(InvIndex);
 					slotList[i].itemAmount.enabled = true;  							// enabel the text componet for the amount
 					slotList[i].itemAmount.text = "" + inventory.Items[InvIndex].itemValue;	// put the amount collected in text to display
 				}
@@ -115,4 +116,4 @@ namespace KnightlyTales
 		//
 		//****
 	}
-}
+

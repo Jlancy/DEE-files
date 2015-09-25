@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace KnightlyTales{
+
 	[System.Serializable]
 	public class Dialogue  {
 
@@ -52,4 +52,4 @@ namespace KnightlyTales{
 
 
 	}
-}
+

@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace KnightlyTales
-{
 
 	public class DialogueDataBase : MonoBehaviour {
 
@@ -120,4 +118,4 @@ namespace KnightlyTales
 
 
 	}
-}
+

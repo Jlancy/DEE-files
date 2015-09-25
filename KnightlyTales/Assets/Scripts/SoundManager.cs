@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace KnightlyTales
-{
+
 	public class SoundManager : MonoBehaviour 
 	{
 		public AudioSource efxSource;					//Drag a reference to the audio source which will play the sound effects.
@@ -58,4 +57,4 @@ namespace KnightlyTales
 			efxSource.Play();
 		}
 	}
-}
+

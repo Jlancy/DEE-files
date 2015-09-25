@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-namespace KnightlyTales
-{
+
 	public class PlayerHealth : MonoBehaviour {
 		RectTransform border;
 
@@ -81,4 +80,4 @@ namespace KnightlyTales
 
 		}
 	}
-}
+

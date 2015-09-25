@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace KnightlyTales
-{
+
 	using System.Collections.Generic;		//Allows us to use Lists. 
 	using UnityEngine.UI;					//Allows us to use UI.
 	
@@ -209,5 +208,5 @@ namespace KnightlyTales
 			}
 		}
 	}
-}
+
 

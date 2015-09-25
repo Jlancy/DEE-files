@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace KnightlyTales
-{
+
 	public class ItemDatabase : MonoBehaviour
 	{
 		public List<Item> items = new List<Item> ();
@@ -68,4 +67,3 @@ namespace KnightlyTales
 			items.Add (new Item ("Wagon Wheel", 91, "N/A", 0, 1, false, Item.ItemType.QuestItem,10));
 		}
 	}
-}

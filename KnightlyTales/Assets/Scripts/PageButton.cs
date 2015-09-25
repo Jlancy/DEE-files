@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-namespace KnightlyTales
-{
+
 	public class PageButton : MonoBehaviour {
 
 		public int PageNumberStart;
@@ -27,4 +26,4 @@ namespace KnightlyTales
 			slotManger.updateCheck = true;
 		}
 	}
-}
+

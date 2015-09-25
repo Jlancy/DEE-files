@@ -2,8 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-namespace KnightlyTales
-{
+
 	public class PlayerAttackOrDefend : MonoBehaviour
 	{
 		public Text ammoText;
@@ -111,5 +110,5 @@ namespace KnightlyTales
 			isShooting = false;
 		}
 	}
-}
+
 

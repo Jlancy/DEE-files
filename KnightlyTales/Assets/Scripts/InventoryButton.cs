@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-namespace KnightlyTales
-{
+
 	public class InventoryButton : MonoBehaviour {
 		public AnimationCurve SlideCurve;
 		float GrowthValue;
@@ -70,9 +69,10 @@ namespace KnightlyTales
 			
 			else
 			{
+				
 				inventoryManger.updateCheck = true;
 				b_grow = true;
 			}
 		}
 	}
-}
+

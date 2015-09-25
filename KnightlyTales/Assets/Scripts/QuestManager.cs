@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-namespace KnightlyTales{
+
 	public class QuestManager : MonoBehaviour {
 
 		public List<Quest> SubQuest =  new List<Quest>();
@@ -13,19 +13,23 @@ namespace KnightlyTales{
 		public DialogueGenerator genrator;   // find these in script, instead of manualy linking
 		public ItemDatabase itemDatabase;
 		public Inventory inventory;	//mess with this scirpt  and others to auto add missing componet so they dont whine
-		public int ammountOfQuests;
-		public int QuestNumber;
+		//public int ammountOfQuests;
+		//public int QuestNumber;
 	
 		bool QuestAdded;
 		int count;
 		int CurrentItemAmmount;
-		int CurrentQuestAmmount = 0;
+		
+		[HideInInspector]
+		public bool MakeItems = true;
+		[HideInInspector]
+		public bool GenerateQuest = true;
 
 
 
 		// Use this for initialization
 		void Start () {
-
+		inventory =FindObjectOfType<Inventory>();
 
 		}
 		
@@ -33,24 +37,33 @@ namespace KnightlyTales{
 		void Update () {
 			// testing
 
-		
-			if(QuestItems.Count == 0 )
+
+			if(MakeItems)
 			{
 				// this count is temporay till we get more item groups.
 				// it make there are a mostly even number of items to avoid issues  
 				count = QuestItemAmount / (genrator.ItemGroups.Count- 1);
+				if( count >=1)
+				count = 2;
+			//Debug.Log(MakeItems);
 				// function to generate the quest items
 				QuestItemGenerator();
+				MakeItems = false;
+				CurrentItemAmmount= 0;
 			
 			}
-			if(SubQuest.Count == 0)
-			{
 
+			if(GenerateQuest)
+			{
+				
 				// make quest list
 				QuestList(QuestItems.Count);
+				
+				GenerateQuest =false;
 
 		
 			}
+			
 			// temp testing invetory checking 
 			//inventory.Items.Add(SubQuest[0]._RequiredItem);
 							
@@ -123,7 +136,7 @@ namespace KnightlyTales{
 		private void QuestItemGenerator()
 		{
 			// loop for the amout of items you want to generate for thequest
-		
+
 			for(int i = 0; i < QuestItemAmount; i++)
 			{
 				// should reconsider name
@@ -131,7 +144,7 @@ namespace KnightlyTales{
 				ItemGroupAdd();
 		
 			}
-
+			
 		}
 
 		// random number is selected from the available itemGroup number
@@ -278,9 +291,12 @@ namespace KnightlyTales{
 				if(inventory.Items.Contains(CurrentQuest._RequiredItem))
 				{
 					CurrentQuest._QuestCompleted = true;
-					inventory.Items.Add(CurrentQuest._RewardItem);
-				// notify player
-				Debug.Log("yay");
+					//inventory
+					
+					inventory.AddItem(CurrentQuest._RewardItem.itemID);
+					//Debug.Log(
+					// notify player
+					Debug.Log("yay");
 				}
 				else
 				{
@@ -319,4 +335,3 @@ namespace KnightlyTales{
 			}
 		}
 	}
-}

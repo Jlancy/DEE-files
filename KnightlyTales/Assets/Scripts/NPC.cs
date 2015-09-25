@@ -3,32 +3,39 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace KnightlyTales{
+
 	public class NPC : MonoBehaviour {
 		public string DefaultPharse;
 		string TestString;
 
 
-		public ItemDatabase ItemList;
-		public DialogueDataBase DialogueList;
-		public DialogueGenerator DialogueTemp;
-		public QuestManager QuestGene;
-		Quest questVillager;
+		
+		DialogueDataBase DialogueList;
+		DialogueGenerator DialogueTemp;
+		QuestManager QuestGenerate;
+		public Quest questVillager;
 		string tempInstructions;
 
 		int i = 0 ;
 
 
-		public Inventory inv;
-		public TextTyper Talk;
+		
+		TextTyper Talk;
 
 		Image Portrait;
-		int t = 0;
-		bool IsTalking = false;
+		public bool PlayerHasItem = false;
+		public bool IsTalking = false;
+		string NPC_Name;
+		
 		// Use this for initialization
 		void Start () {
-	
-			//find The chatBubble
+
+
+		DialogueList = FindObjectOfType<DialogueDataBase>();
+		DialogueTemp = GameObject.FindGameObjectWithTag("Item Database").GetComponent<DialogueGenerator>();
+		QuestGenerate    = GameObject.FindGameObjectWithTag("Item Database").GetComponent<QuestManager>();
+		Talk = FindObjectOfType<TextTyper>();
+		//find The chatBubble
 			// need to create one if it doesnt exit
 
 			/*
@@ -62,46 +69,41 @@ namespace KnightlyTales{
 		{
 			//Debug.Log(Talk.Typing);
 //			Debug.Log(ChatLine[1].GetComponent<Text>().text.Length);
-			questVillager = QuestGene.SubQuest[i];
-
+			//questVillager = QuestGenerate.SubQuest[i];
+			
 		
 			if(IsTalking )
 			{
-				if(DialogueTemp.DialogueEvent[i]._Person != Dialogue.Person.QuestGiver)
-				{
-					Talk.PortriatCase(DialogueTemp.DialogueEvent[i]._Person);
-				}
+
 
 				if (!Talk.Typing)
 				{
 
+				Debug.Log("derp");
+					if(Input.GetMouseButtonDown(0))
+					{
 
-						if(Input.GetMouseButtonDown(0))
+						if(PlayerHasItem)
 						{
+							QuestGenerate.QuestCompletedCheck(questVillager);
+						}	
+						
+						Talk.EndText();
+						IsTalking = false;
+						
 
-								
-							if(i+1 < DialogueTemp.DialogueEvent.Count)
-							{
-								Talk.SkipText =false;
-								i++;
-								Talk.StartText(DialogueTemp.DialogueEvent[i]._Phrase);
-							}
-							else
-							{
-								i = 0;
-								Talk.EndText();
-								IsTalking = false;
-							}
-
-						}
+					}
 
 
 				}
+
 
 				else if(Input.GetMouseButtonDown(0))
 				{
 					Talk.SkipText = true;
 				}
+
+				
 			}
 			//QuestGene.QuestCompletedCheck(questVillager);
 			//tempQuest = new Quest(ItemList.items[11],1000,Quest.QuestType.main);
@@ -113,12 +115,22 @@ namespace KnightlyTales{
 
 
 		}
-		void OnTriggerEnter2D(Collider2D other)
+
+		public void QuestTalk()
 		{
 			//tempQuest._QuestCompleted = true;
 			//ImportanPersonTalking();
 			//PortriatCase(DialogueTemp.DialogueEvent[i]._Person);
-			Talk.StartText(DialogueTemp.DialogueEvent[i]._Phrase);
+			if(!IsTalking)
+			{	
+				if(!PlayerHasItem)
+				Talk.StartText(questVillager._QuestInstructions);
+
+				else
+				Talk.StartText(questVillager._RewardText);
+			}
+			
+
 			IsTalking = true;
 			//StartCoroutine(JustInCase());
 
@@ -128,50 +140,26 @@ namespace KnightlyTales{
 			//StartCoroutine(TypeText(questVillager._QuestInstructions));
 			//Talk.StartText(questVillager._QuestInstructions);
 		}
-		void OnTriggerExit2D(Collider2D other)
-		{
-			Talk.EndText();
+		//void OnTriggerExit2D(Collider2D other)
+		//{
+		//	Talk.EndText();
 			//StopCoroutine(TypeText(DefaultPharse));
 		
 
-			i++;
+			//i++;
 
 
-		}
+		//}
 
-		void ImportanPersonTalking()
-		{
-
-
-
-
-
-				
-				
-		}
+		
 
 
 
 
-		IEnumerator JustInCase()
-		{
-
-
-			while(IsTalking)
-			{
-				if (Talk.Typing)
-				{
-					IsTalking = Talk.Typing;
-				}
-			}
-
-			yield return new WaitForSeconds(25);
-			IsTalking = true;
-
-		}
+	
 
 
 
 
 	}
-}
+
