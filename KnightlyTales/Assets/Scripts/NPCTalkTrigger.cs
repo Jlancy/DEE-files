@@ -64,7 +64,7 @@ public class NPCTalkTrigger : MonoBehaviour {
 
 		if(hit.transform != null)
 		{
-			Debug.Log(hit.transform.tag);
+			//Debug.Log(hit.transform.tag);
 			if(hit.transform.tag == "NPC")
 			{
 				FoundNPC = true;
@@ -81,7 +81,7 @@ public class NPCTalkTrigger : MonoBehaviour {
 	}
 	void CheckIfPLayerHasItem()
 	{
-		Debug.Log(inventroy.Items.Contains(npc.questVillager._RequiredItem));
+		//Debug.Log(inventroy.Items.Contains(npc.questVillager._RequiredItem));
 		if(inventroy.Items.Contains(npc.questVillager._RequiredItem));
 		{
 			npc.PlayerHasItem = true;

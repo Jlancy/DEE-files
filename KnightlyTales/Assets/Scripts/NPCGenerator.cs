@@ -11,7 +11,7 @@ public class NPCGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		questManger = FindObjectOfType<QuestManager>();
-		AmmountOfNPC = questManger.QuestItemAmount - 1 ;
+		AmmountOfNPC = questManger.AmmountOfQuests;
 		NPC_List = new GameObject[AmmountOfNPC];
 	
 	}

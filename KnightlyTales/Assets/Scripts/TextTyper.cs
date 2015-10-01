@@ -67,10 +67,11 @@ using UnityEngine.UI;
 		void disableChatBubble()
 		{
 			//stopText = true;
+	
 			ChatBubble.enabled = false;
 			ChatLine.text ="";
 			ChatLine.enabled = false;
-			
+			Debug.Log("did a thing");
 			stopText = true;
 		}
 
@@ -211,7 +212,7 @@ using UnityEngine.UI;
 				}
 				tempHolder = null;
 				Typing = false;
-				Debug.Log(Typing);
+//				Debug.Log(Typing);
 				
 			}
 

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-	public class SlotScript : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
+public class SlotScript : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
 	{
 
 		public Item item;
@@ -73,7 +73,7 @@ using UnityEngine.EventSystems;
 
 		public void OnPointerDown (PointerEventData data)
 		{
-			Debug.Log("derp");
+			//Debug.Log("derp");
 			if (inventory.draggingItem) {
 				SetIndex();
 
@@ -89,7 +89,13 @@ using UnityEngine.EventSystems;
 
 		}
 
-
+		public void OnPointerUp(PointerEventData data)
+		{
+		if (inventory.Items [InventoryIndex].itemName != null && !inventory.draggingItem) {
+			inventory.showToolTip (inventory.Slots [InventoryIndex].GetComponent<RectTransform> ().localPosition, inventory.Items [InventoryIndex]);
+			
+		}
+		}
 
 
 		
@@ -104,10 +110,7 @@ using UnityEngine.EventSystems;
 	
 			inventory.dragOn = slotNumber;
 
-			if (inventory.Items [InventoryIndex].itemName != null && !inventory.draggingItem) {
-				inventory.showToolTip (inventory.Slots [InventoryIndex].GetComponent<RectTransform> ().localPosition, inventory.Items [InventoryIndex]);
-
-			}
+			
 
 			/*
 			else{

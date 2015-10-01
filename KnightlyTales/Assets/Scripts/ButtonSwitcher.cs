@@ -49,11 +49,13 @@ public class ButtonSwitcher : MonoBehaviour {
 
 	void SwitchButton()
 	{
-			Debug.Log(buttonState);
-			//button.onClick.RemoveAllListeners();
+			//Debug.Log(buttonState);
+			button.onClick.RemoveAllListeners();
+				
 			switch(buttonState)
 			{
 			case ButtonState.Attack:
+			npc = null;
 				button.image.color = Color.blue;
 				break;
 			case ButtonState.Talk:
@@ -62,6 +64,7 @@ public class ButtonSwitcher : MonoBehaviour {
 
 				break;
 			case ButtonState.Shop:
+			npc= null;
 				button.image.color = Color.green;
 				break;
 			default:
@@ -69,12 +72,13 @@ public class ButtonSwitcher : MonoBehaviour {
 			}
 		ButtonSet = true;
 	}
+
 	void LerpButton()
 	{	
 		if(ButtonChange)
 		{
 
-			Debug.Log(Lerp <= 1);
+			//Debug.Log(Lerp <= 1);
 			if(!MoveBack && Lerp <= 1)
 			{
 				timer +=  Time.deltaTime ;
@@ -108,9 +112,6 @@ public class ButtonSwitcher : MonoBehaviour {
 				}
 			}
 
-
-			 
-
 		}
 		//else 
 		//	timer = 0;
@@ -122,8 +123,8 @@ public class ButtonSwitcher : MonoBehaviour {
 
 	void Talk()
 	{
-		Debug.Log(npc.questVillager._RequiredItem.itemName);
-
+//		Debug.Log(npc.questVillager._RequiredItem.itemName);
+		if(npc != null)
 		npc.QuestTalk();
 	}
 

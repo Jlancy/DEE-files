@@ -32,9 +32,9 @@ using UnityEngine.Events;
 		public void showToolTip (Vector3 toolPosition, Item item)
 		{
 			toolTip.SetActive (true);
-			toolTip.GetComponent<RectTransform> ().localPosition = 
-			new Vector3 (toolPosition.x - 20, toolPosition.y - 255, toolPosition.z + 50);
-			toolTip.transform.GetChild (0).GetComponent<Text> ().text = toolTipText (item);
+			//toolTip.GetComponent<RectTransform> ().localPosition = 
+			//new Vector3 (toolPosition.x - 20, toolPosition.y - 255, toolPosition.z + 50);
+			toolTip.transform.GetChild(0).GetComponent<Text> ().text = toolTipText (item);
 		}
 	
 		//Creates the text that shows up in the tooltip.
@@ -63,7 +63,7 @@ using UnityEngine.Events;
 	
 		public void closeToolTip ()
 		{
-			toolTip.SetActive (false);
+			//toolTip.SetActive (false);
 		}
 
 		public void showDraggedItem (Item item)

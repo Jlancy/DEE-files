@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExitHandler, IPointerUpHandler{
+public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExitHandler, IPointerUpHandler , IPointerDownHandler{
 
 	public bool InControlRegion =false;
 	public LayerMask layer;
@@ -32,6 +32,13 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 		InControlRegion = true;
 
 
+	}
+	public void OnPointerDown(PointerEventData data)
+		
+	{
+		InControlRegion = true;
+		
+		
 	}
 	public void OnPointerExit(PointerEventData data)
 	{

@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 8de670b33952441e49981c43589279f1
-timeCreated: 1434664194
+timeCreated: 1443707521
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - slots: {fileID: 191198, guid: b049aabb44efb44a7afd43a5ac03d976, type: 2}
+  - toolTip: {instanceID: 0}
+  - draggedItemGameObject: {instanceID: 0}
+  - Page: {fileID: 145176, guid: ab1d783d410324e479aa3575f8431abb, type: 2}
   executionOrder: 200
   icon: {instanceID: 0}
   userData: 
