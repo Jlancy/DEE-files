@@ -61,10 +61,10 @@ public class NPCTalkTrigger : MonoBehaviour {
 		
 		RaycastHit2D hit =Physics2D.Raycast(PlayerPos ,RayDirection,10,NPC_Layer);
 
-
+		Debug.Log(hit.transform.name);
 		if(hit.transform != null)
 		{
-			//Debug.Log(hit.transform.tag);
+			Debug.Log(hit.transform.name);
 			if(hit.transform.tag == "NPC")
 			{
 				FoundNPC = true;
@@ -81,9 +81,12 @@ public class NPCTalkTrigger : MonoBehaviour {
 	}
 	void CheckIfPLayerHasItem()
 	{
-		//Debug.Log(inventroy.Items.Contains(npc.questVillager._RequiredItem));
-		if(inventroy.Items.Contains(npc.questVillager._RequiredItem));
+		//bool HasItem = false;
+		//HasItem = inventroy.Items.Contains(npc.questVillager._RequiredItem);
+
+		if(inventroy.CheckItem(npc.questVillager._RequiredItem))
 		{
+			Debug.Log(inventroy.Items.Contains(npc.questVillager._RequiredItem));
 			npc.PlayerHasItem = true;
 		}
 		  

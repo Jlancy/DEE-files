@@ -160,12 +160,12 @@ using UnityEngine.Events;
 				 // database.items [1];
 			//}
 			//AddItem(1);
-			Items [60] = database.items [1];
-			AddItem(1);
-		for(int i = 11 ; i <19 ; i++)
-		{
-			AddItem(i);
-		}
+			Items [61] = database.items [0];
+			//AddItem(1);
+			//for(int i = 11 ; i <19 ; i++)
+			//{
+			//	AddItem(i);
+			//}
 		}
 
 
@@ -228,7 +228,10 @@ using UnityEngine.Events;
 				}
 			}
 		}
-
+	public bool CheckItem( Item item)
+	{
+		return Items.Contains(item);
+	}
 
 	}
 

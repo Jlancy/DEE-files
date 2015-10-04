@@ -25,7 +25,8 @@ public class NPCGenerator : MonoBehaviour {
 				for(int i= 0 ; i < AmmountOfNPC; i++)
 				{	GameObject temp = Instantiate(npcPrefab);
 					temp.GetComponent<NPC>().questVillager = questManger.SubQuest[i];
-					NPC_List[i] = temp;
+					temp.transform.position =new Vector2(10,10 + (i * 4));
+					NPC_List[i] = temp; 
 
 				}
 				CreatedNPC =true;

@@ -7,6 +7,7 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 	public bool InControlRegion =false;
 	public LayerMask layer;
 	public string dir;
+	string LastKnownDirection;
 	private GameObject player;
 	ButtonSwitcher buttonSwitcher;
 
@@ -21,21 +22,23 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 
 		if(InControlRegion)
 		{
+			 
 			RaycastCheck();
+			//Debug.Log(dir);
 		}
 		//Debug.Log("derp");
 	}
 
 	public void OnPointerEnter(PointerEventData data)
-
 	{
+		//Debug.Log("inRegion");
 		InControlRegion = true;
 
 
 	}
-	public void OnPointerDown(PointerEventData data)
-		
+	public void OnPointerDown(PointerEventData data)	
 	{
+		//Debug.Log("inRegion");
 		InControlRegion = true;
 		
 		
@@ -58,12 +61,13 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 		Vector2 ray =  Camera.main.ScreenPointToRay(Input.mousePosition).origin ;
 		RaycastHit2D hit =Physics2D.Raycast(ray,Vector3.forward,20,layer);
 		
-		
+		//Debug.Log(hit.transform.name);
 		//Debug.Log(ray.origin);
 		if (hit.collider !=null) {
 
-			dir = hit.transform.gameObject.name;
-			
+			dir = hit.transform.name;
+			if (hit.transform.name !="CENTER")
+				LastKnownDirection = hit.transform.name;
 			// Do something with the object that was hit by the raycast.
 		}
 		else

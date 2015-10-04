@@ -59,7 +59,7 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 		RaycastHit2D hit =Physics2D.Raycast(ray,Vector3.forward,20,layer);
 		
 		
-		//Debug.Log(ray.origin);
+		Debug.Log(hit.transform.name);
 		if (hit.collider !=null) {
 
 			dir = hit.transform.gameObject.name;

@@ -14,20 +14,20 @@ using UnityEngine.UI;
 		public Text ChatLine;
 		public int LineLength = 85;
 
-		Image Portrait   ;
-		bool PortraitActive = false;
+		//Image Portrait   ;
+		//bool PortraitActive = false;
 		char CharSpace = ' ';
 		char ColorCheck  = '1';
 		char ColorEndCeck = '2';
 		public bool Typing =false;
 
-		public Sprite tempTest;
+		//public Sprite tempTest;
 		// adjust if the string is longer than set line ammount
 		// Use this for initialization
 		void Start () {
 			ChatBubble = GameObject.FindGameObjectWithTag("ChatBubble").GetComponent<Image>();
 
-			Portrait = GameObject.FindGameObjectWithTag("Portrait").GetComponent<Image>();
+			//Portrait = GameObject.FindGameObjectWithTag("Portrait").GetComponent<Image>();
 			GameObject TextContainer = GameObject.FindGameObjectWithTag("ChatContainer");
 			ChatLine = GameObject.FindGameObjectWithTag("ChatText").GetComponent<Text>();
 
@@ -36,7 +36,7 @@ using UnityEngine.UI;
 		
 		// Update is called once per frame
 		void Update () {
-		
+		Debug.Log("stoptext ="+stopText);
 		}
 
 
@@ -84,7 +84,7 @@ using UnityEngine.UI;
 
 
 
-
+	/*
 		public void PortriatCase(Dialogue.Person person )
 		{
 
@@ -113,7 +113,7 @@ using UnityEngine.UI;
 		{
 			Portrait = null;
 		}
-
+*/
 		IEnumerator TypeText(string TextToDisplay)
 		{
 
@@ -195,9 +195,9 @@ using UnityEngine.UI;
 				
 				
 			}
-
+			
 			if(tempHolder != null)
-			{
+			{	
 
 				foreach(char tempLetter in tempHolder)
 				{

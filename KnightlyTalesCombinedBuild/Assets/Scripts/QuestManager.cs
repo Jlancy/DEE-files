@@ -92,7 +92,7 @@ public class QuestManager : MonoBehaviour {
 		for(int i = 0; i < HowManyQuests; i++)
 		{
 
-		Debug.Log(currentQuestItem.itemName);
+		//Debug.Log(currentQuestItem.itemName);
 			// loop  to match the item to the right dialogue 
 			for(int d = 0 ; d < genrator.QuestDialogueStartIndex.Count; d++)
 			{
@@ -153,7 +153,7 @@ public class QuestManager : MonoBehaviour {
 
 	void KeyQuest()
 	{	KeyAmmount(1);
-		Debug.Log("hmm");
+
 		int LastQuestIndex = SubQuest.Count-1;
 		int LastIndex = genrator.QuestDialogueStartIndex.Count -1;
 
@@ -162,6 +162,7 @@ public class QuestManager : MonoBehaviour {
 		// quest instructions
 		string temp = genrator.QuestDialogueInstructions(genrator.QuestDialogueStartIndex[LastIndex],QuestItems[0], 
 		                                                 tempItem);
+		//Debug.Log(temp);
 		// quest reward dialogue
 		string temp2 = genrator.QuestDialougeGiveReward(genrator.QuestDialogueStartIndex[LastIndex],tempItem );
 		//the quest

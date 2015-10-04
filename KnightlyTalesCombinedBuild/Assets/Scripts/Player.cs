@@ -5,13 +5,22 @@ public class Player : GridMovement {
 	Animator anim;
 	bool isDoingSomething = false;		//can change to busy later, flag that the player is doing something besides moving
 	private int health = 100;			//health counter
+	ControlMovement  movement;
+	string Direction;
 
+	bool MovementPause =false;
 	protected override void Start () {
 		base.Start ();
 		anim = GetComponent<Animator> ();
-	}
+		movement = FindObjectOfType<ControlMovement>();
 
+	}
+	private void LateUpdate()
+	{
+
+	}
 	private void Update () {
+		MovementCase();
 		//If the object is not in motion, do input check. 
 		//isMoving is true while the coroutine Move() is running.
 		if (Input.GetKeyDown (KeyCode.X)) {
@@ -58,7 +67,7 @@ public class Player : GridMovement {
 				AttemptMove();
 			} else {
 				//If nothing is happening, set all animator parameter to false
-				anim.SetBool ("isWalking", false);
+				//anim.SetBool ("isWalking", false);
 			}
 		}
 	}
@@ -130,6 +139,85 @@ public class Player : GridMovement {
 			MovableObject hitObj = component as MovableObject;
 			hitObj.AttemptPush (rBody.position);
 		}
+	}
+
+	// get the ContolMovement. it raycast forthe Dpad if the player is touching, clicking in that area. 		
+	void MovementCase()
+	{
+		if(movement.InControlRegion && !isMoving )
+		{
+			Direction = movement.dir;
+			//	Debug.Log(tempDirection);
+
+			
+			
+			switch(Direction)
+			{
+				
+			case "UP":
+				orientation = new Vector2(0,1);
+				//transform.position += transform.up * Time.deltaTime * movespeed;
+				break;
+				
+			case "DOWN":
+				orientation = new Vector2(0,-1);
+				//transform.position -= transform.up * Time.deltaTime * movespeed;
+				break;
+				
+			case "RIGHT":
+				orientation = new Vector2(1,0);
+				//transform.position += transform.right * Time.deltaTime * movespeed;
+				break;
+			case "LEFT":
+				orientation = new Vector2(-1,0);
+				//transform.position -= transform.right * Time.deltaTime * movespeed;
+				break;
+				
+			default:
+				orientation = new Vector2(0,0);
+
+				break;
+			}
+
+
+			if(!MovementPause &&Direction!= "CENTER")
+			StartCoroutine(MovePause(orientation));
+
+		}
+		anim.SetFloat ("xInput", orientation.x);
+		anim.SetFloat ("yInput", orientation.y);
+		
+		if(orientation != Vector2.zero)
+			anim.SetBool ("isWalking", true);
+		
+		else
+			anim.SetBool("isWalking", false);
+
+	}
+	public IEnumerator MovePause( Vector2 temp)
+	{
+		MovementPause = true;
+
+		if( !isMoving)
+		{
+			//Debug.Log("entered");
+			orientation = temp;
+
+
+		currentPosition = rBody.position;
+
+		//essentially endPosition = currentPosition + (the sign of input(+/-) * grid size	
+		endPosition = new Vector2 (currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
+		                           currentPosition.y + System.Math.Sign (orientation.y) * gridSize);
+		//print ("current position = " + currentPosition);
+		//print ("end position = " + endPosition);
+		AttemptMove();
+			yield return new  WaitForSeconds( 0.2f);
+			MovementPause = false;
+
+		}
+
+			
 	}
 
 
