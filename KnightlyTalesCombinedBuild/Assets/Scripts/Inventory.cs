@@ -40,6 +40,7 @@ using UnityEngine.Events;
 		//Creates the text that shows up in the tooltip.
 		public string toolTipText (Item item)
 		{
+			Debug.Log("String"+item.itemName);
 			string toolTipDescription = "";
 			//name
 			toolTipDescription =
@@ -134,6 +135,7 @@ using UnityEngine.Events;
 				
 				//slot.transform.parent = this.gameObject.transform;
 				slot.transform.SetParent(this.gameObject.transform);
+				slot.transform.localScale = new Vector2(1,1);
 				slot.name = "Slot " + (i);
 				//slot.GetComponent<RectTransform> ().localPosition = new Vector3 (x + k * 80, y - i * 80, 0);
 				
@@ -147,6 +149,7 @@ using UnityEngine.Events;
 				
 				//slot.transform.parent = this.gameObject.transform;
 				slot.transform.SetParent(StorageSwap.gameObject.transform);
+				slot.transform.localScale = new Vector2(1,1);
 				slot.name = "Slot " + (s+((PageCount * ItemPerPage) -StorageSlot));
 			}
 			//}
@@ -175,7 +178,7 @@ using UnityEngine.Events;
 			if (draggingItem) {
 				//needs fix. dragged icon too far right.
 				Vector3 position = (Input.mousePosition);
-				draggedItemGameObject.GetComponent<RectTransform>().position = new Vector3 (position.x +20, position.y -35 ,0); 
+				draggedItemGameObject.GetComponent<RectTransform>().localPosition = new Vector3 (position.x , position.y  ,0); 
 			}
 		}
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : GridMovement {
 	Animator anim;
 	bool isDoingSomething = false;		//can change to busy later, flag that the player is doing something besides moving
-	private int health = 100;			//health counter
+	public int health = 100;			//health counter
 	ControlMovement  movement;
 	string Direction;
 
@@ -144,12 +144,12 @@ public class Player : GridMovement {
 	// get the ContolMovement. it raycast forthe Dpad if the player is touching, clicking in that area. 		
 	void MovementCase()
 	{
-		if(movement.InControlRegion && !isMoving )
+		if(movement.InControlRegion  )
 		{
 			Direction = movement.dir;
-			//	Debug.Log(tempDirection);
+			//Debug.Log(Direction);
 
-			
+			anim.SetBool ("isWalking", true);
 			
 			switch(Direction)
 			{
@@ -174,24 +174,32 @@ public class Player : GridMovement {
 				break;
 				
 			default:
-				orientation = new Vector2(0,0);
 
 				break;
 			}
+			Debug.Log("vector"+orientation);
+		//	if(orientation != Vector2.zero)
 
+			
+		//	else
+		//	{
 
-			if(!MovementPause &&Direction!= "CENTER")
+			//}
+
+			if(!MovementPause && Direction != "CENTER" && !isMoving)
 			StartCoroutine(MovePause(orientation));
 
 		}
-		anim.SetFloat ("xInput", orientation.x);
-		anim.SetFloat ("yInput", orientation.y);
-		
-		if(orientation != Vector2.zero)
-			anim.SetBool ("isWalking", true);
-		
+
 		else
+		{
+			orientation = new Vector2(0,0);
+			Debug.Log("walkfalse");
 			anim.SetBool("isWalking", false);
+		}
+
+
+
 
 	}
 	public IEnumerator MovePause( Vector2 temp)
@@ -203,16 +211,17 @@ public class Player : GridMovement {
 			//Debug.Log("entered");
 			orientation = temp;
 
-
+			Debug.Log("temp"+temp);
 		currentPosition = rBody.position;
-
+			anim.SetFloat ("xInput", orientation.x);
+			anim.SetFloat ("yInput", orientation.y);
 		//essentially endPosition = currentPosition + (the sign of input(+/-) * grid size	
 		endPosition = new Vector2 (currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
 		                           currentPosition.y + System.Math.Sign (orientation.y) * gridSize);
 		//print ("current position = " + currentPosition);
 		//print ("end position = " + endPosition);
 		AttemptMove();
-			yield return new  WaitForSeconds( 0.2f);
+			yield return new  WaitForSeconds( 0.3f);
 			MovementPause = false;
 
 		}

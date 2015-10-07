@@ -23,8 +23,10 @@ public class TriggerAddItem : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D player)
 	{
-
+		if(player.transform.tag == "Player")
+		{
 		inventory.AddItem(itemID);
 		Destroy(this.gameObject);
+		}
 	}
 }

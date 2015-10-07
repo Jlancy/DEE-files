@@ -63,12 +63,14 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, 
 			if(StorageSlot)
 			{
 				InventoryIndex =slotNumber;
+
 			}
 			else
 			{
 				InventoryIndex = slotNumber+_slotManger.SlotNumberMod;
 			}
 
+		Debug.Log(InventoryIndex);
 		}
 
 		public void OnPointerDown (PointerEventData data)
@@ -91,10 +93,24 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, 
 
 		public void OnPointerUp(PointerEventData data)
 		{
-		if (inventory.Items [InventoryIndex].itemName != null && !inventory.draggingItem) {
-			inventory.showToolTip (inventory.Slots [InventoryIndex].GetComponent<RectTransform> ().localPosition, inventory.Items [InventoryIndex]);
+		int SlotToolTipIndex;
+		if(StorageSlot)
+		{
+			SlotToolTipIndex = slotNumber-61;
 			
 		}
+		else
+		{
+			SlotToolTipIndex = slotNumber;
+		}
+		//Debug.LogError("click"+slotNumber);
+		//Debug.LogError(inventory.Items[InventoryIndex]);
+
+			if (inventory.Items [InventoryIndex].itemName != null && !inventory.draggingItem) {
+				
+			inventory.showToolTip (inventory.Slots[SlotToolTipIndex].GetComponent<RectTransform>().localPosition, inventory.Items[InventoryIndex]);
+				
+			}
 		}
 
 
@@ -131,8 +147,9 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, 
 
 		public void OnDrag (PointerEventData data)
 		{		
-			SetIndex();
+			
 			if (inventory.Items[InventoryIndex].itemName != null) {
+			SetIndex();
 				_slotManger.originSlot = InventoryIndex;
 				inventory.draggingIndex = InventoryIndex;
 				Debug.Log(InventoryIndex);
@@ -167,13 +184,13 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, 
 			{//use item
 				Vector2 ray =  Camera.main.ScreenPointToRay(Input.mousePosition).origin ;
 				RaycastHit2D hit =Physics2D.Raycast(ray,Vector3.forward,20,_slotManger.layer);
-				Debug.Log(hit);
+				
 
 				if(hit.transform != null) 
 				{
 					if(hit.transform.tag == "Player"  )
 					{
-
+					Debug.Log(hit);
 						user.UseItem(inventory.draggedItem, inventory.draggingIndex);
 
 					}
@@ -188,6 +205,7 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, 
 					_slotManger.ReturnItemToLastSlot(_slotManger.originSlot);
 				}
 			}
+			inventory.closeDraggedItem ();
 			//else 
 			//	Debug.Log("outside");
 

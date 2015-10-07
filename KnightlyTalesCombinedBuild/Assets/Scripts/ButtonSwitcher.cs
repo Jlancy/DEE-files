@@ -19,19 +19,26 @@ public class ButtonSwitcher : MonoBehaviour {
 	public float LerpRate =0.1f;
 	float timer;
 	bool MoveBack = false;
-	Vector2 OriginPosition;
-	Vector2 TargetPosition;
+	Vector2 MinOrigin;
+	Vector2 MaxOrigin;
+	Vector2 MinEnd;
+	Vector2 MaxEnd;
 	public float TargetY = 100;
 	Button button;
 	Image image;
-
+	RectTransform ButtomRect;
 	bool ButtonSet;
 	public NPC npc;
 
 	// Use this for initialization
 	void Start () {
-		OriginPosition = this.transform.position;
-		TargetPosition = new Vector2(transform.position.x, transform.position.y - TargetY);
+		ButtomRect = GetComponent<RectTransform>();
+
+		MinOrigin = ButtomRect.offsetMin;
+		MaxOrigin = ButtomRect.offsetMax;
+		//TargetPosition = new Vector2(transform.position.x, transform.position.y - TargetY);
+		MinEnd = new Vector2(MinOrigin.x, MinOrigin.y - TargetY);
+		MaxEnd = new Vector2(MaxOrigin.x, MaxOrigin.y - TargetY);;
 		button = this.GetComponent<Button>();
 		buttonState = ButtonState.Attack;
 
@@ -89,8 +96,9 @@ public class ButtonSwitcher : MonoBehaviour {
 					if(!ButtonSet)
 					SwitchButton();
 				}
-
-				button.transform.position = Vector2.Lerp(OriginPosition,TargetPosition, Lerp);
+				ButtomRect.offsetMin = Vector2.Lerp(MinOrigin,MinEnd,Lerp);
+				ButtomRect.offsetMax = Vector2.Lerp(MaxOrigin,MaxEnd,Lerp);
+				//button.transform.position = Vector2.Lerp(OriginPosition,TargetPosition, Lerp);
 			}
 			else
 			{
@@ -101,7 +109,9 @@ public class ButtonSwitcher : MonoBehaviour {
 			{
 				timer -=  Time.deltaTime ;
 				Lerp = timer/LerpRate;
-				button.transform.position = Vector2.Lerp(OriginPosition,TargetPosition, Lerp);
+				ButtomRect.offsetMin = Vector2.Lerp(MinOrigin,MinEnd,Lerp);
+				ButtomRect.offsetMax = Vector2.Lerp(MaxOrigin,MaxEnd,Lerp);
+				//button.transform.position = Vector2.Lerp(OriginPosition,TargetPosition, Lerp);
 			
 				if(Lerp <= 0)
 				{

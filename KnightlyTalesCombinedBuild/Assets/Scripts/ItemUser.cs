@@ -16,7 +16,8 @@ using System.Collections;
 		{
 			switch (usedItem.itemType) {
 			case Item.ItemType.Potion:
-				UsePotion (usedItem.itemID, usedItem.itemHealth); 
+				//UsePotion (usedItem.itemID, usedItem.itemHealth); 
+			player.GainHealth(usedItem.itemHealth);
 				break;
 
 			case Item.ItemType.QuestItem:
@@ -33,7 +34,7 @@ using System.Collections;
 		{
 			switch (ID) {
 			case 1:
-				player.GainHealth(gain);
+				
 				break;
 			
 			default:

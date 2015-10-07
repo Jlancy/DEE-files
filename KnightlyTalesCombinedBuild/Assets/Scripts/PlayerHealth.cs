@@ -21,10 +21,13 @@ public class PlayerHealth : MonoBehaviour {
 
 	Vector2 MinOrigin;
 	Vector2 MaxOrigin;
-
+	Player player; 
 
 	// Use this for initialization
 	void Start () {
+		player = FindObjectOfType<Player>();
+		PlayerHpInital = player.health;
+		CurrentPlayerHp = PlayerHpInital;
 		border = this.gameObject.GetComponent<RectTransform>();
 		MinOrigin = border.offsetMin;
 		MaxOrigin = border.offsetMax;

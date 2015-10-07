@@ -2,12 +2,12 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExitHandler, IPointerUpHandler , IPointerDownHandler{
+public class ControlMovement : MonoBehaviour , IPointerUpHandler , IPointerDownHandler{
 
 	public bool InControlRegion =false;
 	public LayerMask layer;
 	public string dir;
-	string LastKnownDirection;
+	public string LastKnownDirection;
 	private GameObject player;
 	ButtonSwitcher buttonSwitcher;
 
@@ -18,8 +18,8 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void LateUpdate () {
+	//	Debug.Log ("in"+InControlRegion);
 		if(InControlRegion)
 		{
 			 
@@ -29,13 +29,7 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 		//Debug.Log("derp");
 	}
 
-	public void OnPointerEnter(PointerEventData data)
-	{
-		//Debug.Log("inRegion");
-		InControlRegion = true;
 
-
-	}
 	public void OnPointerDown(PointerEventData data)	
 	{
 		//Debug.Log("inRegion");
@@ -43,11 +37,7 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 		
 		
 	}
-	public void OnPointerExit(PointerEventData data)
-	{
-		InControlRegion = false;
-		dir = "CENTER";
-	}
+
 	public void OnPointerUp(PointerEventData data)
 	{
 		InControlRegion = false;
@@ -71,9 +61,8 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler , IPointerExi
 			// Do something with the object that was hit by the raycast.
 		}
 		else
-		{
-			dir = "CENTER";
-		}
+			dir ="CENTER";
+
 	}
 
 	

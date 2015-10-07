@@ -36,7 +36,7 @@ using UnityEngine.UI;
 		
 		// Update is called once per frame
 		void Update () {
-		Debug.Log("stoptext ="+stopText);
+		//Debug.Log("stoptext ="+stopText);
 		}
 
 
