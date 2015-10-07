@@ -5,8 +5,8 @@ public class Player : GridMovement {
 	Animator anim;
 	bool isDoingSomething = false;		//can change to busy later, flag that the player is doing something besides moving
 	public int health = 100;			//health counter
-	ControlMovement  movement;
-	string Direction;
+    ControlMovement movement;
+    private string direction;
 
 	bool MovementPause =false;
 	protected override void Start () {
@@ -21,17 +21,42 @@ public class Player : GridMovement {
 	}
 	private void Update () {
 		MovementCase();
+        ///////////////////////////////////////////
+        /*PLANNED ORDER: ATTACK > MOVEMENT > IDLE*/
+        ///////////////////////////////////////////
 		//If the object is not in motion, do input check. 
 		//isMoving is true while the coroutine Move() is running.
-		if (Input.GetKeyDown (KeyCode.X)) {
+		/*
+        if (Input.GetKeyDown (KeyCode.X)) {
 			StartCoroutine(Attacking());
 		}
+
+        */
 		if (!isMoving && !isDoingSomething){
-            orientation = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            //orientation = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 			//Check if we have worthwhile inputs a.k.a. some sort of input.
-			///////////////////////////////////////////
-			/*PLANNED ORDER: ATTACK > MOVEMENT > IDLE*/
-			///////////////////////////////////////////
+			/*
+            direction = movement.dir;
+            switch (direction)
+            {
+
+                case "UP":
+                    orientation = new Vector2(0, 1);
+                    break;
+                case "DOWN":
+                    orientation = new Vector2(0, -1);
+                    break;
+                case "RIGHT":
+                    orientation = new Vector2(1, 0);
+                    break;
+                case "LEFT":
+                    orientation = new Vector2(-1, 0);
+                    break;
+                default:
+                    orientation = Vector2.zero;
+                    break;
+            }
+            */
 
             if (orientation != Vector2.zero)
             {
@@ -71,6 +96,11 @@ public class Player : GridMovement {
 			}
 		}
 	}
+
+    public void Attack(){
+        Debug.Log("Attack");
+		StartCoroutine(Attacking());
+    }
 
     public void GainHealth(int gain)
     {
@@ -146,12 +176,12 @@ public class Player : GridMovement {
 	{
 		if(movement.InControlRegion  )
 		{
-			Direction = movement.dir;
+            direction = movement.dir;
 			//Debug.Log(Direction);
 
 			anim.SetBool ("isWalking", true);
-			
-			switch(Direction)
+
+            switch (direction)
 			{
 				
 			case "UP":
@@ -186,7 +216,7 @@ public class Player : GridMovement {
 
 			//}
 
-			if(!MovementPause && Direction != "CENTER" && !isMoving)
+            if (!MovementPause && direction != "CENTER" && !isMoving)
 			StartCoroutine(MovePause(orientation));
 
 		}

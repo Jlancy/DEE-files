@@ -29,6 +29,7 @@ public class ButtonSwitcher : MonoBehaviour {
 	RectTransform ButtomRect;
 	bool ButtonSet;
 	public NPC npc;
+    public Player player;
 
 	// Use this for initialization
 	void Start () {
@@ -41,9 +42,9 @@ public class ButtonSwitcher : MonoBehaviour {
 		MaxEnd = new Vector2(MaxOrigin.x, MaxOrigin.y - TargetY);;
 		button = this.GetComponent<Button>();
 		buttonState = ButtonState.Attack;
-
-
-
+        player = FindObjectOfType<Player>();
+        //Initail call of SwitchButton so we can attack at start
+        SwitchButton();
 
 	}
 	
@@ -64,9 +65,10 @@ public class ButtonSwitcher : MonoBehaviour {
 			case ButtonState.Attack:
 			npc = null;
 				button.image.color = Color.blue;
-				break;
+                button.onClick.AddListener(() => { Attack(); });
+                break;
 			case ButtonState.Talk:
-				
+                button.image.color = Color.red;
 				button.onClick.AddListener(() => { Talk();});
 
 				break;
@@ -129,6 +131,8 @@ public class ButtonSwitcher : MonoBehaviour {
 
 	void Attack()
 	{
+        if (player != null)
+        player.Attack();
 	}
 
 	void Talk()
