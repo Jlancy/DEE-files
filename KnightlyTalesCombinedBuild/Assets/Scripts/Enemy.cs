@@ -43,27 +43,44 @@ public class Enemy : MovableObject {
 	void ChaseTarget(){
 		currentPosition = transform.position;
 		Vector2 directionVector = Vector2.zero;
-		Vector2 targetPosition = target.transform.position;
-		Vector2 distanceVector = new Vector2 (targetPosition.x - currentPosition.x, targetPosition.y - currentPosition.y);
-		//Distance between 2 points
+		Vector2 targetPosition = target.transform.position; //Player Position 
+		Vector2 distanceVector = new Vector2 (targetPosition.x - currentPosition.x, targetPosition.y - currentPosition.y); //Player pos - Entity pos
+		
+        //Distance between 2 points
 		// D = sqrt((x - X)^2 + (y - Y)^2)
 		float playerDistance = Mathf.Sqrt (Mathf.Pow (distanceVector.x, 2) + Mathf.Pow (distanceVector.y, 2));
-		//print ("playerDistance = " + playerDistance);
 
 		if (playerDistance <= sightRange) {
-			if (distanceVector.x > distanceVector.y) {
-				if (targetPosition.x > currentPosition.x)
-					directionVector = new Vector3 (1f, 0f);
-				else
-					directionVector = new Vector3 (-1f, 0f);
-			} else if (distanceVector.y > distanceVector.x) {
-				if (targetPosition.y > currentPosition.y)
-					directionVector = new Vector3 (0f, 1f);
-				else
-					directionVector = new Vector3 (0f, -1f);
+            RaycastHit2D wallQuery;
+            bCollider.enabled = false;
+
+			if (Mathf.Abs(distanceVector.x) > Mathf.Abs(distanceVector.y)) {
+                directionVector = new Vector3(Mathf.Sign(distanceVector.x), 0f);
+                endPosition = new Vector3(currentPosition.x + directionVector.x,
+                    currentPosition.y + directionVector.y, 0f);
+                wallQuery = Physics2D.Linecast(currentPosition, endPosition, LayerMask.NameToLayer("Wall"));
+                if (wallQuery == null)
+                {
+                    directionVector = new Vector3(0f, Mathf.Sign(distanceVector.y));
+                    endPosition = new Vector3(currentPosition.x + directionVector.x,
+                        currentPosition.y + directionVector.y, 0f);
+                }
+
+			} else {
+                directionVector = new Vector3(0f, Mathf.Sign(distanceVector.y));
+                endPosition = new Vector3(currentPosition.x + directionVector.x,
+                    currentPosition.y + directionVector.y, 0f);
+                wallQuery = Physics2D.Linecast(currentPosition, endPosition, LayerMask.NameToLayer("Wall"));
+                if (wallQuery == null)
+                {
+                    directionVector = new Vector3(Mathf.Sign(distanceVector.x), 0f);
+                    endPosition = new Vector3(currentPosition.x + directionVector.x,
+                        currentPosition.y + directionVector.y, 0f);
+                }
 			}
-			endPosition = new Vector3 (currentPosition.x + directionVector.x, 
-				currentPosition.y + directionVector.y, 0f);
+			
+            bCollider.enabled = true;
+
 			anim.SetFloat ("xInput", directionVector.x);
 			anim.SetFloat ("yInput", directionVector.y);
 			anim.SetBool ("isWalking", true);
@@ -72,31 +89,6 @@ public class Enemy : MovableObject {
 			anim.SetFloat ("yInput", directionVector.y);
 			anim.SetBool ("isWalking", false);
 		}
-
-
-		/*
-		if (playerDistance < sightRange) {
-			RaycastHit2D sight;
-			sight = Physics2D.Linecast (currentPosition, targetPosition, blockingLayer);
-			if (sight == null) {
-				endPosition = currentPosition;
-				if (distanceVector.x > distanceVector.y) {
-					if (targetPosition.x > currentPosition.x)
-						endPosition.x = + 1f;
-					//endPosition.x = targetPosition.x > currentPosition.x ? 1 : -1;
-					else 
-						endPosition.x = - 1f;
-				} else if (distanceVector.y > distanceVector.x) {
-					if (targetPosition.y > currentPosition.y)
-						endPosition.y = + 1f;
-					else 
-						endPosition.y = - 1f;
-				}
-			}
-
-			//check is LoS is blocked
-			//May require an additional blocking layer
-		}*/
 	}
 
 	protected override void AttemptMove (){
@@ -119,3 +111,30 @@ public class Enemy : MovableObject {
 		}
 	}
 }
+
+//back up
+
+/*
+if (playerDistance < sightRange) {
+    RaycastHit2D sight;
+    sight = Physics2D.Linecast (currentPosition, targetPosition, blockingLayer);
+    if (sight == null) {
+        endPosition = currentPosition;
+        if (distanceVector.x > distanceVector.y) {
+            if (targetPosition.x > currentPosition.x)
+                endPosition.x = + 1f;
+            //endPosition.x = targetPosition.x > currentPosition.x ? 1 : -1;
+            else 
+                endPosition.x = - 1f;
+        } else if (distanceVector.y > distanceVector.x) {
+            if (targetPosition.y > currentPosition.y)
+                endPosition.y = + 1f;
+            else 
+                endPosition.y = - 1f;
+        }
+    }
+
+    //check is LoS is blocked
+    //May require an additional blocking layer
+}
+ */
