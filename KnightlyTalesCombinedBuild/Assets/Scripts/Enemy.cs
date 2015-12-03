@@ -8,12 +8,10 @@ public enum EnemyType : int {
 public class Enemy : MovableObject {
 	public float sightRange = 5f;
 	private Transform target;	//
-	public EnemyType enemyType;
+	public EnemyType enemyType = EnemyType.Melee;
 	Animator anim;
 
 	protected override void Start () {
-		if (enemyType == null)
-			enemyType = EnemyType.Melee;
 		base.Start ();
 		anim = GetComponent<Animator> ();
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -23,7 +21,7 @@ public class Enemy : MovableObject {
 		if (!isMoving) {
 			if (enemyType == EnemyType.Melee) {
 				ChaseTarget ();
-				AttemptMove ();
+				//AttemptMove (); // moved into ChaseTarget()
 				//Check to make sure the player info was found
 				//print("Player Read Coord = (" + target.position.x + ", " + target.position.y + ").");
 		
@@ -58,24 +56,41 @@ public class Enemy : MovableObject {
                 directionVector = new Vector3(Mathf.Sign(distanceVector.x), 0f);
                 endPosition = new Vector3(currentPosition.x + directionVector.x,
                     currentPosition.y + directionVector.y, 0f);
-                wallQuery = Physics2D.Linecast(currentPosition, endPosition, LayerMask.NameToLayer("Wall"));
-                if (wallQuery == null)
+                wallQuery = Physics2D.Linecast(currentPosition, endPosition, blockingLayer - LayerMask.NameToLayer("Player"));
+                //===================================================================================================                
+                //Fix/check the above, this should check if the collider is that of a blockinglayer except the player
+                //===================================================================================================
+                if (wallQuery.transform != null)
                 {
                     directionVector = new Vector3(0f, Mathf.Sign(distanceVector.y));
                     endPosition = new Vector3(currentPosition.x + directionVector.x,
                         currentPosition.y + directionVector.y, 0f);
+                    wallQuery = Physics2D.Linecast(currentPosition, endPosition, blockingLayer - LayerMask.NameToLayer("Player"));
+                    if (wallQuery.transform != null)
+                    {
+                        directionVector = new Vector3(0f, Mathf.Sign(-distanceVector.y));
+                        endPosition = new Vector3(currentPosition.x + directionVector.x,
+                            currentPosition.y + directionVector.y, 0f);
+                    }
                 }
 
 			} else {
                 directionVector = new Vector3(0f, Mathf.Sign(distanceVector.y));
                 endPosition = new Vector3(currentPosition.x + directionVector.x,
                     currentPosition.y + directionVector.y, 0f);
-                wallQuery = Physics2D.Linecast(currentPosition, endPosition, LayerMask.NameToLayer("Wall"));
-                if (wallQuery == null)
+                wallQuery = Physics2D.Linecast(currentPosition, endPosition, blockingLayer - LayerMask.NameToLayer("Player"));
+                if (wallQuery.transform != null)
                 {
                     directionVector = new Vector3(Mathf.Sign(distanceVector.x), 0f);
                     endPosition = new Vector3(currentPosition.x + directionVector.x,
                         currentPosition.y + directionVector.y, 0f);
+                    wallQuery = Physics2D.Linecast(currentPosition, endPosition, blockingLayer - LayerMask.NameToLayer("Player"));
+                    if (wallQuery.transform != null)
+                    {
+                        directionVector = new Vector3(Mathf.Sign(-distanceVector.x), 0f);
+                        endPosition = new Vector3(currentPosition.x + directionVector.x,
+                            currentPosition.y + directionVector.y, 0f);
+                    }
                 }
 			}
 			
@@ -89,6 +104,8 @@ public class Enemy : MovableObject {
 			anim.SetFloat ("yInput", directionVector.y);
 			anim.SetBool ("isWalking", false);
 		}
+
+        AttemptMove();
 	}
 
 	protected override void AttemptMove (){
@@ -104,10 +121,13 @@ public class Enemy : MovableObject {
 		}
 
 	}
-	protected override void OnCantMove<T> (T component){
-		if(component.CompareTag("Player")){
+	protected override void OnCantMove<T> (T component){    
+        if(component.CompareTag ("Player")){
 			Player hitObj = component as Player;
 			hitObj.TakeDamage (10);
+            // fixed the disease problem, (consistent damge ove time)
+            // now need to only apply getting hit once every so often
+            // either if we have enemy attack animation or something like that
 		}
 	}
 }

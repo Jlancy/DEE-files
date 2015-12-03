@@ -141,7 +141,7 @@ public class Player : GridMovement {
 		}
         
 
-        //Possible alternative to the above but only takes int <- not acceptable
+        //Possible alternative to the above but only takes int <- limited
         //yield return new WaitForSeconds(1);
 
         //End the animation
