@@ -5,10 +5,17 @@ public class Player : GridMovement {
 	Animator anim;
 	bool isDoingSomething = false;		//can change to busy later, flag that the player is doing something besides moving
 	public int health = 100;			//health counter
+	public int MaxHealth= 100;
     ControlMovement movement;
     private string direction;
 
 	bool MovementPause =false;
+
+	public int SwordAttack;
+	public int BowAttack;
+	public int QuiverSize;
+
+
 	protected override void Start () {
 		base.Start ();
 		anim = GetComponent<Animator> ();
@@ -204,10 +211,10 @@ public class Player : GridMovement {
 				break;
 				
 			default:
-
+				orientation = new Vector2(0,0);
 				break;
 			}
-			Debug.Log("vector"+orientation);
+			//Debug.Log("vector"+orientation);
 		//	if(orientation != Vector2.zero)
 
 			
@@ -224,7 +231,7 @@ public class Player : GridMovement {
 		else
 		{
 			orientation = new Vector2(0,0);
-			Debug.Log("walkfalse");
+			//Debug.Log("walkfalse");
 			anim.SetBool("isWalking", false);
 		}
 
@@ -239,21 +246,24 @@ public class Player : GridMovement {
 		if( !isMoving)
 		{
 			//Debug.Log("entered");
-			orientation = temp;
+			//orientation = temp;
 
-			Debug.Log("temp"+temp);
-		currentPosition = rBody.position;
+			//Debug.Log("temp"+temp);
+			currentPosition = rBody.position;
 			anim.SetFloat ("xInput", orientation.x);
 			anim.SetFloat ("yInput", orientation.y);
-		//essentially endPosition = currentPosition + (the sign of input(+/-) * grid size	
-		endPosition = new Vector2 (currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
+			//essentially endPosition = currentPosition + (the sign of input(+/-) * grid size	
+			endPosition = new Vector2 (currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
 		                           currentPosition.y + System.Math.Sign (orientation.y) * gridSize);
 		//print ("current position = " + currentPosition);
-		//print ("end position = " + endPosition);
+		
 		AttemptMove();
-			yield return new  WaitForSeconds( 0.3f);
+			// yield return new  WaitForSeconds( 0.1f);
 			MovementPause = false;
 
+		}
+		else
+		{yield return new  WaitForSeconds( 0.1f);
 		}
 
 			

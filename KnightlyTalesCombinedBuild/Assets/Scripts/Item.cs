@@ -16,16 +16,17 @@ using System.Collections;
 		public enum ItemType
 		{
 			Potion,
-			QuestItem
+			QuestItem,
+			Fairy
 		}
 		public int itemGroupNumber;
 
-		public Item (string name, int id, string description, int health, int value, bool stackable, ItemType type,int groupNumber )
+		public Item (string name, int id, string description, int health, int value, bool stackable, ItemType type,Sprite ItemIcon ,int groupNumber )
 		{
 			itemName = name;
 			itemID = id;
 			itemDescription = description;
-			itemIcon = Resources.Load<Sprite> ("Sprites/" + name);
+			itemIcon = ItemIcon;
 			itemHealth = health;
 			itemValue = value;
 			itemStackable = stackable;

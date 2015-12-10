@@ -61,8 +61,8 @@ public class QuestManager : MonoBehaviour {
 			// make quest list
 			QuestList(QuestItems.Count);
 
-			KeyQuest();
-			GenerateQuest =false;
+
+			//GenerateQuest =false;
 
 	
 		}
@@ -134,6 +134,9 @@ public class QuestManager : MonoBehaviour {
 				}
 			}
 		}
+		//KeyQuest();
+		StartCoroutine(StartKeyGen());
+
 	}
 	// generates quest item list
 	private void QuestItemGenerator()
@@ -154,7 +157,7 @@ public class QuestManager : MonoBehaviour {
 	void KeyQuest()
 	{	KeyAmmount(1);
 
-		int LastQuestIndex = SubQuest.Count-1;
+		int LastQuestIndex = SubQuest.Count -1;
 		int LastIndex = genrator.QuestDialogueStartIndex.Count -1;
 
 		Item tempItem = SubQuest[LastQuestIndex]._RequiredItem;
@@ -169,7 +172,17 @@ public class QuestManager : MonoBehaviour {
 		Quest tempQuest = MakeQuest(temp,temp2,tempItem, QuestItems[0],Quest.QuestType.Item_Reward,
 		                            false);
 		SubQuest[LastQuestIndex] = tempQuest;
+		Debug.Log(QuestItems[0].itemName);
 		QuestItems.RemoveAt(0);
+	}
+
+	IEnumerator StartKeyGen()
+	{
+		KeyQuest();
+
+		GenerateQuest =false;
+		yield return new WaitForSeconds (0.2f);
+
 	}
 
 	// random number is selected from the available itemGroup number
@@ -317,7 +330,7 @@ public class QuestManager : MonoBehaviour {
 			{
 				CurrentQuest._QuestCompleted = true;
 				//inventory
-				
+				inventory.Items.Remove(CurrentQuest._RequiredItem);
 				inventory.AddItem(CurrentQuest._RewardItem.itemID);
 				//Debug.Log(
 				// notify player

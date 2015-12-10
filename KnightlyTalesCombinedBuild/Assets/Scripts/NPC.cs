@@ -94,9 +94,14 @@ public class NPC : MonoBehaviour {
 					}	
 					Debug.Log("hmmm");
 
-					IsTalking = false;
-					SkipChat = false;
-					FinishChat = false;
+
+						if( !Talk.TalkContinued){
+						Talk.EndText();
+						IsTalking = false;
+						SkipChat = false;
+						FinishChat = false;
+						}
+
 
 				}
 
@@ -133,25 +138,34 @@ public class NPC : MonoBehaviour {
 		//ImportanPersonTalking();
 		//PortriatCase(DialogueTemp.DialogueEvent[i]._Person);
 		if(!IsTalking && !Talk.Typing )
-		{	
+		{
+			if(!Talk.TalkContinued)
+			{
+
 			if(!PlayerHasItem)
 			Talk.StartText(questVillager._QuestInstructions);
 
 			else
 			Talk.StartText(questVillager._RewardText);
-
+			
 			IsTalking = true;
+			}
 		}
+
 		else if(SkipChat || !Talk.Typing)
 		{
 			FinishChat= true;
+			
+			if(!Talk.TextContinued)
+			{
+				Talk.TalkContinued = false;
+			}
 		}
 		else 
 		{
 
 
 			SkipChat = true;
-
 
 
 		}

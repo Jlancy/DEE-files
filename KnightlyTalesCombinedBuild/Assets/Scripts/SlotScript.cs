@@ -70,7 +70,7 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, 
 				InventoryIndex = slotNumber+_slotManger.SlotNumberMod;
 			}
 
-		Debug.Log(InventoryIndex);
+		///Debug.Log(InventoryIndex);
 		}
 
 		public void OnPointerDown (PointerEventData data)

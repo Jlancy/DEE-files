@@ -27,7 +27,7 @@ public class ButtonSwitcher : MonoBehaviour {
 	Button button;
 	Image image;
 	RectTransform ButtomRect;
-	bool ButtonSet;
+	bool ButtonSet =false;
 	public NPC npc;
     public Player player;
 
@@ -59,7 +59,7 @@ public class ButtonSwitcher : MonoBehaviour {
 	{
 			//Debug.Log(buttonState);
 			button.onClick.RemoveAllListeners();
-				
+		Debug.Log(buttonState);
 			switch(buttonState)
 			{
 			case ButtonState.Attack:
@@ -68,6 +68,7 @@ public class ButtonSwitcher : MonoBehaviour {
                 button.onClick.AddListener(() => { Attack(); });
                 break;
 			case ButtonState.Talk:
+			Debug.Log("enterTalk");
                 button.image.color = Color.red;
 				button.onClick.AddListener(() => { Talk();});
 
@@ -84,9 +85,10 @@ public class ButtonSwitcher : MonoBehaviour {
 
 	void LerpButton()
 	{	
+
 		if(ButtonChange)
 		{
-
+			ButtonSet =false;
 			//Debug.Log(Lerp <= 1);
 			if(!MoveBack && Lerp <= 1)
 			{
@@ -95,8 +97,11 @@ public class ButtonSwitcher : MonoBehaviour {
 
 				if(Lerp >=	0.8f)
 				{
-					if(!ButtonSet)
+					Debug.Log(ButtonSet);
+					if(!ButtonSet){
+
 					SwitchButton();
+					}
 				}
 				ButtomRect.offsetMin = Vector2.Lerp(MinOrigin,MinEnd,Lerp);
 				ButtomRect.offsetMax = Vector2.Lerp(MaxOrigin,MaxEnd,Lerp);

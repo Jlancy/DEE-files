@@ -26,7 +26,7 @@ public class ControlMovement : MonoBehaviour , IPointerUpHandler , IPointerDownH
 			RaycastCheck();
 			//Debug.Log(dir);
 		}
-		//Debug.Log("derp");
+		//Debug.Log(dir);
 	}
 
 
@@ -49,10 +49,10 @@ public class ControlMovement : MonoBehaviour , IPointerUpHandler , IPointerDownH
 	{
 
 		Vector2 ray =  Camera.main.ScreenPointToRay(Input.mousePosition).origin ;
-		RaycastHit2D hit =Physics2D.Raycast(ray,Vector3.forward,20,layer);
+		RaycastHit2D hit =Physics2D.Raycast(ray,Vector3.forward*200 ,200,layer);
 		
-		//Debug.Log(hit.transform.name);
-		//Debug.Log(ray.origin);
+		Debug.DrawRay(ray, Vector3.forward *200 ,Color.red,15);
+
 		if (hit.collider !=null) {
 
 			dir = hit.transform.name;

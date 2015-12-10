@@ -47,7 +47,7 @@ using System.Collections.Generic;
 			dialogue.Add(new Dialogue("Good Sir Knight, if I may be allowed to ask a favor of you. " +
 			                          "It has been a long time since my last good meal. If you would bring me a",
 			                           Dialogue.Person.QuestGiver,Dialogue.SentencePlacement.BeforeRequest,7,2));
-			dialogue.Add(new Dialogue("I would gladly lend you my aid. It may not be worth much but this",
+			dialogue.Add(new Dialogue("I would gladly lend you my aid. 3 It may not be worth much but this",
 			                          Dialogue.Person.QuestGiver,Dialogue.SentencePlacement.BeforeReward,8));
 			dialogue.Add(new Dialogue("is yours to take for the effort.",
 			                          Dialogue.Person.QuestGiver, Dialogue.SentencePlacement.AfterReward,9));

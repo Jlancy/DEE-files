@@ -61,10 +61,10 @@ public class NPCTalkTrigger : MonoBehaviour {
 		
 		RaycastHit2D hit =Physics2D.Raycast(PlayerPos ,RayDirection,10,NPC_Layer);
 
-		Debug.Log(hit.transform.name);
+		//Debug.Log(hit.transform.tag);
 		if(hit.transform != null)
 		{
-			Debug.Log(hit.transform.name);
+			//Debug.Log(hit.transform.tag);
 			if(hit.transform.tag == "NPC")
 			{
 				FoundNPC = true;
@@ -110,6 +110,7 @@ public class NPCTalkTrigger : MonoBehaviour {
 			CheckIfFacingNPC(Vector2.right);
 			break;
 		case "LEFT":
+			Debug.Log("left");
 			CheckIfFacingNPC(-Vector2.right);
 			break;
 			

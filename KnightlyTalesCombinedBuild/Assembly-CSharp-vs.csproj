@@ -53,11 +53,15 @@
      <Compile Include="Assets\Scripts\DialogueDataBase.cs" />
      <Compile Include="Assets\Scripts\DialogueGenerator.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Equipment.cs" />
+     <Compile Include="Assets\Scripts\EquipmentList.cs" />
+     <Compile Include="Assets\Scripts\Fairy.cs" />
      <Compile Include="Assets\Scripts\GridMovement.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\InventoryButton.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemDatabase.cs" />
+     <Compile Include="Assets\Scripts\ItemShopPanel.cs" />
      <Compile Include="Assets\Scripts\ItemUser.cs" />
      <Compile Include="Assets\Scripts\Map\MAP_CONSTANT.cs" />
      <Compile Include="Assets\Scripts\Map\TDMap.cs" />
@@ -70,8 +74,11 @@
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Quest.cs" />
      <Compile Include="Assets\Scripts\QuestManager.cs" />
+     <Compile Include="Assets\Scripts\ShopPanel.cs" />
+     <Compile Include="Assets\Scripts\ShopSection.cs" />
      <Compile Include="Assets\Scripts\SlotManger.cs" />
      <Compile Include="Assets\Scripts\SlotScript.cs" />
+     <Compile Include="Assets\Scripts\SpriteLoader.cs" />
      <Compile Include="Assets\Scripts\TextTyper.cs" />
      <Compile Include="Assets\Scripts\TileMap.cs" />
      <Compile Include="Assets\Scripts\TriggerAddItem.cs" />
