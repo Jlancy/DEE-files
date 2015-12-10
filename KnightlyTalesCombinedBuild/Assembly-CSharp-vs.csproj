@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\ItemUser.cs" />
      <Compile Include="Assets\Scripts\Map\MAP_CONSTANT.cs" />
      <Compile Include="Assets\Scripts\Map\TDMap.cs" />
+     <Compile Include="Assets\Scripts\Map\TileMap.cs" />
      <Compile Include="Assets\Scripts\MovableObject.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
      <Compile Include="Assets\Scripts\NPCGenerator.cs" />
@@ -80,7 +81,6 @@
      <Compile Include="Assets\Scripts\SlotScript.cs" />
      <Compile Include="Assets\Scripts\SpriteLoader.cs" />
      <Compile Include="Assets\Scripts\TextTyper.cs" />
-     <Compile Include="Assets\Scripts\TileMap.cs" />
      <Compile Include="Assets\Scripts\TriggerAddItem.cs" />
      <Compile Include="Assets\Scripts\tempMovement.cs" />
  <Reference Include="UnityEngine.UI">
