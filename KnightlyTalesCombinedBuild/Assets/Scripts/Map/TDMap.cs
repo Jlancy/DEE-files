@@ -8,10 +8,6 @@ public enum MapType : int {
 public enum TileType : int {
 	Null, Water, Grass, Dirt, Tree, Poop
 };
-//Redo this later on
-public enum Doodad : int {
-	Dirt, Gate
-};
 
 public class TDMap {
 	/////////////////////////////
@@ -85,14 +81,10 @@ public class TDMap {
 	public void GenerateForestAsWhole(){
 		FillMap (TileType.Grass);
 		RingGenerator (_tileData, TileType.Tree, 0);
-		//PlaceDoodad (_tileData, Doodad.Gate, (int)Random.Range (_size_x / 2 - 5, _size_x / 2 + 5), _size_y - 1, 2, 1);
 		SpiralGeneration (_tileData, TileType.Tree, 40, 0);
-		//SpiralGeneration (_tileData, new TDTile(TileType.TreeOnGrass), 40, 0);
 		
 		FillUnreachable (_tileData, TileType.Grass, TileType.Tree);
-        GenerateRandomMass(_tileData, TileType.Dirt, _size_x / 2, _size_y / 2, 50, 0, 5);
-		//FillWithTile (_tileData, TileType.Grass, Doodad.Dirt, 2 * 2 + 2 * 2, 2, 2);
-		//FillWithTile (_tileData, TileType.Grass, Doodad.Dirt, 2 * 3 + 2 * 3, 3, 3);		
+        GenerateRandomMass(_tileData, TileType.Dirt, _size_x / 2, _size_y / 2, 50, 0, 5);	
 	}
 	public void GenerateCave(){
 		/*
@@ -410,74 +402,6 @@ public class TDMap {
 		if (((kFactor * DetectSimilarBorderTiles(area, replaceTarget, x_coord, y_coord)) + cFactor) > (int)Random.Range(0,100) &&
 		    x_coord > 0 && x_coord < area.GetLength (0) - 1 && y_coord > 0 && y_coord < area.GetLength (1) - 1)
 			area[x_coord, y_coord] = replaceTarget;
-	}
-	
-	//Doodad may have their own struct later on and moved into a global
-	private void PlaceDoodad(TileType[,] area, Doodad fill, int x_coord, int y_coord, int size_x, int size_y){
-		/* 
-		if (area.GetLength (0) > x_coord + size_x - 1 && area.GetLength (1) > y_coord + size_y - 1) {
-			switch(fill){
-			case Doodad.Gate:
-				area[x_coord, y_coord] = TileType.NorthGate1;
-				area[x_coord + 1, y_coord] = TileType.NorthGate2;
-				break;
-			default:
-				break;
-			}
-		}
-		*/
-	}
-	
-	//Reserved a plot of land for example a larger tree or a building or a bandit camp
-	private void FillWithTile(TileType[,] area, TileType scanTarget, Doodad fill, int acceptedClearance, int size_x, int size_y){
-		/*
-		int x_coord = 0;
-		int y_coord = 0;
-		int perimeter = 2 * size_x + 2 * size_y;
-		bool clearance = false;
-		
-		if(acceptedClearance <= perimeter){
-			do{
-				x_coord = (int)Random.Range (0, _tileData.GetLength(0) - size_x);
-				y_coord = (int)Random.Range (0, _tileData.GetLength(1) - size_y);
-				if(ScanEdge(area, scanTarget, size_x, size_y, x_coord, y_coord) >= acceptedClearance)
-					clearance = true;
-			}while(!clearance);
-			if(clearance){
-				//Check
-				PlaceDoodadHolder (area, size_x, size_y, x_coord, y_coord);
-				
-				switch(fill){
-				case Doodad.Dirt:
-					area[x_coord, y_coord] = TileType.DirtToGrassBL;
-					area[x_coord + size_x - 1, y_coord] = TileType.DirtToGrassBR;
-					area[x_coord, y_coord + size_y - 1] = TileType.DirtToGrassTL;
-					area[x_coord + size_x - 1, y_coord + size_y - 1] = TileType.DirtToGrassTR;
-					for (int y = y_coord + 1; y < y_coord + size_y - 1; y++){
-						area[x_coord, y] = TileType.DirtToGrassL;
-						area[x_coord + size_x - 1 , y] = TileType.DirtToGrassR;
-					}
-					for (int x = x_coord + 1; x < x_coord + size_x - 1; x++){
-						area[x, y_coord] = TileType.DirtToGrassB;
-						area[x, y_coord + size_y - 1] = TileType.DirtToGrassT;
-					}
-					for (int y = y_coord + 1; y < y_coord + size_y - 1; y++)
-						for (int x = x_coord +1; x < x_coord + size_x - 1; x++)
-							area[x, y] = TileType.Dirt;
-					break;
-				default:
-					break;
-					
-				}
-			}
-		}
-		*/
-	}
-	//Reserved a plot of land for example a larger tree or a building or a bandit camp
-	private void PlaceDoodadHolder(TileType[,] area, int size_x, int size_y, int x_coord, int y_coord){
-		for (int y = y_coord; y < y_coord + size_y; y++)
-			for (int x = x_coord; x < x_coord + size_x; x++)
-				area[x, y] = TileType.Null;
 	}
 	
 	//Detect if there is a similar tile next to the bordering tile
