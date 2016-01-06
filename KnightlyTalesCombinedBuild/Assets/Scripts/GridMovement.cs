@@ -51,7 +51,7 @@ public abstract class GridMovement : MonoBehaviour {
 		isMoving = true; 
 		float t = 0;
 
-		while (t < 1f) {
+		while (t <= 1f) {
 			t += Time.deltaTime * (moveSpeed/gridSize);
 			rBody.position = Vector3.MoveTowards(currentPosition, endPosition, t);
 			yield return null;

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ControlMovement : MonoBehaviour , IPointerUpHandler , IPointerDownHandler{
+public class ControlMovement : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler{
 
 	public bool InControlRegion =false;
 	public LayerMask layer;
@@ -18,32 +18,26 @@ public class ControlMovement : MonoBehaviour , IPointerUpHandler , IPointerDownH
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
 	//	Debug.Log ("in"+InControlRegion);
-		if(InControlRegion)
-		{
-			 
+
+		if (InControlRegion); 
 			RaycastCheck();
 			//Debug.Log(dir);
-		}
+
 		//Debug.Log(dir);
 	}
 
 
-	public void OnPointerDown(PointerEventData data)	
+
+	public void OnPointerEnter(PointerEventData data)
 	{
-		//Debug.Log("inRegion");
 		InControlRegion = true;
-		
-		
 	}
-
-	public void OnPointerUp(PointerEventData data)
+	public void OnPointerExit(PointerEventData data)
 	{
-		InControlRegion = false;
-		dir = "CENTER";
+		InControlRegion =false;
 	}
-
 
 	public void RaycastCheck()
 	{
@@ -61,8 +55,10 @@ public class ControlMovement : MonoBehaviour , IPointerUpHandler , IPointerDownH
 			// Do something with the object that was hit by the raycast.
 		}
 		else
-			dir ="CENTER";
+		{
 
+			dir ="CENTER";
+		}
 	}
 
 	

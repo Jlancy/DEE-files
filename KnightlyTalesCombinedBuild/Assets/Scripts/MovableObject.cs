@@ -15,8 +15,8 @@ public class MovableObject : GridMovement {
 	private void Update () {
 		if (!isMoving) {
 			//Update currentPosition
-			currentPosition = rBody.position;
-			AttemptMove ();
+			//currentPosition = rBody.position;
+			//AttemptMove ();
 		}
 	}
 
@@ -37,6 +37,9 @@ public class MovableObject : GridMovement {
 										   currentPosition.z);
 			}
 			print("endPosition = " + endPosition.x + ", " + endPosition.y);
+
+			currentPosition = rBody.position;
+			AttemptMove ();
 		}
 	}
 		

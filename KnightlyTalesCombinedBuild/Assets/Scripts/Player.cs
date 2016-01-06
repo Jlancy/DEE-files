@@ -28,6 +28,7 @@ public class Player : GridMovement {
 	}
 	private void Update () {
 		MovementCase();
+
         ///////////////////////////////////////////
         /*PLANNED ORDER: ATTACK > MOVEMENT > IDLE*/
         ///////////////////////////////////////////
@@ -39,7 +40,7 @@ public class Player : GridMovement {
 		}
 
         */
-		if (!isMoving && !isDoingSomething){
+		//if (!isMoving && !isDoingSomething){
             //orientation = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 			//Check if we have worthwhile inputs a.k.a. some sort of input.
 			/*
@@ -64,7 +65,7 @@ public class Player : GridMovement {
                     break;
             }
             */
-
+			/*
             if (orientation != Vector2.zero)
             {
 				//The following if-statements will make it so that the object will move in one direction
@@ -101,7 +102,7 @@ public class Player : GridMovement {
 				//If nothing is happening, set all animator parameter to false
 				//anim.SetBool ("isWalking", false);
 			}
-		}
+		}*/
 	}
 
     public void Attack(){
@@ -222,18 +223,35 @@ public class Player : GridMovement {
 		//	{
 
 			//}
+		
+			if (orientation != Vector2.zero)
+			{
+            if ( direction != "CENTER" && !isMoving)
+			{
+				currentPosition = rBody.position;
+				anim.SetFloat ("xInput", orientation.x);
+				anim.SetFloat ("yInput", orientation.y);
+				//essentially endPosition = currentPosition + (the sign of input(+/-) * grid size	
+				endPosition = new Vector2 (currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
+				                           currentPosition.y + System.Math.Sign (orientation.y) * gridSize);
+				//print ("current position = " + currentPosition);
+				
+				AttemptMove();
+			}
+			}
+			else
+				anim.SetBool("isWalking", false);
 
-            if (!MovementPause && direction != "CENTER" && !isMoving)
-			StartCoroutine(MovePause(orientation));
+			//StartCoroutine(MovePause(orientation));
 
 		}
 
 		else
-		{
-			orientation = new Vector2(0,0);
+		
+
 			//Debug.Log("walkfalse");
 			anim.SetBool("isWalking", false);
-		}
+		
 
 
 
@@ -249,22 +267,12 @@ public class Player : GridMovement {
 			//orientation = temp;
 
 			//Debug.Log("temp"+temp);
-			currentPosition = rBody.position;
-			anim.SetFloat ("xInput", orientation.x);
-			anim.SetFloat ("yInput", orientation.y);
-			//essentially endPosition = currentPosition + (the sign of input(+/-) * grid size	
-			endPosition = new Vector2 (currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
-		                           currentPosition.y + System.Math.Sign (orientation.y) * gridSize);
-		//print ("current position = " + currentPosition);
-		
-		AttemptMove();
-			// yield return new  WaitForSeconds( 0.1f);
+
+			yield return new  WaitForSeconds( 0f);
 			MovementPause = false;
 
 		}
-		else
-		{yield return new  WaitForSeconds( 0.1f);
-		}
+
 
 			
 	}
