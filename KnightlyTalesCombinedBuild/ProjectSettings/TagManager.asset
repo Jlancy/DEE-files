@@ -21,6 +21,7 @@ TagManager:
   - Item Database
   - Slot
   - NPC
+  - Doodad
   layers:
   - Default
   - TransparentFX
