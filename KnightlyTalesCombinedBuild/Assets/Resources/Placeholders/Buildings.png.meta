@@ -1,0 +1,717 @@
+fileFormatVersion: 2
+guid: c3f945158a1b36448950e3bc3b26485c
+timeCreated: 1452297572
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Buildings_0
+    21300002: Buildings_1
+    21300004: Buildings_2
+    21300006: Buildings_3
+    21300008: Buildings_4
+    21300010: Buildings_5
+    21300012: Buildings_6
+    21300014: Buildings_7
+    21300016: Buildings_8
+    21300018: Buildings_9
+    21300020: Buildings_10
+    21300022: Buildings_11
+    21300024: Buildings_12
+    21300026: Buildings_13
+    21300028: Buildings_14
+    21300030: Buildings_15
+    21300032: Buildings_16
+    21300034: Buildings_17
+    21300036: Buildings_18
+    21300038: Buildings_19
+    21300040: Buildings_20
+    21300042: Buildings_21
+    21300044: Buildings_22
+    21300046: Buildings_23
+    21300048: Buildings_24
+    21300050: Buildings_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Buildings_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 122, y: 109}
+        - {x: 116, y: 99}
+        - {x: 72, y: 77}
+        - {x: 57, y: 70}
+        - {x: 3, y: 43}
+        - {x: -57, y: 14}
+        - {x: -69, y: 6}
+        - {x: -69, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 111}
+        - {x: 124, y: 111}
+    - name: Buildings_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 43}
+        - {x: -25, y: 54}
+        - {x: -50, y: 66}
+        - {x: -61, y: 73}
+        - {x: -83, y: 83}
+        - {x: -120, y: 100}
+        - {x: -120, y: 108}
+        - {x: -123, y: 111}
+        - {x: -128, y: 111}
+        - {x: -128, y: -128}
+        - {x: 69, y: -128}
+        - {x: 69, y: 6}
+        - {x: 68, y: 8}
+        - {x: 46, y: 19}
+    - name: Buildings_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 108}
+        - {x: 12, y: 110}
+        - {x: 2, y: 110}
+        - {x: 0, y: 108}
+        - {x: -2, y: 101}
+        - {x: -11, y: 95}
+        - {x: -22, y: 88}
+        - {x: -40, y: 77}
+        - {x: -49, y: 71}
+        - {x: -56, y: 66}
+        - {x: -74, y: 54}
+        - {x: -86, y: 47}
+        - {x: -94, y: 42}
+        - {x: -103, y: 36}
+        - {x: -111, y: 31}
+        - {x: -120, y: 25}
+        - {x: -123, y: 21}
+        - {x: -123, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 103}
+        - {x: 14, y: 103}
+    - name: Buildings_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 103, y: 36}
+        - {x: 87, y: 47}
+        - {x: 70, y: 58}
+        - {x: 57, y: 66}
+        - {x: 53, y: 69}
+        - {x: 40, y: 77}
+        - {x: 32, y: 82}
+        - {x: 24, y: 88}
+        - {x: 16, y: 93}
+        - {x: 6, y: 99}
+        - {x: 6, y: 108}
+        - {x: 4, y: 110}
+        - {x: -5, y: 110}
+        - {x: -8, y: 107}
+        - {x: -8, y: 103}
+        - {x: -128, y: 103}
+        - {x: -128, y: -128}
+        - {x: 124, y: -128}
+        - {x: 124, y: 21}
+        - {x: 120, y: 25}
+        - {x: 116, y: 28}
+    - name: Buildings_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 58, y: 108}
+        - {x: 56, y: 110}
+        - {x: 47, y: 110}
+        - {x: 45, y: 108}
+        - {x: 40, y: 98}
+        - {x: 34, y: 95}
+        - {x: -5, y: 77}
+        - {x: -16, y: 72}
+        - {x: -31, y: 65}
+        - {x: -42, y: 60}
+        - {x: -81, y: 42}
+        - {x: -104, y: 31}
+        - {x: -121, y: 23}
+        - {x: -121, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 104}
+        - {x: 58, y: 104}
+    - name: Buildings_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 71, y: 48}
+        - {x: 6, y: 78}
+        - {x: -5, y: 83}
+        - {x: -18, y: 89}
+        - {x: -20, y: 89}
+        - {x: -41, y: 100}
+        - {x: -41, y: 108}
+        - {x: -43, y: 110}
+        - {x: -52, y: 110}
+        - {x: -54, y: 108}
+        - {x: -54, y: 104}
+        - {x: -128, y: 104}
+        - {x: -128, y: -128}
+        - {x: 124, y: -128}
+        - {x: 124, y: 22}
+        - {x: 121, y: 25}
+        - {x: 82, y: 43}
+    - name: Buildings_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 118, y: 105}
+        - {x: 115, y: 100}
+        - {x: 109, y: 94}
+        - {x: 84, y: 77}
+        - {x: 60, y: 60}
+        - {x: 7, y: 24}
+        - {x: -18, y: 7}
+        - {x: -53, y: -17}
+        - {x: -85, y: -39}
+        - {x: -86, y: -41}
+        - {x: -86, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 105}
+    - name: Buildings_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 50, y: -21}
+        - {x: 41, y: -15}
+        - {x: 11, y: 6}
+        - {x: -49, y: 47}
+        - {x: -111, y: 89}
+        - {x: -126, y: 99}
+        - {x: -128, y: 99}
+        - {x: -128, y: -128}
+        - {x: 78, y: -128}
+        - {x: 78, y: -42}
+        - {x: 76, y: -39}
+        - {x: 69, y: -34}
+    - name: Buildings_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -69, y: 128}
+        - {x: -69, y: 20}
+        - {x: -67, y: 18}
+        - {x: -64, y: 18}
+        - {x: -56, y: 22}
+        - {x: -56, y: 8}
+        - {x: -128, y: 8}
+        - {x: -128, y: -57}
+        - {x: -126, y: -62}
+        - {x: -117, y: -73}
+        - {x: -102, y: -81}
+        - {x: -82, y: -78}
+        - {x: -67, y: -66}
+        - {x: -61, y: -54}
+        - {x: -56, y: -6}
+        - {x: -56, y: -111}
+        - {x: -54, y: -113}
+        - {x: 128, y: -113}
+        - {x: 128, y: 128}
+    - name: Buildings_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 64, y: 18}
+        - {x: 67, y: 18}
+        - {x: 69, y: 20}
+        - {x: 69, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -113}
+        - {x: 54, y: -113}
+        - {x: 56, y: -111}
+        - {x: 56, y: 22}
+        - {x: 60, y: 21}
+    - name: Buildings_10
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -123, y: 128}
+        - {x: -123, y: 36}
+        - {x: -121, y: 34}
+        - {x: -119, y: 34}
+        - {x: -115, y: 37}
+        - {x: -110, y: 40}
+        - {x: -110, y: -111}
+        - {x: -108, y: -113}
+        - {x: 128, y: -113}
+        - {x: 128, y: 128}
+    - name: Buildings_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 114, y: 39}
+        - {x: 116, y: 36}
+        - {x: 121, y: 34}
+        - {x: 124, y: 37}
+        - {x: 124, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -113}
+        - {x: 108, y: -113}
+        - {x: 110, y: -111}
+        - {x: 110, y: 41}
+        - {x: 112, y: 39}
+    - name: Buildings_12
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -121, y: 128}
+        - {x: -121, y: 37}
+        - {x: -119, y: 35}
+        - {x: -114, y: 36}
+        - {x: -110, y: 39}
+        - {x: -108, y: 39}
+        - {x: -108, y: -111}
+        - {x: -106, y: -113}
+        - {x: 128, y: -113}
+        - {x: 128, y: 128}
+    - name: Buildings_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 120, y: 35}
+        - {x: 122, y: 35}
+        - {x: 124, y: 37}
+        - {x: 124, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -113}
+        - {x: 109, y: -113}
+        - {x: 111, y: -111}
+        - {x: 111, y: 39}
+        - {x: 113, y: 39}
+    - name: Buildings_14
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: 128}
+        - {x: -86, y: 13}
+        - {x: -84, y: 11}
+        - {x: -82, y: 11}
+        - {x: -76, y: 16}
+        - {x: -76, y: -110}
+        - {x: -75, y: -112}
+        - {x: -72, y: -113}
+        - {x: 128, y: -113}
+        - {x: 128, y: 128}
+    - name: Buildings_15
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 71, y: 12}
+        - {x: 75, y: 11}
+        - {x: 78, y: 14}
+        - {x: 78, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -113}
+        - {x: 63, y: -113}
+        - {x: 66, y: -110}
+        - {x: 66, y: 16}
+        - {x: 68, y: 15}
+    - name: Buildings_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 111}
+        - {x: -9, y: 96}
+        - {x: -13, y: 61}
+        - {x: -19, y: -1}
+        - {x: -21, y: -26}
+        - {x: -25, y: -63}
+        - {x: -26, y: -81}
+        - {x: -27, y: -88}
+        - {x: -31, y: -124}
+        - {x: -31, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 113}
+        - {x: -6, y: 113}
+    - name: Buildings_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 113}
+        - {x: -128, y: 113}
+    - name: Buildings_18
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: -37}
+        - {x: 25, y: 24}
+        - {x: 24, y: 44}
+        - {x: 22, y: 62}
+        - {x: 19, y: 86}
+        - {x: 17, y: 106}
+        - {x: 16, y: 111}
+        - {x: 14, y: 113}
+        - {x: -128, y: 113}
+        - {x: -128, y: -128}
+        - {x: 39, y: -128}
+        - {x: 39, y: -124}
+        - {x: 37, y: -99}
+        - {x: 34, y: -71}
+    - name: Buildings_19
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 122, y: 115}
+        - {x: 119, y: 108}
+        - {x: 107, y: 104}
+        - {x: 94, y: 100}
+        - {x: 55, y: 87}
+        - {x: 42, y: 83}
+        - {x: 0, y: 69}
+        - {x: -10, y: 66}
+        - {x: -55, y: 51}
+        - {x: -65, y: 49}
+        - {x: -89, y: 40}
+        - {x: -102, y: 36}
+        - {x: -120, y: 30}
+        - {x: -126, y: 26}
+        - {x: -126, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 115}
+    - name: Buildings_20
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 84, y: 42}
+        - {x: 65, y: 48}
+        - {x: 29, y: 60}
+        - {x: 10, y: 66}
+        - {x: -20, y: 77}
+        - {x: -42, y: 83}
+        - {x: -60, y: 89}
+        - {x: -97, y: 101}
+        - {x: -112, y: 106}
+        - {x: -121, y: 108}
+        - {x: -121, y: 113}
+        - {x: -123, y: 115}
+        - {x: -128, y: 115}
+        - {x: -128, y: -128}
+        - {x: 125, y: -128}
+        - {x: 125, y: 27}
+        - {x: 124, y: 29}
+        - {x: 117, y: 32}
+    - name: Buildings_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 128}
+        - {x: -36, y: 85}
+        - {x: -23, y: 72}
+        - {x: -114, y: 71}
+        - {x: -114, y: 52}
+        - {x: -111, y: 52}
+        - {x: -111, y: -25}
+        - {x: -98, y: -42}
+        - {x: -89, y: -48}
+        - {x: -72, y: -55}
+        - {x: -56, y: -54}
+        - {x: -41, y: -49}
+        - {x: -26, y: -39}
+        - {x: -21, y: -111}
+        - {x: -16, y: -113}
+        - {x: 128, y: -113}
+        - {x: 128, y: 128}
+    - name: Buildings_22
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: -118}
+        - {x: 38, y: -119}
+        - {x: 38, y: -122}
+        - {x: 39, y: -124}
+        - {x: 49, y: -124}
+        - {x: 51, y: -122}
+        - {x: 51, y: -120}
+        - {x: 49, y: -118}
+      - - {x: -128, y: 128}
+        - {x: -128, y: -113}
+        - {x: 128, y: -113}
+        - {x: 128, y: 128}
+    - name: Buildings_23
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: 84}
+        - {x: 43, y: 86}
+        - {x: 42, y: 106}
+        - {x: 41, y: 107}
+        - {x: 41, y: 114}
+        - {x: 40, y: 115}
+        - {x: 40, y: 124}
+        - {x: 39, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -113}
+        - {x: 24, y: -113}
+        - {x: 27, y: -110}
+        - {x: 27, y: 84}
+    - name: Buildings_24
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -126, y: 128}
+        - {x: -126, y: 39}
+        - {x: -124, y: 37}
+        - {x: -121, y: 37}
+        - {x: -120, y: 38}
+        - {x: -118, y: 38}
+        - {x: -117, y: 39}
+        - {x: -113, y: 39}
+        - {x: -112, y: 40}
+        - {x: -112, y: -110}
+        - {x: -109, y: -113}
+        - {x: 128, y: -113}
+        - {x: 128, y: 128}
+    - name: Buildings_25
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 118, y: 39}
+        - {x: 121, y: 37}
+        - {x: 123, y: 37}
+        - {x: 125, y: 39}
+        - {x: 125, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -113}
+        - {x: 109, y: -113}
+        - {x: 112, y: -110}
+        - {x: 112, y: 40}
+        - {x: 114, y: 39}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
