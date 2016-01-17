@@ -84,7 +84,7 @@ public class TextTyper : MonoBehaviour {
 		ChatBubble.enabled = false;
 		ChatLine.text ="";
 		ChatLine.enabled = false;
-		Debug.Log("did a thing");
+		//Debug.Log("did a thing");
 		stopText = true;
 	}
 

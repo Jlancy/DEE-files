@@ -13,9 +13,10 @@ public class ButtonSwitcher : MonoBehaviour {
 		Talk,
 		Shop
 	}
+	public LayerMask IgnoreMask;
 
 	float Lerp;
-	[RangeAttribute(0.1f,1)]
+	[RangeAttribute(0.0f,1)]
 	public float LerpRate =0.1f;
 	float timer;
 	bool MoveBack = false;
@@ -24,15 +25,19 @@ public class ButtonSwitcher : MonoBehaviour {
 	Vector2 MinEnd;
 	Vector2 MaxEnd;
 	public float TargetY = 100;
-	Button button;
+	public Button button;
 	Image image;
 	RectTransform ButtomRect;
 	bool ButtonSet =false;
 	public NPC npc;
     public Player player;
+	public GameObject CurrentTarget;
+	ControlMovement controlMovement;
+
 
 	// Use this for initialization
 	void Start () {
+		controlMovement = FindObjectOfType<ControlMovement>();
 		ButtomRect = GetComponent<RectTransform>();
 
 		MinOrigin = ButtomRect.offsetMin;
@@ -50,6 +55,9 @@ public class ButtonSwitcher : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		RaycastCase();
+
+
 		LerpButton();
 		//SwitchButton();
 	}
@@ -59,7 +67,7 @@ public class ButtonSwitcher : MonoBehaviour {
 	{
 			//Debug.Log(buttonState);
 			button.onClick.RemoveAllListeners();
-		Debug.Log(buttonState);
+		//Debug.Log(buttonState);
 			switch(buttonState)
 			{
 			case ButtonState.Attack:
@@ -88,6 +96,7 @@ public class ButtonSwitcher : MonoBehaviour {
 
 		if(ButtonChange)
 		{
+
 			ButtonSet =false;
 			//Debug.Log(Lerp <= 1);
 			if(!MoveBack && Lerp <= 1)
@@ -129,6 +138,7 @@ public class ButtonSwitcher : MonoBehaviour {
 				}
 			}
 
+
 		}
 		//else 
 		//	timer = 0;
@@ -138,6 +148,8 @@ public class ButtonSwitcher : MonoBehaviour {
 	{
         if (player != null)
         player.Attack();
+
+		//Destroy(CurrentTarget);
 	}
 
 	void Talk()
@@ -150,4 +162,72 @@ public class ButtonSwitcher : MonoBehaviour {
 	void Shop()
 	{
 	}
+
+
+	void RaycastCase()
+	{
+
+		switch(controlMovement.dir)
+		{
+
+		case "UP":
+			RaycastCheckForObject(Vector2.up);
+			break;
+			
+		case "DOWN":
+			RaycastCheckForObject(-Vector2.up);
+			break;
+			
+		case "RIGHT":
+			
+			RaycastCheckForObject(Vector2.right);
+			break;
+		case "LEFT":
+			//Debug.Log("left");
+			RaycastCheckForObject(-Vector2.right);
+			break;
+			
+		default:
+			
+			break;
+		}
+	}
+
+	void RaycastCheckForObject(Vector2 RayDirection)
+	{
+		//make sure the button is already switching
+		if(!ButtonChange)
+		{	
+			RaycastHit2D hit = Physics2D.Raycast(player.transform.position ,RayDirection,1,IgnoreMask);
+			// chech if its hitting something
+			if(hit.transform != null)
+			{
+				// check if hit dosent match currentTarget accordingly
+				if (hit.transform.gameObject != CurrentTarget)
+				{
+					// check by tag and set buttonstate according
+					if(hit.transform.tag == "NPC")
+					{
+						CurrentTarget = hit.transform.gameObject;
+						npc = hit.transform.gameObject.GetComponent<NPC>();
+						buttonState = ButtonState.Talk;
+						ButtonChange =true;
+						
+						
+					}
+
+				}
+			}
+			else if(CurrentTarget != null)
+			{
+				CurrentTarget = null;
+				ButtonChange = true;
+				buttonState = ButtonState.Attack;
+	
+			}
+		}
+		
+	}
+
+
 }

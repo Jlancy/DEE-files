@@ -7,8 +7,14 @@ public enum EnemyType : int {
 
 public class Enemy : MovableObject {
 	public float sightRange = 5f;
+	public int Hp = 10;
 	private Transform target;	//
 	public EnemyType enemyType = EnemyType.Melee;
+	private Vector2 targetPosition;
+	private Vector2 directionVector ;
+	private bool reachedTarget =false;
+	public GameObject Arrow;
+
 	Animator anim;
 
 	protected override void Start () {
@@ -25,7 +31,28 @@ public class Enemy : MovableObject {
 				//Check to make sure the player info was found
 				//print("Player Read Coord = (" + target.position.x + ", " + target.position.y + ").");
 		
+
+
 			}
+			else  if (enemyType == EnemyType.Ranged)
+			{
+				
+
+			
+				ChaseTarget();
+				if(reachedTarget)
+				{
+					PlayerInSight();
+				}
+				else{
+					anim.SetBool ("isAttacking", false);
+				}
+
+			}
+		}
+		if( Hp <= 0)
+		{
+			Destroy(this.gameObject);
 		}
 	}
 	//Planned design
@@ -40,15 +67,22 @@ public class Enemy : MovableObject {
 	//RPGmaker style
 	void ChaseTarget(){
 		currentPosition = transform.position;
-		Vector2 directionVector = Vector2.zero;
-		Vector2 targetPosition = target.transform.position; //Player Position 
+		//Vector2 directionVector ;
+		targetPosition = target.transform.position; //Player Position
+		if(enemyType == EnemyType.Ranged)
+		{
+			SetTargetPosition();
+		}
 		Vector2 distanceVector = new Vector2 (targetPosition.x - currentPosition.x, targetPosition.y - currentPosition.y); //Player pos - Entity pos
-		
+
+
         //Distance between 2 points
 		// D = sqrt((x - X)^2 + (y - Y)^2)
 		float playerDistance = Mathf.Sqrt (Mathf.Pow (distanceVector.x, 2) + Mathf.Pow (distanceVector.y, 2));
+		reachedTarget = playerDistance <= .9f ? true : false;
 
-		if (playerDistance <= sightRange) {
+
+		if (playerDistance <= sightRange && !reachedTarget) {
             RaycastHit2D wallQuery;
             bCollider.enabled = false;
 
@@ -100,6 +134,8 @@ public class Enemy : MovableObject {
 			anim.SetFloat ("yInput", directionVector.y);
 			anim.SetBool ("isWalking", true);
 		} else {
+			Vector2 BowAim = target.position - this.transform.position;
+			directionVector = BowAim.normalized;
 			anim.SetFloat ("xInput", directionVector.x);
 			anim.SetFloat ("yInput", directionVector.y);
 			anim.SetBool ("isWalking", false);
@@ -112,9 +148,9 @@ public class Enemy : MovableObject {
 		base.AttemptMove ();
 		RaycastHit2D hit;
 		if (Move (out hit)) {
-			print ("enemy move successful");	//insert stepping sound
+			//print ("enemy move successful");	//insert stepping sound
 		} else {	
-			print ("enemy move failed");		//insert bumping sound
+			//print ("enemy move failed");		//insert bumping sound
 			Player hitComponent = hit.transform.GetComponent <Player> ();
 			if(!canMove && hitComponent != null)
 				OnCantMove (hitComponent);
@@ -129,6 +165,61 @@ public class Enemy : MovableObject {
             // now need to only apply getting hit once every so often
             // either if we have enemy attack animation or something like that
 		}
+	}
+	public void LoseHp(int damage)
+	{
+		StartCoroutine(ColorFlash());
+		Hp -= damage;
+	}
+	IEnumerator ColorFlash()
+	{	Color32 flash = new Color32(255,116,116,255);
+		SpriteRenderer enemySprite=  this.GetComponent<SpriteRenderer>();
+
+		for(int i = 0; i <3; i++)
+		{
+			Debug.Log("R");
+
+			enemySprite.color = flash;
+			yield return new WaitForSeconds(.06f);
+			Debug.Log("W");
+			enemySprite.color = Color.white;
+			yield return new WaitForSeconds(.06f);
+		}
+	}
+
+	//called in RangedEnemyAttack Animation
+	void FireArrow()
+	{
+		GameObject SpawnArrow;
+		Vector2 SpawnPoint = (Vector2)this.transform.position + directionVector;
+		// adjust
+		SpawnPoint = new Vector2(SpawnPoint.x +.5f,SpawnPoint.y+.2f);
+		float SpawnAngle = Mathf.Atan2(directionVector.x,directionVector.y) * 180/Mathf.PI;
+
+		Quaternion SpawnDirection =  Quaternion.Euler(new Vector3(0,0,SpawnAngle-90));
+		//SpawnDirection = new Quaternion(SpawnDirection.x,SpawnDirection.y,SpawnDirection.z +90,SpawnDirection.w);
+		SpawnArrow = Instantiate(Arrow,SpawnPoint,SpawnDirection) as GameObject;
+
+		
+	}
+	void PlayerInSight()
+	{
+			
+
+		anim.SetFloat ("xInput", directionVector.x);
+		anim.SetFloat ("yInput", directionVector.y);
+		anim.SetBool ("isAttacking", true);
+	}
+
+	void SetTargetPosition()
+	{
+		// temp  
+		//adjust to find close x or y axis from enemy to player,
+		// then  make a point that is a some distance away from the player 
+		// as the new target
+		targetPosition =  targetPosition +  new Vector2 (3,0);
+
+
 	}
 }
 

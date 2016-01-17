@@ -172,7 +172,7 @@ public class QuestManager : MonoBehaviour {
 		Quest tempQuest = MakeQuest(temp,temp2,tempItem, QuestItems[0],Quest.QuestType.Item_Reward,
 		                            false);
 		SubQuest[LastQuestIndex] = tempQuest;
-		Debug.Log(QuestItems[0].itemName);
+		//Debug.Log(QuestItems[0].itemName);
 		QuestItems.RemoveAt(0);
 	}
 

@@ -14,18 +14,16 @@ public class Player : GridMovement {
 	public int SwordAttack;
 	public int BowAttack;
 	public int QuiverSize;
-
+	ButtonSwitcher buttonSwitcher;
 
 	protected override void Start () {
 		base.Start ();
 		anim = GetComponent<Animator> ();
 		movement = FindObjectOfType<ControlMovement>();
+		buttonSwitcher = FindObjectOfType<ButtonSwitcher>();
 
 	}
-	private void LateUpdate()
-	{
 
-	}
 	private void Update () {
 		MovementCase();
 
@@ -118,12 +116,13 @@ public class Player : GridMovement {
 
 	public void TakeDamage(int damage){
 		health -= damage;
-		print ("Player takes " + damage + "damage!");
+		//print ("Player takes " + damage + "damage!");
 	}
 
 	protected IEnumerator Attacking() {
+		buttonSwitcher.button.enabled =false;
 		isDoingSomething = true;
-        float t = 0;
+       
 		//anim.SetFloat ("xInput", orientation.x);
 		//anim.SetFloat ("yInput", orientation.y);
 		anim.SetBool ("isAttacking", true);
@@ -142,8 +141,8 @@ public class Player : GridMovement {
 
         //Animation duration, look for a better alternative
 		
-        while (t < 0.517) {
-			t += Time.deltaTime;
+        while (anim.GetBool("isAttacking")) {
+			//t += Time.deltaTime;
 			//rBody.position = Vector3.MoveTowards(currentPosition, endPosition, t);
 			yield return null;
 		}
@@ -153,7 +152,7 @@ public class Player : GridMovement {
         //yield return new WaitForSeconds(1);
 
         //End the animation
-		anim.SetBool ("isAttacking", false);
+		buttonSwitcher.button.enabled =true;
 		isDoingSomething = false;
 		yield return 0;
 	}
@@ -162,9 +161,9 @@ public class Player : GridMovement {
 		base.AttemptMove ();
 		RaycastHit2D hit;
 		if (Move (out hit)) {
-			print ("move successful");	//insert stepping sound
+			//print ("move successful");	//insert stepping sound
 		} else {	
-			print ("move failed");		//insert bumping sound
+			//print ("move failed");		//insert bumping sound
             //will be removed after add player attaching ot movable object
 			MovableObject hitComponent = hit.transform.GetComponent <MovableObject> ();
 			if(!canMove && hitComponent != null)
@@ -184,7 +183,7 @@ public class Player : GridMovement {
 	{
 		if(movement.InControlRegion  )
 		{
-            direction = movement.dir;
+			direction = movement.LastKnownDirection;
 			//Debug.Log(Direction);
 
 			anim.SetBool ("isWalking", true);
@@ -277,7 +276,24 @@ public class Player : GridMovement {
 			
 	}
 
+	// get called as an event in each Attack animation
+	void EndAttackAnim()
+	{
+		anim.SetBool ("isAttacking", false);
+	}
 
+	void RaycastForEnemy()
+	{
+		Vector2 playerDirection = new Vector2(anim.GetFloat("xInput"),anim.GetFloat("yInput"));
+		Debug.Log("dir"+ playerDirection);
+		RaycastHit2D hit = Physics2D.Raycast(this.transform.position ,playerDirection,1,blockingLayer);
+	if(hit.transform.tag == "Enemy")
+	{
+		
+		hit.transform.GetComponent<Enemy>().LoseHp(SwordAttack);
+	}
+		
 
+	}
 
 }

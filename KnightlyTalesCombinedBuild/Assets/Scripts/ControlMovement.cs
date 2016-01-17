@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ControlMovement : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler{
+public class ControlMovement : MonoBehaviour ,IPointerDownHandler, IPointerUpHandler{
 
 	public bool InControlRegion =false;
 	public LayerMask layer;
@@ -12,10 +12,7 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler, IPointerExit
 	ButtonSwitcher buttonSwitcher;
 
 	// Use this for initialization
-	void Start () {
-	
 
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,11 +27,11 @@ public class ControlMovement : MonoBehaviour ,IPointerEnterHandler, IPointerExit
 
 
 
-	public void OnPointerEnter(PointerEventData data)
+	public void OnPointerDown(PointerEventData data)
 	{
 		InControlRegion = true;
 	}
-	public void OnPointerExit(PointerEventData data)
+	public void OnPointerUp(PointerEventData data)
 	{
 		InControlRegion =false;
 	}

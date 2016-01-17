@@ -56,7 +56,7 @@ public abstract class GridMovement : MonoBehaviour {
 			rBody.position = Vector3.MoveTowards(currentPosition, endPosition, t);
 			yield return null;
 		}
-		print ("move complete");
+		//print ("move complete");
 		isMoving = false;
 		yield return 0;
 	}

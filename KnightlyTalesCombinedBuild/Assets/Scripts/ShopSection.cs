@@ -123,7 +123,7 @@ public class ShopSection : MonoBehaviour {
 		{
 			GameObject panel;
 			panel = Instantiate(ShopPanel);
-			panel.transform.parent = this.transform;
+			panel.transform.SetParent (this.transform);
 			panel.GetComponent<ShopPanel>().Gear = GearUpgrade;
 			panel.GetComponent<ShopPanel>().UpgradeIndex = i;
 			panel.GetComponent<ShopPanel>().shopSection = this;

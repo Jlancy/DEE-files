@@ -63,7 +63,7 @@ public class testLeaf : MonoBehaviour {
 		// build room
 		for(int row = 0; row < width; row++ )
 		{
-			Debug.Log(row);
+			//Debug.Log(row);
 			for(int col = 0; col <height; col++)
 			{
 				GameObject tile;

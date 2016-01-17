@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class NPCTalkTrigger : MonoBehaviour {
@@ -26,7 +26,7 @@ public class NPCTalkTrigger : MonoBehaviour {
 		{
 			if(RaycastForNPC)
 			{
-				RaycastCase();
+				//RaycastCase();
 			}
 		}
 	}
@@ -92,31 +92,5 @@ public class NPCTalkTrigger : MonoBehaviour {
 		  
 	}
 	
-	void RaycastCase()
-	{
-		switch(controlMovement.dir)
-		{
 
-		case "UP":
-			CheckIfFacingNPC(Vector2.up);
-			break;
-			
-		case "DOWN":
-			CheckIfFacingNPC(-Vector2.up);
-			break;
-			
-		case "RIGHT":
-
-			CheckIfFacingNPC(Vector2.right);
-			break;
-		case "LEFT":
-			Debug.Log("left");
-			CheckIfFacingNPC(-Vector2.right);
-			break;
-			
-		default:
-			
-			break;
-		}
-	}
 }

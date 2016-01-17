@@ -1,0 +1,748 @@
+fileFormatVersion: 2
+guid: fb281adaf4351c840b3214f9cc86c430
+timeCreated: 1452874758
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: LongRangeAttackRight_01
+    21300002: LongRangeAttackRight_02
+    21300004: LongRangeAttackRight_03
+    21300006: 8Bit_SS_LongRange_1_3
+    21300008: LongRangeAttackRight_04
+    21300010: 8Bit_SS_LongRange_1_5
+    21300012: LongRangeAttackRight_05
+    21300014: LongRangeAttackRight_06
+    21300016: LongRangeAttackRight_07
+    21300018: LongRangeWalkRight_01
+    21300020: LongRangeWalkRight_02
+    21300022: LongRangeWalkRight_03
+    21300024: LongRangeWalkRight_04
+    21300026: LongRangeWalkRight_05
+    21300028: LongRangeWalkRight_06
+    21300030: LongRangeWalkRight_07
+    21300032: LongRangeWalkDown_01
+    21300034: LongRangeWalkDown_02
+    21300036: LongRangeWalkDown_03
+    21300038: LongRangeWalkDown_04
+    21300040: LongRangeWalkDown_05
+    21300042: LongRangeWalkDown_06
+    21300044: LongRangeWalkDown_07
+    21300046: LongRangeWalkDown_08
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: LongRangeAttackRight_01
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 202
+        width: 76
+        height: 65
+      alignment: 9
+      pivot: {x: 0.23634705, y: 0.44495144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.962376, y: 36.078156}
+        - {x: -17.962376, y: 34.078156}
+        - {x: -17.962376, y: -28.921844}
+        - {x: 38.037624, y: -28.921844}
+        - {x: 58.037624, y: 6.0781555}
+        - {x: 58.037624, y: 36.078156}
+    - name: LongRangeAttackRight_02
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 202
+        width: 69
+        height: 65
+      alignment: 9
+      pivot: {x: 0.26837113, y: 0.4412816}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36.48239, y: 36.316696}
+        - {x: -7.5176086, y: 36.316696}
+        - {x: -18.517609, y: 31.316696}
+        - {x: -18.517609, y: -28.683304}
+        - {x: 38.48239, y: -28.683304}
+        - {x: 50.48239, y: 10.316696}
+        - {x: 50.48239, y: 23.316696}
+    - name: LongRangeAttackRight_03
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 202
+        width: 58
+        height: 64
+      alignment: 9
+      pivot: {x: 0.32314906, y: 0.45154572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.742645, y: 35.101074}
+        - {x: -18.742645, y: -28.898926}
+        - {x: 35.257355, y: -28.898926}
+        - {x: 39.257355, y: -23.898926}
+        - {x: 39.257355, y: 30.101074}
+        - {x: 34.257355, y: 35.101074}
+    - name: 8Bit_SS_LongRange_1_3
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 244
+        width: 34
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+    - name: LongRangeAttackRight_04
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 201
+        width: 58
+        height: 65
+      alignment: 9
+      pivot: {x: 0.31903604, y: 0.4486213}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.50409, y: 35.839615}
+        - {x: -18.50409, y: -29.160385}
+        - {x: 36.49591, y: -29.160385}
+        - {x: 39.49591, y: -18.160385}
+        - {x: 39.49591, y: 31.839615}
+        - {x: 38.49591, y: 35.839615}
+    - name: 8Bit_SS_LongRange_1_5
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 243
+        width: 34
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+        - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+      - - {x: -37, y: 32.5}
+        - {x: -38, y: 30.5}
+        - {x: -38, y: -32.5}
+        - {x: 18, y: -32.5}
+        - {x: 38, y: 2.5}
+        - {x: 38, y: 32.5}
+    - name: LongRangeAttackRight_05
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 201
+        width: 62
+        height: 65
+      alignment: 9
+      pivot: {x: 0.38072845, y: 0.44495144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.394836, y: 36.078156}
+        - {x: -20.605164, y: 36.078156}
+        - {x: -23.605164, y: 31.078156}
+        - {x: -23.605164, y: 8.0781555}
+        - {x: -22.605164, y: 6.0781555}
+        - {x: -20.605164, y: -28.921844}
+        - {x: 30.394836, y: -28.921844}
+        - {x: 38.394836, y: -9.9218445}
+        - {x: 38.394836, y: 32.078156}
+    - name: LongRangeAttackRight_06
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 201
+        width: 58
+        height: 65
+      alignment: 9
+      pivot: {x: 0.31921703, y: 0.44354036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39.485413, y: 28.169876}
+        - {x: 29.485413, y: 36.169876}
+        - {x: 20.485413, y: 36.169876}
+        - {x: -15.514587, y: 29.169876}
+        - {x: -18.514587, y: 28.169876}
+        - {x: -18.514587, y: -28.830124}
+        - {x: 31.485413, y: -28.830124}
+        - {x: 33.485413, y: -23.830124}
+        - {x: 39.485413, y: 2.169876}
+    - name: LongRangeAttackRight_07
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 201
+        width: 63
+        height: 66
+      alignment: 9
+      pivot: {x: 0.2961174, y: 0.42850864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29.344604, y: 37.71843}
+        - {x: 7.3446045, y: 37.71843}
+        - {x: -15.6553955, y: 30.71843}
+        - {x: -18.655396, y: 27.71843}
+        - {x: -18.655396, y: -19.28157}
+        - {x: -16.655396, y: -28.28157}
+        - {x: 27.344604, y: -28.28157}
+        - {x: 38.344604, y: -24.28157}
+        - {x: 44.344604, y: 4.7184296}
+        - {x: 44.344604, y: 24.71843}
+    - name: LongRangeWalkRight_01
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 132
+        width: 74
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 29.5}
+        - {x: -37, y: 10.5}
+        - {x: -37, y: -24.5}
+        - {x: -35, y: -29.5}
+        - {x: 15, y: -29.5}
+        - {x: 37, y: -0.5}
+        - {x: 37, y: 25.5}
+        - {x: 30, y: 29.5}
+    - name: LongRangeWalkRight_02
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 132
+        width: 73
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 31}
+        - {x: -26.5, y: 25}
+        - {x: -36.5, y: 10}
+        - {x: -36.5, y: -12}
+        - {x: -25.5, y: -30}
+        - {x: -14.5, y: -28}
+        - {x: -11.5, y: -24}
+        - {x: -7.5, y: -23}
+        - {x: -9.5, y: -24}
+        - {x: -15.5, y: -30}
+        - {x: -15.5, y: -31}
+        - {x: 12.5, y: -31}
+        - {x: 36.5, y: -7}
+        - {x: 36.5, y: 21}
+        - {x: 20.5, y: 31}
+    - name: LongRangeWalkRight_03
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 137
+        width: 73
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 31}
+        - {x: -25.5, y: 25}
+        - {x: -36.5, y: 6}
+        - {x: -36.5, y: -21}
+        - {x: -32.5, y: -31}
+        - {x: 22.5, y: -31}
+        - {x: 36.5, y: -3}
+        - {x: 36.5, y: 26}
+        - {x: 24.5, y: 31}
+    - name: LongRangeWalkRight_04
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 132
+        width: 73
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: -5}
+        - {x: 6.5, y: -5}
+        - {x: 36.5, y: 10}
+        - {x: 36.5, y: 24}
+        - {x: 20.5, y: 33}
+        - {x: -4.5, y: 33}
+        - {x: -36.5, y: 16}
+        - {x: -36.5, y: -8}
+        - {x: -31.5, y: -33}
+        - {x: 10.5, y: -33}
+        - {x: 9.5, y: -26}
+        - {x: 6.5, y: -12}
+        - {x: -0.5, y: -7}
+    - name: LongRangeWalkRight_05
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 132
+        width: 72
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -4}
+        - {x: -4, y: -5}
+        - {x: 4, y: -5}
+        - {x: 7, y: -12}
+        - {x: 36, y: 8}
+        - {x: 36, y: 23}
+        - {x: 22, y: 30}
+        - {x: -4, y: 30}
+        - {x: -36, y: 11}
+        - {x: -36, y: -9}
+        - {x: -31, y: -30}
+        - {x: 4, y: -30}
+        - {x: 6, y: -11}
+        - {x: -1, y: -5}
+        - {x: -6, y: -5}
+    - name: LongRangeWalkRight_06
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 132
+        width: 72
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 30.5}
+        - {x: -9, y: 30.5}
+        - {x: -36, y: 13.5}
+        - {x: -36, y: -7.5}
+        - {x: -30, y: -30.5}
+        - {x: -4, y: -30.5}
+        - {x: 7, y: -27.5}
+        - {x: 25, y: -8.5}
+        - {x: 36, y: 4.5}
+        - {x: 36, y: 21.5}
+    - name: LongRangeWalkRight_07
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 132
+        width: 73
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: -22.5}
+        - {x: 18.5, y: -21.5}
+        - {x: 36.5, y: 4.5}
+        - {x: 36.5, y: 25.5}
+        - {x: 22.5, y: 32.5}
+        - {x: -2.5, y: 32.5}
+        - {x: -36.5, y: 9.5}
+        - {x: -36.5, y: -11.5}
+        - {x: -24.5, y: -32.5}
+        - {x: -9.5, y: -32.5}
+        - {x: -6.5, y: -30.5}
+        - {x: 1.5, y: -23.5}
+        - {x: 1.5, y: -17.5}
+    - name: LongRangeWalkDown_01
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 61
+        width: 41
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 25.5}
+        - {x: -14.5, y: 22.5}
+        - {x: -20.5, y: -0.5}
+        - {x: -20.5, y: -14.5}
+        - {x: -8.5, y: -25.5}
+        - {x: 20.5, y: -25.5}
+        - {x: 20.5, y: 16.5}
+        - {x: 15.5, y: 25.5}
+    - name: LongRangeWalkDown_02
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 61
+        width: 40
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: -24.5}
+        - {x: 12, y: -24.5}
+        - {x: 20, y: -21.5}
+        - {x: 20, y: 25.5}
+        - {x: -12, y: 25.5}
+        - {x: -20, y: 13.5}
+        - {x: -20, y: -19.5}
+        - {x: -17, y: -21.5}
+        - {x: -10, y: -25.5}
+        - {x: 4, y: -25.5}
+        - {x: 5, y: -21.5}
+        - {x: 3, y: -19.5}
+        - {x: 3, y: -15.5}
+    - name: LongRangeWalkDown_03
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 61
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: -26}
+        - {x: 23, y: -17}
+        - {x: 23, y: 23}
+        - {x: 18, y: 26}
+        - {x: -10, y: 26}
+        - {x: -23, y: 4}
+        - {x: -23, y: -11}
+        - {x: -10, y: -26}
+        - {x: -2, y: -26}
+        - {x: -2, y: -21}
+        - {x: 6, y: -26}
+    - name: LongRangeWalkDown_04
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 59
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 27.5}
+        - {x: -9, y: 25.5}
+        - {x: -22, y: 9.5}
+        - {x: -22, y: -23.5}
+        - {x: -21, y: -27.5}
+        - {x: 1, y: -27.5}
+        - {x: 22, y: -11.5}
+        - {x: 22, y: 16.5}
+        - {x: 16, y: 27.5}
+    - name: LongRangeWalkDown_05
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 62
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: -11}
+        - {x: 21.5, y: 20}
+        - {x: 19.5, y: 23}
+        - {x: 16.5, y: 26}
+        - {x: -8.5, y: 26}
+        - {x: -21.5, y: 13}
+        - {x: -21.5, y: -16}
+        - {x: -14.5, y: -26}
+        - {x: 0.5, y: -26}
+        - {x: 2.5, y: -24}
+        - {x: 4.5, y: -19}
+        - {x: 15.5, y: -23}
+    - name: LongRangeWalkDown_06
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 65
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17.5, y: 24.5}
+        - {x: -10.5, y: 24.5}
+        - {x: -21.5, y: 0.5}
+        - {x: -21.5, y: -20.5}
+        - {x: -15.5, y: -24.5}
+        - {x: 19.5, y: -24.5}
+        - {x: 21.5, y: -21.5}
+        - {x: 21.5, y: 23.5}
+    - name: LongRangeWalkDown_07
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 65
+        width: 43
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 25}
+        - {x: -12.5, y: 22}
+        - {x: -21.5, y: 0}
+        - {x: -21.5, y: -11}
+        - {x: -5.5, y: -25}
+        - {x: -0.5, y: -25}
+        - {x: 6.5, y: -22}
+        - {x: 7.5, y: -25}
+        - {x: 21.5, y: -25}
+        - {x: 21.5, y: 22}
+        - {x: 18.5, y: 25}
+    - name: LongRangeWalkDown_08
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 64
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 26}
+        - {x: -21.5, y: 10}
+        - {x: -21.5, y: -15}
+        - {x: -6.5, y: -25}
+        - {x: 4.5, y: -26}
+        - {x: 19.5, y: -26}
+        - {x: 21.5, y: -20}
+        - {x: 21.5, y: 16}
+        - {x: 15.5, y: 26}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
