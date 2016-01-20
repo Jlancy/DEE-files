@@ -22,6 +22,8 @@ TagManager:
   - Slot
   - NPC
   - Doodad
+  - Null
+  - Projectile
   layers:
   - Default
   - TransparentFX

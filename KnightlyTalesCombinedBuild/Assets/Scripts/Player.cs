@@ -4,8 +4,8 @@ using System.Collections;
 public class Player : GridMovement {
 	Animator anim;
 	bool isDoingSomething = false;		//can change to busy later, flag that the player is doing something besides moving
-	public int health = 100;			//health counter
-	public int MaxHealth= 100;
+	public int health = 20;			//health counter
+	public int MaxHealth= 20;
     ControlMovement movement;
     private string direction;
 
@@ -26,7 +26,16 @@ public class Player : GridMovement {
 
 	private void Update () {
 		MovementCase();
-
+        //==========================================================================================
+        // added to later test health lost
+        //==========================================================================================
+        if (health <= 0)
+        {
+            //==========================================================================================
+            // Insert game over
+            //==========================================================================================
+            Destroy(this.gameObject);
+        }
         ///////////////////////////////////////////
         /*PLANNED ORDER: ATTACK > MOVEMENT > IDLE*/
         ///////////////////////////////////////////
@@ -115,7 +124,8 @@ public class Player : GridMovement {
     }
 
 	public void TakeDamage(int damage){
-		health -= damage;
+        StartCoroutine(ColorFlash());
+        health -= damage;
 		//print ("Player takes " + damage + "damage!");
 	}
 
@@ -287,13 +297,30 @@ public class Player : GridMovement {
 		Vector2 playerDirection = new Vector2(anim.GetFloat("xInput"),anim.GetFloat("yInput"));
 		Debug.Log("dir"+ playerDirection);
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position ,playerDirection,1,blockingLayer);
-	if(hit.transform.tag == "Enemy")
-	{
+	    if(hit.transform.tag == "Enemy")
+	    {
 		
-		hit.transform.GetComponent<Enemy>().LoseHp(SwordAttack);
-	}
+		    hit.transform.GetComponent<Enemy>().LoseHp(SwordAttack);
+	    }
 		
 
 	}
+
+    IEnumerator ColorFlash()
+    {
+        Color32 flash = new Color32(255, 116, 116, 255);
+        SpriteRenderer playerSprite = this.GetComponent<SpriteRenderer>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            Debug.Log("R");
+
+            playerSprite.color = flash;
+            yield return new WaitForSeconds(.06f);
+            Debug.Log("W");
+            playerSprite.color = Color.white;
+            yield return new WaitForSeconds(.06f);
+        }
+    }
 
 }

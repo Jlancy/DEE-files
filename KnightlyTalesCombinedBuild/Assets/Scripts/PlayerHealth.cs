@@ -21,12 +21,13 @@ public class PlayerHealth : MonoBehaviour {
 
 	Vector2 MinOrigin;
 	Vector2 MaxOrigin;
-	Player player; 
+	public Player player; 
 
 	// Use this for initialization
 	void Start () {
-		player = FindObjectOfType<Player>();
-		PlayerHpInital = player.health;
+		//player = FindObjectOfType<Player>();
+        //player = gameObject.tag == "Player";
+        PlayerHpInital = player.health;
 		CurrentPlayerHp = PlayerHpInital;
 		border = this.gameObject.GetComponent<RectTransform>();
 		MinOrigin = border.offsetMin;
@@ -47,6 +48,8 @@ public class PlayerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+        //Straight up update the health
+        UpdateHp();
 
 		if(hit)
 		{
@@ -83,8 +86,10 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	void UpdateHp()
 	{
-		float HpPercent =  (float)CurrentPlayerHp/ (float)PlayerHpInital;
-		Debug.Log(HpPercent);
+		//float HpPercent =  (float)CurrentPlayerHp/ (float)PlayerHpInital;
+        //get the health data straight from the player data
+        float HpPercent = (float)player.health / (float)player.MaxHealth;
+        Debug.Log(HpPercent);
 		HpSlide.value = HpPercent;		
 	}
 

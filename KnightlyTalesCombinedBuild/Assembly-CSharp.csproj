@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ArrowMove.cs" />
      <Compile Include="Assets\Scripts\ButtonSwitcher.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\ControlMovement.cs" />
@@ -71,6 +72,7 @@
      <Compile Include="Assets\Scripts\NPC.cs" />
      <Compile Include="Assets\Scripts\NPCGenerator.cs" />
      <Compile Include="Assets\Scripts\NPCTalkTrigger.cs" />
+     <Compile Include="Assets\Scripts\NullObjectDelete.cs" />
      <Compile Include="Assets\Scripts\PageButton.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
