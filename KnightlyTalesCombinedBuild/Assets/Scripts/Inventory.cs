@@ -276,7 +276,7 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	public bool CheckItem( Item item)
+	public  bool CheckItem( Item item)
 	{
 		return Items.Contains(item);
 	}

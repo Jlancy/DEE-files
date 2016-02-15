@@ -33,7 +33,7 @@ public class ButtonSwitcher : MonoBehaviour {
     public Player player;
 	public GameObject CurrentTarget;
 	ControlMovement controlMovement;
-
+	TextTyper textTyper;
 
 	// Use this for initialization
 	void Start () {
@@ -48,7 +48,9 @@ public class ButtonSwitcher : MonoBehaviour {
 		button = this.GetComponent<Button>();
 		buttonState = ButtonState.Attack;
         player = FindObjectOfType<Player>();
+		textTyper = FindObjectOfType<TextTyper>();
         //Initail call of SwitchButton so we can attack at start
+		buttonState = ButtonState.Attack;
         SwitchButton();
 
 	}
@@ -59,6 +61,11 @@ public class ButtonSwitcher : MonoBehaviour {
 
 
 		LerpButton();
+
+		if(npc== null)
+		{
+			textTyper.EndText();
+		}
 		//SwitchButton();
 	}
 
@@ -68,17 +75,24 @@ public class ButtonSwitcher : MonoBehaviour {
 			//Debug.Log(buttonState);
 			button.onClick.RemoveAllListeners();
 		//Debug.Log(buttonState);
+		Debug.Log("entered");
 			switch(buttonState)
 			{
+
 			case ButtonState.Attack:
+			Debug.Log("attack");
+			if(npc !=null) 
+			{
+			npc.IsTalking =false;
 			npc = null;
+			}
 				button.image.color = Color.blue;
                 button.onClick.AddListener(() => { Attack(); });
                 break;
 			case ButtonState.Talk:
 			Debug.Log("enterTalk");
                 button.image.color = Color.red;
-				button.onClick.AddListener(() => { Talk();});
+				button.onClick.AddListener( () => { Talk();});
 
 				break;
 			case ButtonState.Shop:
@@ -167,7 +181,7 @@ public class ButtonSwitcher : MonoBehaviour {
 	void RaycastCase()
 	{
 
-		switch(controlMovement.dir)
+		switch(controlMovement.LastKnownDirection)
 		{
 
 		case "UP":

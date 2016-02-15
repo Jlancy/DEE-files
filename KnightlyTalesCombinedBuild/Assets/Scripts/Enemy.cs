@@ -12,7 +12,7 @@ public class Enemy : MovableObject {
 	public EnemyType enemyType = EnemyType.Melee;
 	private Vector2 targetPosition;
 	private Vector2 directionVector ;
-	private bool reachedTarget =false;
+	public bool reachedTarget =false;
 	public GameObject Arrow;
 
 	Animator anim;
@@ -79,8 +79,8 @@ public class Enemy : MovableObject {
         //Distance between 2 points
 		// D = sqrt((x - X)^2 + (y - Y)^2)
 		float playerDistance = Mathf.Sqrt (Mathf.Pow (distanceVector.x, 2) + Mathf.Pow (distanceVector.y, 2));
-		reachedTarget = playerDistance <= .9f ? true : false;
-
+		reachedTarget = playerDistance <= .8f ? true : false;
+		Debug.Log(targetPosition );
 
 		if (playerDistance <= sightRange && !reachedTarget) {
             RaycastHit2D wallQuery;
@@ -134,7 +134,7 @@ public class Enemy : MovableObject {
 			anim.SetFloat ("yInput", directionVector.y);
 			anim.SetBool ("isWalking", true);
 		} else {
-			Vector2 BowAim = target.position - this.transform.position;
+			Vector2 BowAim = (Vector2)target.position - (Vector2)this.transform.position;
 			directionVector = BowAim.normalized;
 			anim.SetFloat ("xInput", directionVector.x);
 			anim.SetFloat ("yInput", directionVector.y);

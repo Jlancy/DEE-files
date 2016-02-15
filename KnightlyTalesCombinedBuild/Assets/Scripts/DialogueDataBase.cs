@@ -94,7 +94,7 @@ using System.Collections.Generic;
 			                          Dialogue.Person.QuestGiver,Dialogue.SentencePlacement.BeforeRequest,22,9));
 			dialogue.Add(new Dialogue("hidden away for safe keeping. It’s yours for a",
 			                          Dialogue.Person.QuestGiver,Dialogue.SentencePlacement.BeforeReward,23));
-			dialogue.Add(new Dialogue(". I look forward to doing business with you.",
+			dialogue.Add(new Dialogue(". 3 I look forward to doing business with you.",
 			                          Dialogue.Person.QuestGiver,Dialogue.SentencePlacement.AfterReward,24));
 			dialogue.Add(new Dialogue("This is a nice",
 			                          Dialogue.Person.QuestGiver,Dialogue.SentencePlacement.BeforeGivingReward,25));

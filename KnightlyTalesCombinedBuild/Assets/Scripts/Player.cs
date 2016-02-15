@@ -183,7 +183,7 @@ public class Player : GridMovement {
 	{
 		if(movement.InControlRegion  )
 		{
-			direction = movement.LastKnownDirection;
+			direction = movement.dir;
 			//Debug.Log(Direction);
 
 			anim.SetBool ("isWalking", true);
@@ -284,16 +284,33 @@ public class Player : GridMovement {
 
 	void RaycastForEnemy()
 	{
-		Vector2 playerDirection = new Vector2(anim.GetFloat("xInput"),anim.GetFloat("yInput"));
-		Debug.Log("dir"+ playerDirection);
-		RaycastHit2D hit = Physics2D.Raycast(this.transform.position ,playerDirection,1,blockingLayer);
-	if(hit.transform.tag == "Enemy")
+			
+	StartCoroutine(RayCheck());
+		
+
+	}
+
+IEnumerator RayCheck()
+{
+	bool foundEnemy = false;
+	while(!foundEnemy)
 	{
 		
-		hit.transform.GetComponent<Enemy>().LoseHp(SwordAttack);
+		Vector2 playerDirection = new Vector2(anim.GetFloat("xInput"),anim.GetFloat("yInput"));
+		RaycastHit2D hit = Physics2D.Raycast(this.transform.position ,playerDirection,1,blockingLayer);
+		if(hit.transform !=null)
+		{
+			if(hit.transform.tag == "Enemy")
+			{
+				hit.transform.GetComponent<Enemy>().LoseHp(SwordAttack);
+				foundEnemy =true;
+			}
+			if(!anim.GetBool("isAttacking"))
+			{
+				foundEnemy =true;
+			}
+		}
+		yield return null;
 	}
-		
-
-	}
-
+}
 }

@@ -22,7 +22,7 @@ public class TextTyper : MonoBehaviour {
 	char CheckContinued = '3';
 	public bool Typing =false;
 	public bool TalkContinued = false;
-	public bool TextContinued =false;
+	public bool EndOfSentence =false;
 
 	//public Sprite tempTest;
 	// adjust if the string is longer than set line ammount
@@ -63,7 +63,7 @@ public class TextTyper : MonoBehaviour {
 		{
 
 
-			TextContinued = false;
+			EndOfSentence = false;
 		}
 	}
 
@@ -77,7 +77,7 @@ public class TextTyper : MonoBehaviour {
 		//	ChatText.enabled   = true;
 	}
 	
-	void disableChatBubble()
+	 void disableChatBubble()
 	{
 		//stopText = true;
 
@@ -155,8 +155,6 @@ public class TextTyper : MonoBehaviour {
 				
 				tempHolder+= letter;
 				CurrentLineLength += tempHolder.Length;
-				//Debug.Log(tempHolder);
-				//Debug.Log(CurrentLineLength);
 				
 				if(CurrentLineLength >= LineLength)
 				{
@@ -166,15 +164,13 @@ public class TextTyper : MonoBehaviour {
 				}
 				if(CurrentLineReached == true)
 				{
-					Debug.Log("line3");
-					TextContinued = true;
+					EndOfSentence = true;
 					TalkContinued = true;
 					StringNextChat += tempHolder;
 					tempHolder = "";
 
 				}
-				
-				//yield return new  WaitForSeconds(0);
+	
 				else{
 					foreach(char tempLetter in tempHolder)
 					{
@@ -213,15 +209,10 @@ public class TextTyper : MonoBehaviour {
 				}
 				
 			}
-			
-			//ChatText.text += letter;
-			// add sound 
+
 			if(stopText)
 				break;
-			
-			
-			
-			
+	
 		}
 		if(CurrentLineReached == true)
 		{
@@ -229,7 +220,7 @@ public class TextTyper : MonoBehaviour {
 			Debug.Log(StringNextChat);
 			Typing = false;
 
-			while(TextContinued == true)
+			while(EndOfSentence == true)
 			{
 				yield return null;
 
