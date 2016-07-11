@@ -24,6 +24,7 @@ TagManager:
   - Doodad
   - Null
   - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX

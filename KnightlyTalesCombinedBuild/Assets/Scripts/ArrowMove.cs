@@ -18,15 +18,19 @@ public class ArrowMove : MonoBehaviour {
         startLocation = transform.position; 
     }
 
-	// Update is called once per frame
-    void Update () {
-        
+    // Update is called once per frame
+    void Update()
+    {
+
         transform.position += transform.right * Time.deltaTime * speed;
         // Did it hit the player?
         RaycastForPlayer();
+        RaycastForWall();
         // Destory the arrow after a set distance have been traveled
-        if (DistanceTraveled(startLocation, transform.position) > maxDistance)
+        if (DistanceTraveled(startLocation, transform.position) > maxDistance) {
+            Debug.Log("Arrow dropped by gravity");
             Destroy(this.gameObject);
+        }
     }
 
     void RaycastForPlayer()
@@ -39,9 +43,20 @@ public class ArrowMove : MonoBehaviour {
             hit.transform.GetComponent<Player>().TakeDamage(2);
             Destroy(this.gameObject);
         }
-
-
     }
+
+    void RaycastForWall()
+    {
+        //Vector2 playerDirection = new Vector2(anim.GetFloat("xInput"), anim.GetFloat("yInput"));
+        //Debug.Log("dir" + playerDirection);
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(-1, 0), .3f, blockingLayer);
+        if (hit.transform.tag == "Wall")
+        {
+            Debug.Log("Arrow hit a wall");
+            Destroy(this.gameObject);
+        }
+    }
+
     float DistanceTraveled(Vector2 start, Vector2 end)
     {
         return Mathf.Sqrt(Mathf.Pow(start.x - end.x, 2) + Mathf.Pow(start.y - end.y, 2));
