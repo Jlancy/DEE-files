@@ -4,8 +4,10 @@ using System.Collections;
 public class MovableObject : GridMovement {
 
 	protected override void Start () {
-		base.Start ();
-	}
+        //base.Start ();
+        bCollider = GetComponent<BoxCollider2D>();
+        rBody = GetComponent<Rigidbody2D>();
+    }
 
 	/// <summary>
 	/// Current problem: Rock will not be affixed to the grid
@@ -19,6 +21,12 @@ public class MovableObject : GridMovement {
 			//AttemptMove ();
 		}
 	}
+
+    public void SetSpawn(int newX, int newY)
+    {
+        xSpawn = newX;
+        ySpawn = newY;
+    }
 
 	public bool IsMoving(){
 		return isMoving;

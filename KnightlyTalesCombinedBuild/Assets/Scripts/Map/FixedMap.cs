@@ -16,14 +16,16 @@ public class FixedMap : MonoBehaviour {
     public GameObject[] treeTiles;          //Array of tree tiles
     public GameObject[] dirtTiles;          //Array of dirt tiles
     public GameObject[] doodadTiles;        //This would include prebuilt tiles, trees may move here
+    public GameObject movableObject;           //This will hold the prefab of our movable boulder
     public int[,] mapData;
 
-    private Transform mapHolder;            //Store reference to transfrom of the map???
+    private Transform mapHolder;            //Store reference to transfrom of the map
+    private Transform mapAsset;             //Store reference to transfrom of the other map assets
 
     //==========================================================================
     //Function
     //==========================================================================
-    
+
     // Use this for initialization
     void Start () {
         Initialize();
@@ -65,6 +67,7 @@ public class FixedMap : MonoBehaviour {
     void BuildMap()
     {
         mapHolder = new GameObject("Map").transform;
+        mapAsset = new GameObject("MapAsset").transform;
         int tileCheck;
         GameObject toInstantiate;
 
@@ -83,15 +86,15 @@ public class FixedMap : MonoBehaviour {
                 if (tileCheck == 0)
                 {
                     GameObject baseinstance = Instantiate(grassTiles[Random.Range(0, grassTiles.GetLength(0))], new Vector3(x * tileSize, y * tileSize, 0f), Quaternion.identity) as GameObject;
-                    baseinstance.transform.SetParent(mapHolder); // Place gameobject under Map
+                    baseinstance.transform.SetParent(mapHolder); // Place gameobject under map holder
                 }
                 else if (tileCheck == 1)
                 {
                     toInstantiate = treeTiles[Random.Range(0, treeTiles.GetLength(0))];
                     GameObject instance = Instantiate(toInstantiate, new Vector3(x * tileSize, y * tileSize, 0f), Quaternion.identity) as GameObject;
                     GameObject baseinstance = Instantiate(grassTiles[Random.Range(0, grassTiles.GetLength(0))], new Vector3(x * tileSize, y * tileSize, 0f), Quaternion.identity) as GameObject;
-                    instance.transform.SetParent(mapHolder); // Place gameobject under Map
-                    baseinstance.transform.SetParent(mapHolder); // Place gameobject under Map
+                    instance.transform.SetParent(mapHolder); // Place gameobject under map assets
+                    baseinstance.transform.SetParent(mapHolder); // Place gameobject under map holder
                 }
                 else if (tileCheck == 2)
                 {
@@ -102,14 +105,10 @@ public class FixedMap : MonoBehaviour {
                 else if (tileCheck == 3)
                 {
                     GameObject baseinstance = Instantiate(grassTiles[Random.Range(0, grassTiles.GetLength(0))], new Vector3(x * tileSize, y * tileSize, 0f), Quaternion.identity) as GameObject;
-                    baseinstance.transform.SetParent(mapHolder); // Place gameobject under Map
+                    GameObject instance = Instantiate(movableObject, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+                    instance.transform.SetParent(mapAsset); // Place gameobject under map assets
+                    baseinstance.transform.SetParent(mapHolder); // Place gameobject under map holder
                 }
-
-                //GameObject baseinstance = Instantiate(grassTiles[Random.Range(0, grassTiles.GetLength(0))], new Vector3(x * tileSize, y * tileSize, 0f), Quaternion.identity) as GameObject;
-
-                //GameObject instance = Instantiate(toInstantiate, new Vector3(x * tileSize, y * tileSize, 0f), Quaternion.identity) as GameObject;
-                //baseinstance.transform.SetParent(mapHolder);
-                //instance.transform.SetParent(mapHolder);
             }
         }
     }
