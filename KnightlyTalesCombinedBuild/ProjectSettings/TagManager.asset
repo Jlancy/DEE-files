@@ -24,7 +24,11 @@ TagManager:
   - Doodad
   - Null
   - Projectile
+<<<<<<< HEAD
   - Teleport
+=======
+  - Wall
+>>>>>>> origin/master
   layers:
   - Default
   - TransparentFX

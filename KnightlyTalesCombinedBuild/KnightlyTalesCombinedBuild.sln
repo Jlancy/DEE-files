@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{6E02EDA7-566E-31A5-7810-4A78EA2FF6F7}") = "KnightlyTalesCombinedBuild", "Assembly-CSharp.csproj", "{2F45347E-A989-A5C4-A958-C2BE1D56A541}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightlyTalesCombinedBuild.CSharp", "KnightlyTalesCombinedBuild.CSharp.csproj", "{B899C635-A873-6A58-86E9-61710D3BB503}"
 EndProject
 Project("{6E02EDA7-566E-31A5-7810-4A78EA2FF6F7}") = "KnightlyTalesCombinedBuild", "Assembly-CSharp-Editor.csproj", "{C6E9C069-E678-2EAA-9F91-284D0F2F1869}"
 EndProject
@@ -11,6 +11,7 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
 		{2F45347E-A989-A5C4-A958-C2BE1D56A541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F45347E-A989-A5C4-A958-C2BE1D56A541}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F45347E-A989-A5C4-A958-C2BE1D56A541}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -19,10 +20,17 @@ Global
 		{C6E9C069-E678-2EAA-9F91-284D0F2F1869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6E9C069-E678-2EAA-9F91-284D0F2F1869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6E9C069-E678-2EAA-9F91-284D0F2F1869}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{B899C635-A873-6A58-86E9-61710D3BB503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B899C635-A873-6A58-86E9-61710D3BB503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B899C635-A873-6A58-86E9-61710D3BB503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B899C635-A873-6A58-86E9-61710D3BB503}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> origin/master
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+<<<<<<< HEAD
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -65,4 +73,6 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
+=======
+>>>>>>> origin/master
 EndGlobal
