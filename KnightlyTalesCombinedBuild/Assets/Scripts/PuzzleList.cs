@@ -10,9 +10,9 @@ public class PuzzleList : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		// -1 are empty spaces. -2 are for points to make blocking walls extend to the wall of the room
-		puzzleRowList.Add(new PuzzleRow(new int[]{-2,-1,-2},0));
-		puzzleRowList.Add(new PuzzleRow(new int[]{-1,0,-1},1));
+		// -1 are empty spaces. 0 are for points to make blocking walls extend to the wall of the room
+		puzzleRowList.Add(new PuzzleRow(new int[]{0,-1,0},0));
+		puzzleRowList.Add(new PuzzleRow(new int[]{-1,1,-1},1));
 
 		//
 		puzzleAreaList.Add(new PuzzleArea( 3,1, 0,1));
@@ -39,6 +39,7 @@ public class PuzzleRow
 		rowId = RowId;
 	}
 }
+
 [System.Serializable]
 public class PuzzleArea
 {

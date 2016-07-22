@@ -4,15 +4,17 @@ using System.Collections;
 public class TriggerAddItem : MonoBehaviour {
 
 	// Use this for initialization
-	Inventory  inventory;
-	QuestManager questManger;
-	int itemID;
-	SpriteRenderer spriteRenderer ;
+	private Inventory  inventory;
+	private QuestManager questManger;
+	private int itemID;
+	private SpriteRenderer spriteRenderer ;
 
+    private DungeonBuilder dungeonBuilder;
 	void Start () {
 		spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 		inventory = FindObjectOfType<Inventory>();
 		questManger = FindObjectOfType<QuestManager>();
+              
 	    //temp = new Fairy("test",12,"nope",0,10,true,Item.ItemType.Fairy,11,4,10,60,Fairy.FairyType.AttackBoost);
 		//Debug.Log(temp.itemName);
 		//temp.ActiveFairy = true;

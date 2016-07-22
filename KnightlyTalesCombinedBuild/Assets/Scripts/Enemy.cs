@@ -217,7 +217,38 @@ public class Enemy : MovableObject {
 		//adjust to find close x or y axis from enemy to player,
 		// then  make a point that is a some distance away from the player 
 		// as the new target
-		targetPosition =  targetPosition +  new Vector2 (3,0);
+
+        Vector2 pointX = new Vector2(this.transform.position.x, target.position.y);
+        Vector2 pointY = new Vector2(target.position.x, this.transform.position.y);
+
+        int width =   (int)targetPosition.x - (int)this.transform.position.x;
+        int height = (int)targetPosition.y - (int)this.transform.position.y;
+
+        float angle = Mathf.Atan2(width,height) * (180/ Mathf.PI);
+
+        Debug.LogWarning(angle);
+
+
+        if ( (-1 >= angle && angle >= -45) || (0 <= angle && angle <= 45))
+        {
+            targetPosition = targetPosition +  new Vector2(0,-3);
+        }
+        else if (-46 >= angle && angle >= -135)
+        {
+            targetPosition = targetPosition +  new Vector2(3,0);
+        }
+        else if ((-136 >= angle && angle >= -180) || (136 <= angle && angle <= 180))
+        {
+            targetPosition = targetPosition + new Vector2(0,3);
+        }
+        else if (46 <= angle && angle <= 135)
+        {
+            Debug.LogWarning("that way");
+            targetPosition = targetPosition +  new Vector2(-3,0);
+        }
+       
+      
+		
 
 
 	}

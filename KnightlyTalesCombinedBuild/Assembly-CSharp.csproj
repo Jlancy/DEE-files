@@ -52,6 +52,8 @@
      <Compile Include="Assets\Scripts\Dialogue.cs" />
      <Compile Include="Assets\Scripts\DialogueDataBase.cs" />
      <Compile Include="Assets\Scripts\DialogueGenerator.cs" />
+     <Compile Include="Assets\Scripts\DungeonBuilder.cs" />
+     <Compile Include="Assets\Scripts\DungeonGenerator.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Equipment.cs" />
      <Compile Include="Assets\Scripts\EquipmentList.cs" />
@@ -68,6 +70,8 @@
      <Compile Include="Assets\Scripts\Map\MAP_CONSTANT.cs" />
      <Compile Include="Assets\Scripts\Map\TDMap.cs" />
      <Compile Include="Assets\Scripts\Map\TileMap.cs" />
+     <Compile Include="Assets\Scripts\MapSave.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\MovableObject.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
      <Compile Include="Assets\Scripts\NPCGenerator.cs" />
@@ -76,17 +80,21 @@
      <Compile Include="Assets\Scripts\PageButton.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\PuzzleList.cs" />
      <Compile Include="Assets\Scripts\Quest.cs" />
      <Compile Include="Assets\Scripts\QuestManager.cs" />
+     <Compile Include="Assets\Scripts\Room.cs" />
+     <Compile Include="Assets\Scripts\SaveData.cs" />
      <Compile Include="Assets\Scripts\ShopPanel.cs" />
      <Compile Include="Assets\Scripts\ShopSection.cs" />
      <Compile Include="Assets\Scripts\SlotManger.cs" />
      <Compile Include="Assets\Scripts\SlotScript.cs" />
      <Compile Include="Assets\Scripts\SpriteLoader.cs" />
+     <Compile Include="Assets\Scripts\Teleport.cs" />
      <Compile Include="Assets\Scripts\TextTyper.cs" />
      <Compile Include="Assets\Scripts\TriggerAddItem.cs" />
      <Compile Include="Assets\Scripts\tempMovement.cs" />
-     <Compile Include="Assets\Scripts\testLeaf.cs" />
+     <Compile Include="Assets\Scripts\tempRoomConnectTest.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

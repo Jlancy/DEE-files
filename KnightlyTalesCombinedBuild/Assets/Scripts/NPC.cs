@@ -17,8 +17,8 @@ public class NPC : MonoBehaviour {
 	public Quest questVillager;
 	string tempInstructions;
 
-	int i = 0 ;
-
+	//int i = 0 ;
+	public Vector2 centerPointMap = new Vector2 (20,20);
 
 	
 	TextTyper Talk;
@@ -153,12 +153,17 @@ public class NPC : MonoBehaviour {
 	}
 
 
-
-	
-
-
-
-
+	void OnTriggerEnter2D (Collider2D wallObject)
+	{
+		//if (wallObject.transform.tag == "Wall") 
+		//{
+		Debug.Log ("npc" + wallObject);
+		Vector2 dir = centerPointMap - (Vector2)this.transform.position ;
+		Vector2 targetPosition = (Vector2)this.transform.position + new Vector2(Mathf.Round(dir.normalized.x) ,Mathf.Round(dir.normalized.y)); 
+		Debug.Log ((int)dir.normalized.x);
+		this.gameObject.transform.position =targetPosition;
+		//}
+	}
 
 
 

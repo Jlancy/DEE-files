@@ -24,6 +24,7 @@ TagManager:
   - Doodad
   - Null
   - Projectile
+  - Teleport
   layers:
   - Default
   - TransparentFX

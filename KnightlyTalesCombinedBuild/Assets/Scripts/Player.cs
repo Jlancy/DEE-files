@@ -193,6 +193,7 @@ public class Player : GridMovement {
 	{
 		if(movement.InControlRegion  )
 		{
+			
 			direction = movement.dir;
 			//Debug.Log(Direction);
 
@@ -241,8 +242,8 @@ public class Player : GridMovement {
 				anim.SetFloat ("xInput", orientation.x);
 				anim.SetFloat ("yInput", orientation.y);
 				//essentially endPosition = currentPosition + (the sign of input(+/-) * grid size	
-				endPosition = new Vector2 (currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
-				                           currentPosition.y + System.Math.Sign (orientation.y) * gridSize);
+				endPosition = new Vector2 ((int)currentPosition.x + System.Math.Sign (orientation.x) * gridSize,
+											(int)currentPosition.y + System.Math.Sign (orientation.y) * gridSize);
 				//print ("current position = " + currentPosition);
 				
 				AttemptMove();

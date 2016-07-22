@@ -11,7 +11,8 @@ public class ButtonSwitcher : MonoBehaviour {
 	{
 		Attack,
 		Talk,
-		Shop
+		Shop,
+		Teleport
 	}
 	public LayerMask IgnoreMask;
 
@@ -30,6 +31,7 @@ public class ButtonSwitcher : MonoBehaviour {
 	RectTransform ButtomRect;
 	bool ButtonSet =false;
 	public NPC npc;
+	private Teleport tele;
     public Player player;
 	public GameObject CurrentTarget;
 	ControlMovement controlMovement;
@@ -98,6 +100,12 @@ public class ButtonSwitcher : MonoBehaviour {
 			case ButtonState.Shop:
 			npc= null;
 				button.image.color = Color.green;
+				break;
+
+		case ButtonState.Teleport:
+			button.image.color = Color.yellow;
+			button.onClick.AddListener (() => {TeleportPlayer ();});
+
 				break;
 			default:
 				break;
@@ -176,6 +184,10 @@ public class ButtonSwitcher : MonoBehaviour {
 	void Shop()
 	{
 	}
+	void TeleportPlayer()
+	{
+		tele.MovePlayer (player.transform);
+	}
 
 
 	void RaycastCase()
@@ -220,14 +232,23 @@ public class ButtonSwitcher : MonoBehaviour {
 				if (hit.transform.gameObject != CurrentTarget)
 				{
 					// check by tag and set buttonstate according
-					if(hit.transform.tag == "NPC")
+					if (hit.transform.tag == "NPC") 
 					{
 						CurrentTarget = hit.transform.gameObject;
-						npc = hit.transform.gameObject.GetComponent<NPC>();
+						npc = hit.transform.gameObject.GetComponent<NPC> ();
 						buttonState = ButtonState.Talk;
-						ButtonChange =true;
+						ButtonChange = true;
 						
 						
+					} 
+
+					Debug.Log (hit.transform.tag);
+					 if (hit.transform.tag == "Teleport") 
+					{
+						CurrentTarget = hit.transform.gameObject;
+						tele = hit.transform.gameObject.GetComponent<Teleport>();
+						buttonState = ButtonState.Teleport;
+						ButtonChange = true;
 					}
 
 				}

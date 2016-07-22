@@ -1,20 +1,12 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\QuestManager.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DungeonGenerator.cs">
     <Files>
-      <File FileName="Assets\Scripts\SpriteLoader.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GridMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="266" Column="44" />
-      <File FileName="Assets\Scripts\ItemDatabase.cs" Line="29" Column="109" />
-      <File FileName="Assets\Scripts\Item.cs" Line="29" Column="23" />
-      <File FileName="Assets\Scripts\Fairy.cs" Line="29" Column="22" />
-      <File FileName="c:\Users\monta_000\Documents\GitHub\DEE-files\KnightlyTalesCombinedBuild\Assets\Scripts\Inventory.cs" Line="188" Column="5" />
-      <File FileName="Assets\Scripts\DialogueDataBase.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SlotScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TextTyper.cs" Line="138" Column="31" />
-      <File FileName="Assets\Scripts\TriggerAddItem.cs" Line="32" Column="21" />
-      <File FileName="Assets\Scripts\NPC.cs" Line="93" Column="34" />
-      <File FileName="Assets\Scripts\QuestManager.cs" Line="333" Column="56" />
+      <File FileName="Assets\Scripts\DungeonGenerator.cs" Line="2" Column="26" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Room.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Leaf.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ButtonSwitcher.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

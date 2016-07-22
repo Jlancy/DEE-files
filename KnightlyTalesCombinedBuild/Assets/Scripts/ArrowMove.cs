@@ -34,13 +34,15 @@ public class ArrowMove : MonoBehaviour {
         //Vector2 playerDirection = new Vector2(anim.GetFloat("xInput"), anim.GetFloat("yInput"));
         //Debug.Log("dir" + playerDirection);
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2( -1, 0), .3f, blockingLayer);
-        if (hit.transform.tag == "Player")
+        if (hit.transform != null)
         {
-            hit.transform.GetComponent<Player>().TakeDamage(2);
-            Destroy(this.gameObject);
+            if (hit.transform.tag == "Player")
+            {
+                hit.transform.GetComponent<Player>().TakeDamage(2);
+                Destroy(this.gameObject);
+            }
+
         }
-
-
     }
     float DistanceTraveled(Vector2 start, Vector2 end)
     {

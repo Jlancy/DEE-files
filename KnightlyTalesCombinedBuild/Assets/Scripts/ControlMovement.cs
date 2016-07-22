@@ -10,7 +10,8 @@ public class ControlMovement : MonoBehaviour ,IPointerDownHandler, IPointerUpHan
 	public string LastKnownDirection;
 	private GameObject player;
 	ButtonSwitcher buttonSwitcher;
-
+	private bool nearEdge;
+	private bool firstTouch;
 	// Use this for initialization
 
 	
@@ -30,6 +31,7 @@ public class ControlMovement : MonoBehaviour ,IPointerDownHandler, IPointerUpHan
 	public void OnPointerDown(PointerEventData data)
 	{
 		InControlRegion = true;
+		dir = "null";
 	}
 	public void OnPointerUp(PointerEventData data)
 	{
@@ -42,20 +44,34 @@ public class ControlMovement : MonoBehaviour ,IPointerDownHandler, IPointerUpHan
 		Vector2 ray =  Camera.main.ScreenPointToRay(Input.mousePosition).origin ;
 		RaycastHit2D hit =Physics2D.Raycast(ray,Vector3.forward*200 ,200,layer);
 		
-		Debug.DrawRay(ray, Vector3.forward *200 ,Color.red,15);
+		//Debug.DrawRay(ray, Vector3.forward *200 ,Color.red,15);
+		float distanceFromCenter = Vector2.Distance(this.transform.position, ray );
+
+		if (distanceFromCenter >= .6f )
+			nearEdge = true;
+		else
+			nearEdge = false;
 
 		if (hit.collider !=null) {
 
 			dir = hit.transform.name;
+
+
+		//	if (nearEdge && !firstTouch)
+		//		dir = LastKnownDirection;
+
 			if (hit.transform.name !="CENTER")
 				LastKnownDirection = hit.transform.name;
+
+			firstTouch = false;
 			// Do something with the object that was hit by the raycast.
 		}
 		else
 		{
-
+			if(!nearEdge)
 			dir ="CENTER";
 		}
+
 	}
 
 	

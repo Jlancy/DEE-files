@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e2334bb161413ad4f8b3bdac7a9d8618
-timeCreated: 1452985018
+timeCreated: 1457802762
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,7 +64,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 98
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
@@ -203,18 +203,18 @@ TextureImporter:
     - name: grass_rock
       rect:
         serializedVersion: 2
-        x: 400
+        x: 398
         y: 104
-        width: 98
+        width: 100
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -49, y: 50}
-        - {x: -49, y: -50}
-        - {x: 49, y: -50}
-        - {x: 49, y: 50}
+      - - {x: -50, y: 50}
+        - {x: -50, y: -50}
+        - {x: 50, y: -50}
+        - {x: 50, y: 50}
     - name: wood
       rect:
         serializedVersion: 2
